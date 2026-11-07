@@ -1,0 +1,22 @@
+
+  [1mNFTtables[0m[2m v0.1.0[0m
+  [2mBored Ape Netfilter Club[0m
+  [2m"Not your keys, not your kernel"[0m
+
+🦊 [1mMetaMask[0m v0.0.1 [2m(not financial advice)[0m
+
+  Chain:     [36mLinux 7.3.0-4-cachyos[0m
+  Network:   Ubuntu 22.04.5 LTS[0m
+  Address:   uid=0(root) gid=0
+  Balance:   [32m1 ROOT token 🦍[0m
+  Gas price: [32mlow[0m
+  Userns:    [32mavailable[0m
+
+🦍 [1mVulnerability Assessment[0m
+
+  [2m#1086  CVE-2024-1086  not affected[0m
+  [2m#32233 CVE-2023-32233  not affected[0m
+
+  [2mKernel 7.3.0-4-cachyos appears patched for both CVEs.[0m
+  [2mNote: distro backport detection may have false negatives.[0m
+

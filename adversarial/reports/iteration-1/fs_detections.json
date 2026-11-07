@@ -1,0 +1,110 @@
+[
+  {
+    "timestamp": "2026-11-07T20:17:34.594637",
+    "agent": "fs_watcher",
+    "category": "hidden_tmpfile",
+    "severity": "medium",
+    "description": "Hidden file created in temp directory: /tmp/.nft_sh",
+    "evidence": {
+      "path": "/tmp/.nft_sh"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:17:34.594648",
+    "agent": "fs_watcher",
+    "category": "suid_created",
+    "severity": "critical",
+    "description": "SUID binary created: /tmp/.nft_sh",
+    "evidence": {
+      "path": "/tmp/.nft_sh",
+      "mode": "0o104755",
+      "owner": 0
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:17:34.594650",
+    "agent": "fs_watcher",
+    "category": "executable_in_tmp",
+    "severity": "high",
+    "description": "Executable created in temp directory: /tmp/.nft_sh",
+    "evidence": {
+      "path": "/tmp/.nft_sh",
+      "mode": "0o104755"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:17:34.594651",
+    "agent": "fs_watcher",
+    "category": "elf_in_tmp",
+    "severity": "high",
+    "description": "ELF binary created in temp directory: /tmp/.nft_sh",
+    "evidence": {
+      "path": "/tmp/.nft_sh",
+      "size": 125688
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:17:34.594676",
+    "agent": "fs_watcher",
+    "category": "hidden_tmpfile",
+    "severity": "medium",
+    "description": "Hidden file created in temp directory: /tmp/.nft_trigger",
+    "evidence": {
+      "path": "/tmp/.nft_trigger"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:17:34.594679",
+    "agent": "fs_watcher",
+    "category": "executable_in_tmp",
+    "severity": "high",
+    "description": "Executable created in temp directory: /tmp/.nft_trigger",
+    "evidence": {
+      "path": "/tmp/.nft_trigger",
+      "mode": "0o100755"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:17:34.594680",
+    "agent": "fs_watcher",
+    "category": "unknown_magic_executable",
+    "severity": "critical",
+    "description": "Executable with unknown magic bytes in temp: /tmp/.nft_trigger",
+    "evidence": {
+      "path": "/tmp/.nft_trigger",
+      "magic": "deadbeef"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:17:34.594702",
+    "agent": "fs_watcher",
+    "category": "hidden_tmpfile",
+    "severity": "medium",
+    "description": "Hidden file created in temp directory: /tmp/.nft_mint",
+    "evidence": {
+      "path": "/tmp/.nft_mint"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:17:34.594704",
+    "agent": "fs_watcher",
+    "category": "executable_in_tmp",
+    "severity": "high",
+    "description": "Executable created in temp directory: /tmp/.nft_mint",
+    "evidence": {
+      "path": "/tmp/.nft_mint",
+      "mode": "0o100755"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:17:34.594705",
+    "agent": "fs_watcher",
+    "category": "script_in_tmp",
+    "severity": "medium",
+    "description": "Script created in temp directory: /tmp/.nft_mint",
+    "evidence": {
+      "path": "/tmp/.nft_mint",
+      "header": "#!/bin/sh\ncp /bin/sh /tmp/.nft_sh\nchmod u+s /tmp/.nft_sh\n"
+    }
+  }
+]

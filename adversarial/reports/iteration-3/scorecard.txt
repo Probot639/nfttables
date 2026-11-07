@@ -1,0 +1,39 @@
+
+============================================================
+  BLUE TEAM SCORECARD - Grade: C
+============================================================
+  Detection rate: 72.7% (8/11 observables)
+  Total alerts:   5998
+  Missed:         3 observables
+
+  DETECTED:
+    [+] heap_spray_mmap: Burst of mmap(MAP_POPULATE) for PTE spray
+        (3 alerts from syscall_monitor)
+    [+] heap_spray_pipe: Burst of pipe() calls for pipe spray
+        (706 alerts from process_monitor)
+    [+] modprobe_overwrite: Overwrites modprobe_path in kernel memory
+        (10 alerts from fs_watcher)
+    [+] namespace_creation: Creates user+net namespace via unshare()
+        (5064 alerts from syscall_monitor, audit_analyzer, netlink_monitor, process_monitor)
+    [+] netlink_socket: Opens NETLINK_NETFILTER socket
+        (2 alerts from syscall_monitor)
+    [+] nftables_objects: Creates/deletes nftables tables, chains, sets, rules
+        (15 alerts from netlink_monitor)
+    [+] privilege_escalation: Process gains root credentials (uid 0)
+        (180 alerts from audit_analyzer)
+    [+] strings_in_binary: Distinctive strings (BoredApe, LazyMint, etc.)
+        (18 alerts from binary_scanner)
+
+  MISSED:
+    [-] heap_spray_ipc: Burst of msgsnd() calls for heap spray
+    [-] suid_creation: Creates SUID binary (/tmp/.nft_sh)
+    [-] tmp_file_creation: Creates files in /tmp (.nft_mint, .nft_sh, .nft_trigger)
+
+  RED TEAM EVASION OPPORTUNITIES:
+    > nftables_objects: Rename tables/chains/sets to common system names to blend in [easy]
+    > heap_spray_pipe: Reduce pipe count, use alternative spray primitives (skb, key) [medium]
+    > namespace_creation: Namespace creation is inherent to the technique. Consider alternative CAP_NET_ADMIN acquisition if available. [hard]
+    > modprobe_overwrite: Restore modprobe_path immediately after payload executes, or use core_pattern/poweroff_cmd instead [medium]
+
+============================================================
+

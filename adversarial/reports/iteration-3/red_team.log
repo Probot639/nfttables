@@ -1,0 +1,4 @@
+[red] v3 payload (max evasion)
+[red] Simulated modprobe overwrite
+[red] Restored modprobe
+[red] v3 complete (no filesystem artifacts)

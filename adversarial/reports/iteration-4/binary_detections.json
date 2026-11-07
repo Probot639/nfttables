@@ -1,0 +1,182 @@
+[
+  {
+    "timestamp": "2026-11-07T20:55:46.158356",
+    "agent": "binary_scanner",
+    "category": "kernel_exploit_string",
+    "severity": "critical",
+    "description": "Binary /opt/nfttables/nfttables: References modprobe_path (kernel exploit technique)",
+    "evidence": {
+      "exe": "/opt/nfttables/nfttables"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.158401",
+    "agent": "binary_scanner",
+    "category": "kernel_exploit_string",
+    "severity": "critical",
+    "description": "Binary /opt/nfttables/nfttables: References prepare_kernel_cred (privilege escalation)",
+    "evidence": {
+      "exe": "/opt/nfttables/nfttables"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.158437",
+    "agent": "binary_scanner",
+    "category": "kernel_exploit_string",
+    "severity": "critical",
+    "description": "Binary /opt/nfttables/nfttables: References commit_creds (privilege escalation)",
+    "evidence": {
+      "exe": "/opt/nfttables/nfttables"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.158474",
+    "agent": "binary_scanner",
+    "category": "kernel_exploit_string",
+    "severity": "high",
+    "description": "Binary /opt/nfttables/nfttables: References core_pattern (kernel exploit technique)",
+    "evidence": {
+      "exe": "/opt/nfttables/nfttables"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.158660",
+    "agent": "binary_scanner",
+    "category": "format_string_exploit_indicator",
+    "severity": "high",
+    "description": "Binary /opt/nfttables/nfttables: Format string reveals modprobe_path address logging",
+    "evidence": {
+      "exe": "/opt/nfttables/nfttables"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.158705",
+    "agent": "binary_scanner",
+    "category": "format_string_exploit_indicator",
+    "severity": "high",
+    "description": "Binary /opt/nfttables/nfttables: Format string reveals kallsyms resolution logging",
+    "evidence": {
+      "exe": "/opt/nfttables/nfttables"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.158756",
+    "agent": "binary_scanner",
+    "category": "format_string_exploit_indicator",
+    "severity": "critical",
+    "description": "Binary /opt/nfttables/nfttables: Format string reveals cred function address logging",
+    "evidence": {
+      "exe": "/opt/nfttables/nfttables"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.158803",
+    "agent": "binary_scanner",
+    "category": "format_string_exploit_indicator",
+    "severity": "critical",
+    "description": "Binary /opt/nfttables/nfttables: Format string reveals cred function address logging",
+    "evidence": {
+      "exe": "/opt/nfttables/nfttables"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.159057",
+    "agent": "binary_scanner",
+    "category": "format_string_exploit_indicator",
+    "severity": "high",
+    "description": "Binary /opt/nfttables/nfttables: Log message about spray technique",
+    "evidence": {
+      "exe": "/opt/nfttables/nfttables"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.159147",
+    "agent": "binary_scanner",
+    "category": "format_string_exploit_indicator",
+    "severity": "high",
+    "description": "Binary /opt/nfttables/nfttables: Format string reveals nftables slab profiling",
+    "evidence": {
+      "exe": "/opt/nfttables/nfttables"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.159188",
+    "agent": "binary_scanner",
+    "category": "format_string_exploit_indicator",
+    "severity": "high",
+    "description": "Binary /opt/nfttables/nfttables: Format string reveals nftables slab profiling",
+    "evidence": {
+      "exe": "/opt/nfttables/nfttables"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.159232",
+    "agent": "binary_scanner",
+    "category": "format_string_exploit_indicator",
+    "severity": "high",
+    "description": "Binary /opt/nfttables/nfttables: Format string reveals KASLR bypass logging",
+    "evidence": {
+      "exe": "/opt/nfttables/nfttables"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.159306",
+    "agent": "binary_scanner",
+    "category": "format_string_exploit_indicator",
+    "severity": "high",
+    "description": "Binary /opt/nfttables/nfttables: Format string about kallsyms access",
+    "evidence": {
+      "exe": "/opt/nfttables/nfttables"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.159351",
+    "agent": "binary_scanner",
+    "category": "format_string_exploit_indicator",
+    "severity": "medium",
+    "description": "Binary /opt/nfttables/nfttables: Log message with unusual 'smart contract' theme in system binary",
+    "evidence": {
+      "exe": "/opt/nfttables/nfttables"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.159458",
+    "agent": "binary_scanner",
+    "category": "format_string_exploit_indicator",
+    "severity": "medium",
+    "description": "Binary /opt/nfttables/nfttables: Crypto/NFT themed strings in system binary (possible themed exploit tool)",
+    "evidence": {
+      "exe": "/opt/nfttables/nfttables"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.159493",
+    "agent": "binary_scanner",
+    "category": "cve_reference",
+    "severity": "high",
+    "description": "Binary /opt/nfttables/nfttables: Contains CVE identifier",
+    "evidence": {
+      "exe": "/opt/nfttables/nfttables"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.159535",
+    "agent": "binary_scanner",
+    "category": "format_string_exploit_indicator",
+    "severity": "high",
+    "description": "Binary /opt/nfttables/nfttables: Contains themed exploit identifier",
+    "evidence": {
+      "exe": "/opt/nfttables/nfttables"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.159713",
+    "agent": "binary_scanner",
+    "category": "ptrace_inject",
+    "severity": "high",
+    "description": "Binary /opt/nfttables/nfttables: Binary references syscall injection",
+    "evidence": {
+      "exe": "/opt/nfttables/nfttables"
+    }
+  }
+]

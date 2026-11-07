@@ -1,0 +1,16 @@
+
+  [1mNFTtables[0m[2m v0.1.0[0m
+  [2mBored Ape Netfilter Club[0m
+  [2m"Not your keys, not your kernel"[0m
+
+[2m(dry run: probing vulnerability, not exploiting)[0m
+⚠️ Kernel 7.3.0-4-cachyos may be outside the affected range
+  [2m(proceeding anyway, distro backports exist)[0m
+
+🙈 [1mBored Ape #32233[0m[2m (CVE-2023-32233: anonymous set UAF)[0m
+[2m  affected: 3.18 .. 6.3.1 | technique: heap spray + ROP[0m
+
+⛏️ Mining block... setting up namespace
+⛓️ Deploying smart contract (anonymous set batch)...
+❌ Contract deployment failed: Numerical result out of range
+❌ Exploit failed (transaction reverted)

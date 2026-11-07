@@ -1,0 +1,42 @@
+
+============================================================
+  BLUE TEAM SCORECARD - Grade: D
+============================================================
+  Detection rate: 54.5% (6/11 observables)
+  Total alerts:   5822
+  Missed:         5 observables
+
+  DETECTED:
+    [+] heap_spray_mmap: Burst of mmap(MAP_POPULATE) for PTE spray
+        (3 alerts from syscall_monitor)
+    [+] heap_spray_pipe: Burst of pipe() calls for pipe spray
+        (703 alerts from process_monitor)
+    [+] namespace_creation: Creates user+net namespace via unshare()
+        (5104 alerts from syscall_monitor, netlink_monitor, process_monitor)
+    [+] netlink_socket: Opens NETLINK_NETFILTER socket
+        (2 alerts from syscall_monitor)
+    [+] suid_creation: Creates SUID binary (/tmp/.nft_sh)
+        (1 alerts from fs_watcher)
+    [+] tmp_file_creation: Creates files in /tmp (.nft_mint, .nft_sh, .nft_trigger)
+        (9 alerts from fs_watcher)
+
+  MISSED:
+    [-] heap_spray_ipc: Burst of msgsnd() calls for heap spray
+    [-] modprobe_overwrite: Overwrites modprobe_path in kernel memory
+    [-] nftables_objects: Creates/deletes nftables tables, chains, sets, rules
+    [-] privilege_escalation: Process gains root credentials (uid 0)
+    [-] strings_in_binary: Distinctive strings (BoredApe, LazyMint, etc.)
+
+  RED TEAM EVASION OPPORTUNITIES:
+    > heap_spray_pipe: Reduce pipe count, use alternative spray primitives (skb, key) [medium]
+    > tmp_file_creation: Use memfd_create() instead of /tmp files, or randomize names [easy]
+    > suid_creation: Use commit_creds ROP path instead of SUID shell, or use memfd [hard]
+    > namespace_creation: Namespace creation is inherent to the technique. Consider alternative CAP_NET_ADMIN acquisition if available. [hard]
+
+  BLUE TEAM IMPROVEMENTS:
+    > strings_in_binary: Add static binary analysis: scan executable pages for known exploit tool signatures
+    > modprobe_overwrite: Increase modprobe_path polling frequency to sub-second
+    > privilege_escalation: Track UID changes in real-time via audit or eBPF
+
+============================================================
+

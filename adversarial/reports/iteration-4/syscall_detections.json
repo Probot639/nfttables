@@ -1,0 +1,4418 @@
+[
+  {
+    "timestamp": "2026-11-07T20:55:46.198436",
+    "agent": "syscall_monitor",
+    "category": "netfilter_socket",
+    "severity": "high",
+    "description": "Process opened NETLINK_NETFILTER socket",
+    "evidence": {
+      "pid": 1113,
+      "cmdline": "/usr/bin/wpa_supplicant -u -s -O /run/wpa_supplicant",
+      "fd": "18"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.216254",
+    "agent": "syscall_monitor",
+    "category": "netfilter_socket",
+    "severity": "high",
+    "description": "Process opened NETLINK_NETFILTER socket",
+    "evidence": {
+      "pid": 1798,
+      "cmdline": "/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock",
+      "fd": "17"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.222799",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 2743 running in nested user namespace",
+    "evidence": {
+      "pid": 2743,
+      "cmdline": "/bin/sh -c gunicorn --bind 0.0.0.0:${PICAM_PORT:-5000}     --worker-class gthread --workers 2 --threads 16     --timeout 0 app:app",
+      "nspid": "NSpid:\t2743\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.223065",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 2782 running in nested user namespace",
+    "evidence": {
+      "pid": 2782,
+      "cmdline": "/bin/bash /assets/init-container",
+      "nspid": "NSpid:\t2782\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.223332",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 2819 running in nested user namespace",
+    "evidence": {
+      "pid": 2819,
+      "cmdline": "puma 8.0.2 (tcp://0.0.0.0:3000) [app]",
+      "nspid": "NSpid:\t2819\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.223976",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 2970 running in nested user namespace",
+    "evidence": {
+      "pid": 2970,
+      "cmdline": "python3 /opt/app/scheduler.py",
+      "nspid": "NSpid:\t2970\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.224259",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 3027 running in nested user namespace",
+    "evidence": {
+      "pid": 3027,
+      "cmdline": "sidekiq 8.1.6 app [0 of 5 busy]",
+      "nspid": "NSpid:\t3027\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.224863",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 3058 running in nested user namespace",
+    "evidence": {
+      "pid": 3058,
+      "cmdline": "/usr/local/bin/python3.12 /usr/local/bin/gunicorn --bind 0.0.0.0:1408 --worker-class gthread --workers 2 --threads 16 --timeout 0 app:app",
+      "nspid": "NSpid:\t3058\t7"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.225961",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 3156 running in nested user namespace",
+    "evidence": {
+      "pid": 3156,
+      "cmdline": "/dozzle --remote-agent 100.106.174.9:7007 --remote-agent 100.76.136.17:7007",
+      "nspid": "NSpid:\t3156\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.229072",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 3333 running in nested user namespace",
+    "evidence": {
+      "pid": 3333,
+      "cmdline": "mongod --replSet overleaf --bind_ip_all",
+      "nspid": "NSpid:\t3333\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.231733",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 3380 running in nested user namespace",
+    "evidence": {
+      "pid": 3380,
+      "cmdline": "/usr/bin/python3 -u /sbin/my_init",
+      "nspid": "NSpid:\t3380\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.231803",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 3404 running in nested user namespace",
+    "evidence": {
+      "pid": 3404,
+      "cmdline": "redis-server *:6379",
+      "nspid": "NSpid:\t3404\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.232605",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 3443 running in nested user namespace",
+    "evidence": {
+      "pid": 3443,
+      "cmdline": "python3 /opt/app/runner.py",
+      "nspid": "NSpid:\t3443\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.232616",
+    "agent": "syscall_monitor",
+    "category": "suspicious_caps",
+    "severity": "medium",
+    "description": "Non-system process with CAP_NET_ADMIN",
+    "evidence": {
+      "pid": 3443,
+      "cmdline": "python3 /opt/app/runner.py",
+      "cap_eff": "0xa80435fb"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.233087",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 3525 running in nested user namespace",
+    "evidence": {
+      "pid": 3525,
+      "cmdline": "redis-server *:6379",
+      "nspid": "NSpid:\t3525\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.233446",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 3532 running in nested user namespace",
+    "evidence": {
+      "pid": 3532,
+      "cmdline": "/usr/local/bin/python3.12 /usr/local/bin/gunicorn --bind 0.0.0.0:1408 --worker-class gthread --workers 2 --threads 16 --timeout 0 app:app",
+      "nspid": "NSpid:\t3532\t8"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.233657",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 3533 running in nested user namespace",
+    "evidence": {
+      "pid": 3533,
+      "cmdline": "/usr/local/bin/python3.12 /usr/local/bin/gunicorn --bind 0.0.0.0:1408 --worker-class gthread --workers 2 --threads 16 --timeout 0 app:app",
+      "nspid": "NSpid:\t3533\t9"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.234071",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 3641 running in nested user namespace",
+    "evidence": {
+      "pid": 3641,
+      "cmdline": "/package/admin/s6/command/s6-svscan -d4 -- /run/service",
+      "nspid": "NSpid:\t3641\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.234350",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 3688 running in nested user namespace",
+    "evidence": {
+      "pid": 3688,
+      "cmdline": "searxng",
+      "nspid": "NSpid:\t3688\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.235180",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 3803 running in nested user namespace",
+    "evidence": {
+      "pid": 3803,
+      "cmdline": "/package/admin/s6/command/s6-svscan -d4 -- /run/service",
+      "nspid": "NSpid:\t3803\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.235443",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 3846 running in nested user namespace",
+    "evidence": {
+      "pid": 3846,
+      "cmdline": "redis-server *:6379",
+      "nspid": "NSpid:\t3846\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.237552",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 3864 running in nested user namespace",
+    "evidence": {
+      "pid": 3864,
+      "cmdline": "/package/admin/s6/command/s6-svscan -d4 -- /run/service",
+      "nspid": "NSpid:\t3864\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.237815",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 3904 running in nested user namespace",
+    "evidence": {
+      "pid": 3904,
+      "cmdline": "/package/admin/s6/command/s6-svscan -d4 -- /run/service",
+      "nspid": "NSpid:\t3904\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.238071",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 3943 running in nested user namespace",
+    "evidence": {
+      "pid": 3943,
+      "cmdline": "postgres",
+      "nspid": "NSpid:\t3943\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.238508",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 3981 running in nested user namespace",
+    "evidence": {
+      "pid": 3981,
+      "cmdline": "tini -- /init.sh -d /database/filebrowser.db -r /srv",
+      "nspid": "NSpid:\t3981\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.238771",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 4020 running in nested user namespace",
+    "evidence": {
+      "pid": 4020,
+      "cmdline": "nginx: master process nginx -g daemon off;",
+      "nspid": "NSpid:\t4020\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.241775",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 4059 running in nested user namespace",
+    "evidence": {
+      "pid": 4059,
+      "cmdline": "postgres",
+      "nspid": "NSpid:\t4059\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.242451",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 4108 running in nested user namespace",
+    "evidence": {
+      "pid": 4108,
+      "cmdline": "/bin/s6-svscan /etc/s6",
+      "nspid": "NSpid:\t4108\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.242516",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 4137 running in nested user namespace",
+    "evidence": {
+      "pid": 4137,
+      "cmdline": "nginx: master process nginx -g daemon off;",
+      "nspid": "NSpid:\t4137\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.245616",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 4177 running in nested user namespace",
+    "evidence": {
+      "pid": 4177,
+      "cmdline": "postgres",
+      "nspid": "NSpid:\t4177\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.246056",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 4216 running in nested user namespace",
+    "evidence": {
+      "pid": 4216,
+      "cmdline": "postgres",
+      "nspid": "NSpid:\t4216\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.246515",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 4494 running in nested user namespace",
+    "evidence": {
+      "pid": 4494,
+      "cmdline": "/usr/sbin/syslog-ng --pidfile /var/run/syslog-ng.pid -F --no-caps",
+      "nspid": "NSpid:\t4494\t53"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.246742",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 4593 running in nested user namespace",
+    "evidence": {
+      "pid": 4593,
+      "cmdline": "s6-supervise s6-linux-init-shutdownd",
+      "nspid": "NSpid:\t4593\t17"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.246795",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 4595 running in nested user namespace",
+    "evidence": {
+      "pid": 4595,
+      "cmdline": "/package/admin/s6-linux-init/command/s6-linux-init-shutdownd -d3 -c /run/s6/basedir -g 3000 -C -B",
+      "nspid": "NSpid:\t4595\t19"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.247042",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 4826 running in nested user namespace",
+    "evidence": {
+      "pid": 4826,
+      "cmdline": "s6-supervise s6rc-oneshot-runner",
+      "nspid": "NSpid:\t4826\t36"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.247091",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 4827 running in nested user namespace",
+    "evidence": {
+      "pid": 4827,
+      "cmdline": "s6-supervise s6rc-fdholder",
+      "nspid": "NSpid:\t4827\t37"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.247139",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 4828 running in nested user namespace",
+    "evidence": {
+      "pid": 4828,
+      "cmdline": "s6-supervise svc-cron",
+      "nspid": "NSpid:\t4828\t38"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.247185",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 4829 running in nested user namespace",
+    "evidence": {
+      "pid": 4829,
+      "cmdline": "s6-supervise svc-mariadb",
+      "nspid": "NSpid:\t4829\t39"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.247233",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 4851 running in nested user namespace",
+    "evidence": {
+      "pid": 4851,
+      "cmdline": "/package/admin/s6/command/s6-ipcserverd -1 -- /package/admin/s6/command/s6-ipcserver-access -v0 -E -l0 -i data/rules -- /package/admin/s6/command/s6-sudod -t 30000 -- /package/admin/s6-rc/command/s6-rc-oneshot-run -l ../.. --",
+      "nspid": "NSpid:\t4851\t47"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.247318",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 5266 running in nested user namespace",
+    "evidence": {
+      "pid": 5266,
+      "cmdline": "filebrowser --config=/config/settings.json -d /database/filebrowser.db -r /srv",
+      "nspid": "NSpid:\t5266\t7"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.247425",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 5340 running in nested user namespace",
+    "evidence": {
+      "pid": 5340,
+      "cmdline": "bash ./run svc-mariadb",
+      "nspid": "NSpid:\t5340\t146"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.247479",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 5341 running in nested user namespace",
+    "evidence": {
+      "pid": 5341,
+      "cmdline": "busybox crond -f -S -l 5",
+      "nspid": "NSpid:\t5341\t147"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.247568",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 5344 running in nested user namespace",
+    "evidence": {
+      "pid": 5344,
+      "cmdline": "/bin/sh /usr/bin/mariadbd-safe --defaults-extra-file=/config/custom.cnf --datadir=/config/databases --pid-file=/run/mysqld/mysqld.pid --skip-networking=OFF --user=abc",
+      "nspid": "NSpid:\t5344\t150"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.247816",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 5883 running in nested user namespace",
+    "evidence": {
+      "pid": 5883,
+      "cmdline": "/usr/bin/mariadbd --defaults-extra-file=/config/custom.cnf --basedir=/usr --datadir=/config/databases --plugin-dir=/usr/lib/mariadb/plugin --skip-networking=OFF --log-error=/config/log/mysql/mariadb-error.log --pid-file=/run/mysqld/mysqld.pid --socket=/run/mysqld/mysqld.sock --port=3306",
+      "nspid": "NSpid:\t5883\t413"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.248578",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6311 running in nested user namespace",
+    "evidence": {
+      "pid": 6311,
+      "cmdline": "postgres: checkpointer",
+      "nspid": "NSpid:\t6311\t27"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.248673",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6312 running in nested user namespace",
+    "evidence": {
+      "pid": 6312,
+      "cmdline": "postgres: background writer",
+      "nspid": "NSpid:\t6312\t28"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.248752",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6314 running in nested user namespace",
+    "evidence": {
+      "pid": 6314,
+      "cmdline": "postgres: checkpointer",
+      "nspid": "NSpid:\t6314\t27"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.248840",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6315 running in nested user namespace",
+    "evidence": {
+      "pid": 6315,
+      "cmdline": "postgres: checkpointer",
+      "nspid": "NSpid:\t6315\t27"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.248928",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6316 running in nested user namespace",
+    "evidence": {
+      "pid": 6316,
+      "cmdline": "postgres: background writer",
+      "nspid": "NSpid:\t6316\t28"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.249006",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6318 running in nested user namespace",
+    "evidence": {
+      "pid": 6318,
+      "cmdline": "postgres: background writer",
+      "nspid": "NSpid:\t6318\t28"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.249082",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6326 running in nested user namespace",
+    "evidence": {
+      "pid": 6326,
+      "cmdline": "postgres: walwriter",
+      "nspid": "NSpid:\t6326\t30"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.249162",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6327 running in nested user namespace",
+    "evidence": {
+      "pid": 6327,
+      "cmdline": "postgres: autovacuum launcher",
+      "nspid": "NSpid:\t6327\t31"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.249247",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6328 running in nested user namespace",
+    "evidence": {
+      "pid": 6328,
+      "cmdline": "postgres: logical replication launcher",
+      "nspid": "NSpid:\t6328\t32"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.249561",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6356 running in nested user namespace",
+    "evidence": {
+      "pid": 6356,
+      "cmdline": "postgres: walwriter",
+      "nspid": "NSpid:\t6356\t30"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.249646",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6357 running in nested user namespace",
+    "evidence": {
+      "pid": 6357,
+      "cmdline": "postgres: walwriter",
+      "nspid": "NSpid:\t6357\t30"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.249729",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6358 running in nested user namespace",
+    "evidence": {
+      "pid": 6358,
+      "cmdline": "postgres: autovacuum launcher",
+      "nspid": "NSpid:\t6358\t31"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.249812",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6359 running in nested user namespace",
+    "evidence": {
+      "pid": 6359,
+      "cmdline": "postgres: autovacuum launcher",
+      "nspid": "NSpid:\t6359\t31"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.249888",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6360 running in nested user namespace",
+    "evidence": {
+      "pid": 6360,
+      "cmdline": "postgres: logical replication launcher",
+      "nspid": "NSpid:\t6360\t32"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.249966",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6361 running in nested user namespace",
+    "evidence": {
+      "pid": 6361,
+      "cmdline": "postgres: logical replication launcher",
+      "nspid": "NSpid:\t6361\t32"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.250042",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6362 running in nested user namespace",
+    "evidence": {
+      "pid": 6362,
+      "cmdline": "s6-supervise gitea",
+      "nspid": "NSpid:\t6362\t13"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.250096",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6364 running in nested user namespace",
+    "evidence": {
+      "pid": 6364,
+      "cmdline": "s6-supervise openssh",
+      "nspid": "NSpid:\t6364\t14"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.250153",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6365 running in nested user namespace",
+    "evidence": {
+      "pid": 6365,
+      "cmdline": "/usr/local/bin/gitea web",
+      "nspid": "NSpid:\t6365\t15"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.250374",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6366 running in nested user namespace",
+    "evidence": {
+      "pid": 6366,
+      "cmdline": "sshd: /usr/sbin/sshd -D -e [listener] 0 of 10-100 startups",
+      "nspid": "NSpid:\t6366\t16"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.250926",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6453 running in nested user namespace",
+    "evidence": {
+      "pid": 6453,
+      "cmdline": "s6-supervise s6-linux-init-shutdownd",
+      "nspid": "NSpid:\t6453\t17"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.250977",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6454 running in nested user namespace",
+    "evidence": {
+      "pid": 6454,
+      "cmdline": "/package/admin/s6-linux-init/command/s6-linux-init-shutdownd -d3 -c /run/s6/basedir -g 3000 -C -B",
+      "nspid": "NSpid:\t6454\t18"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.251022",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6510 running in nested user namespace",
+    "evidence": {
+      "pid": 6510,
+      "cmdline": "/usr/local/searxng/.venv/bin/python3 -c from multiprocessing.resource_tracker import main;main(7)",
+      "nspid": "NSpid:\t6510\t848"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.251110",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6525 running in nested user namespace",
+    "evidence": {
+      "pid": 6525,
+      "cmdline": "/usr/local/searxng/.venv/bin/python3 -c import sys; from multiprocessing.forkserver import main; main(7, 9, ['__main__'], sys_argv=sys.argv[1:], **{'sys_path': ['/usr/local/searxng', '/usr/local/searxng/.venv/bin', '/usr/lib/python314.zip', '/usr/lib/python3.14', '/usr/lib/python3.14/lib-dynload', '/usr/local/searxng/.venv/lib/python3.14/site-packages'], 'main_path': '/usr/local/searxng/.venv/bin/granian', 'authkey_r': 11}) /usr/local/searxng/.venv/bin/granian searx.webapp:app",
+      "nspid": "NSpid:\t6525\t849"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.251307",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6585 running in nested user namespace",
+    "evidence": {
+      "pid": 6585,
+      "cmdline": "searxng worker-1",
+      "nspid": "NSpid:\t6585\t850"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.252075",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6600 running in nested user namespace",
+    "evidence": {
+      "pid": 6600,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6600\t29"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.253541",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6601 running in nested user namespace",
+    "evidence": {
+      "pid": 6601,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6601\t29"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.255019",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6602 running in nested user namespace",
+    "evidence": {
+      "pid": 6602,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6602\t30"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.256534",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6603 running in nested user namespace",
+    "evidence": {
+      "pid": 6603,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6603\t30"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.257962",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6604 running in nested user namespace",
+    "evidence": {
+      "pid": 6604,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6604\t31"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.259358",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6605 running in nested user namespace",
+    "evidence": {
+      "pid": 6605,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6605\t31"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.260796",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6606 running in nested user namespace",
+    "evidence": {
+      "pid": 6606,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6606\t32"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.262196",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6607 running in nested user namespace",
+    "evidence": {
+      "pid": 6607,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6607\t32"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.263631",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6608 running in nested user namespace",
+    "evidence": {
+      "pid": 6608,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6608\t33"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.265064",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6609 running in nested user namespace",
+    "evidence": {
+      "pid": 6609,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6609\t33"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.266563",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6610 running in nested user namespace",
+    "evidence": {
+      "pid": 6610,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6610\t34"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.267984",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6611 running in nested user namespace",
+    "evidence": {
+      "pid": 6611,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6611\t34"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.269411",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6612 running in nested user namespace",
+    "evidence": {
+      "pid": 6612,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6612\t35"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.270843",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6613 running in nested user namespace",
+    "evidence": {
+      "pid": 6613,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6613\t35"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.272282",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6614 running in nested user namespace",
+    "evidence": {
+      "pid": 6614,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6614\t36"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.273773",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6615 running in nested user namespace",
+    "evidence": {
+      "pid": 6615,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6615\t36"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.275210",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6616 running in nested user namespace",
+    "evidence": {
+      "pid": 6616,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6616\t37"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.276640",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6617 running in nested user namespace",
+    "evidence": {
+      "pid": 6617,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6617\t37"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.278059",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6618 running in nested user namespace",
+    "evidence": {
+      "pid": 6618,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6618\t38"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.279516",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6619 running in nested user namespace",
+    "evidence": {
+      "pid": 6619,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6619\t39"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.280907",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6620 running in nested user namespace",
+    "evidence": {
+      "pid": 6620,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6620\t38"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.282345",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6621 running in nested user namespace",
+    "evidence": {
+      "pid": 6621,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6621\t40"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.283767",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6622 running in nested user namespace",
+    "evidence": {
+      "pid": 6622,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6622\t41"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.285182",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6623 running in nested user namespace",
+    "evidence": {
+      "pid": 6623,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6623\t39"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.286631",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6624 running in nested user namespace",
+    "evidence": {
+      "pid": 6624,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6624\t42"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.288083",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6625 running in nested user namespace",
+    "evidence": {
+      "pid": 6625,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6625\t40"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.289507",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6626 running in nested user namespace",
+    "evidence": {
+      "pid": 6626,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6626\t43"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.290917",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6627 running in nested user namespace",
+    "evidence": {
+      "pid": 6627,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6627\t44"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.292311",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6628 running in nested user namespace",
+    "evidence": {
+      "pid": 6628,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6628\t41"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.293749",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6629 running in nested user namespace",
+    "evidence": {
+      "pid": 6629,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6629\t45"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.295174",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6630 running in nested user namespace",
+    "evidence": {
+      "pid": 6630,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6630\t46"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.296590",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6631 running in nested user namespace",
+    "evidence": {
+      "pid": 6631,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6631\t42"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.298108",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6632 running in nested user namespace",
+    "evidence": {
+      "pid": 6632,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6632\t47"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.299526",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6633 running in nested user namespace",
+    "evidence": {
+      "pid": 6633,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6633\t48"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.300934",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6634 running in nested user namespace",
+    "evidence": {
+      "pid": 6634,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6634\t43"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.302382",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6635 running in nested user namespace",
+    "evidence": {
+      "pid": 6635,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6635\t49"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.303823",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6636 running in nested user namespace",
+    "evidence": {
+      "pid": 6636,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6636\t50"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.305234",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6637 running in nested user namespace",
+    "evidence": {
+      "pid": 6637,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6637\t44"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.306667",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6638 running in nested user namespace",
+    "evidence": {
+      "pid": 6638,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6638\t51"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.308120",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6639 running in nested user namespace",
+    "evidence": {
+      "pid": 6639,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6639\t52"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.309524",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6640 running in nested user namespace",
+    "evidence": {
+      "pid": 6640,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6640\t45"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.310968",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6641 running in nested user namespace",
+    "evidence": {
+      "pid": 6641,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6641\t53"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.312378",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6644 running in nested user namespace",
+    "evidence": {
+      "pid": 6644,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6644\t46"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.313838",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6645 running in nested user namespace",
+    "evidence": {
+      "pid": 6645,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6645\t54"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.315258",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6646 running in nested user namespace",
+    "evidence": {
+      "pid": 6646,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6646\t47"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.316743",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6647 running in nested user namespace",
+    "evidence": {
+      "pid": 6647,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6647\t55"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.318184",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6648 running in nested user namespace",
+    "evidence": {
+      "pid": 6648,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6648\t56"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.319620",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6649 running in nested user namespace",
+    "evidence": {
+      "pid": 6649,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6649\t48"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.321059",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6650 running in nested user namespace",
+    "evidence": {
+      "pid": 6650,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6650\t57"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.322483",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6651 running in nested user namespace",
+    "evidence": {
+      "pid": 6651,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6651\t49"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.323918",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6652 running in nested user namespace",
+    "evidence": {
+      "pid": 6652,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6652\t58"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.325426",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6653 running in nested user namespace",
+    "evidence": {
+      "pid": 6653,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6653\t59"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.326826",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6654 running in nested user namespace",
+    "evidence": {
+      "pid": 6654,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6654\t50"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.328263",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6656 running in nested user namespace",
+    "evidence": {
+      "pid": 6656,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6656\t60"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.329690",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6657 running in nested user namespace",
+    "evidence": {
+      "pid": 6657,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6657\t51"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.331132",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6659 running in nested user namespace",
+    "evidence": {
+      "pid": 6659,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6659\t52"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.332621",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6660 running in nested user namespace",
+    "evidence": {
+      "pid": 6660,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6660\t53"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.334041",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6661 running in nested user namespace",
+    "evidence": {
+      "pid": 6661,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6661\t54"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.335462",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6663 running in nested user namespace",
+    "evidence": {
+      "pid": 6663,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6663\t55"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.336901",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6664 running in nested user namespace",
+    "evidence": {
+      "pid": 6664,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6664\t56"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.338361",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6665 running in nested user namespace",
+    "evidence": {
+      "pid": 6665,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6665\t57"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.339786",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6666 running in nested user namespace",
+    "evidence": {
+      "pid": 6666,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6666\t58"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.341216",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6667 running in nested user namespace",
+    "evidence": {
+      "pid": 6667,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6667\t59"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.342620",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6668 running in nested user namespace",
+    "evidence": {
+      "pid": 6668,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t6668\t60"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.344028",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6672 running in nested user namespace",
+    "evidence": {
+      "pid": 6672,
+      "cmdline": "s6-supervise s6rc-oneshot-runner",
+      "nspid": "NSpid:\t6672\t36"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.344086",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6673 running in nested user namespace",
+    "evidence": {
+      "pid": 6673,
+      "cmdline": "s6-supervise s6rc-fdholder",
+      "nspid": "NSpid:\t6673\t37"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.344134",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6674 running in nested user namespace",
+    "evidence": {
+      "pid": 6674,
+      "cmdline": "s6-supervise svc-cron",
+      "nspid": "NSpid:\t6674\t38"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.344182",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6675 running in nested user namespace",
+    "evidence": {
+      "pid": 6675,
+      "cmdline": "s6-supervise svc-kavita",
+      "nspid": "NSpid:\t6675\t39"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.344232",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6686 running in nested user namespace",
+    "evidence": {
+      "pid": 6686,
+      "cmdline": "/package/admin/s6/command/s6-ipcserverd -1 -- /package/admin/s6/command/s6-ipcserver-access -v0 -E -l0 -i data/rules -- /package/admin/s6/command/s6-sudod -t 30000 -- /package/admin/s6-rc/command/s6-rc-oneshot-run -l ../.. --",
+      "nspid": "NSpid:\t6686\t47"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.344324",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6741 running in nested user namespace",
+    "evidence": {
+      "pid": 6741,
+      "cmdline": "runsvdir -P /opt/gitlab/service log: ...........................................................................................................................................................................................................................................................................................................................................................................................................",
+      "nspid": "NSpid:\t6741\t28"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.344379",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6877 running in nested user namespace",
+    "evidence": {
+      "pid": 6877,
+      "cmdline": "s6-supervise s6-linux-init-shutdownd",
+      "nspid": "NSpid:\t6877\t17"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.344429",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6879 running in nested user namespace",
+    "evidence": {
+      "pid": 6879,
+      "cmdline": "/package/admin/s6-linux-init/command/s6-linux-init-shutdownd -d3 -c /run/s6/basedir -g 3000 -C -B",
+      "nspid": "NSpid:\t6879\t19"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.344482",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6929 running in nested user namespace",
+    "evidence": {
+      "pid": 6929,
+      "cmdline": "/app/kavita/Kavita",
+      "nspid": "NSpid:\t6929\t162"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.346465",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6930 running in nested user namespace",
+    "evidence": {
+      "pid": 6930,
+      "cmdline": "bash ./run svc-cron",
+      "nspid": "NSpid:\t6930\t163"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.346526",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6940 running in nested user namespace",
+    "evidence": {
+      "pid": 6940,
+      "cmdline": "sleep infinity",
+      "nspid": "NSpid:\t6940\t173"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.346574",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6953 running in nested user namespace",
+    "evidence": {
+      "pid": 6953,
+      "cmdline": "s6-supervise s6-linux-init-shutdownd",
+      "nspid": "NSpid:\t6953\t17"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.346626",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6956 running in nested user namespace",
+    "evidence": {
+      "pid": 6956,
+      "cmdline": "/package/admin/s6-linux-init/command/s6-linux-init-shutdownd -d3 -c /run/s6/basedir -g 3000 -C -B",
+      "nspid": "NSpid:\t6956\t19"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.346776",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6984 running in nested user namespace",
+    "evidence": {
+      "pid": 6984,
+      "cmdline": "s6-supervise s6rc-oneshot-runner",
+      "nspid": "NSpid:\t6984\t36"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.346829",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6985 running in nested user namespace",
+    "evidence": {
+      "pid": 6985,
+      "cmdline": "s6-supervise s6rc-fdholder",
+      "nspid": "NSpid:\t6985\t37"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.346882",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6986 running in nested user namespace",
+    "evidence": {
+      "pid": 6986,
+      "cmdline": "s6-supervise svc-code-server",
+      "nspid": "NSpid:\t6986\t38"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.346930",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6987 running in nested user namespace",
+    "evidence": {
+      "pid": 6987,
+      "cmdline": "s6-supervise svc-cron",
+      "nspid": "NSpid:\t6987\t39"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.346977",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 6996 running in nested user namespace",
+    "evidence": {
+      "pid": 6996,
+      "cmdline": "/package/admin/s6/command/s6-ipcserverd -1 -- /package/admin/s6/command/s6-ipcserver-access -v0 -E -l0 -i data/rules -- /package/admin/s6/command/s6-sudod -t 30000 -- /package/admin/s6-rc/command/s6-rc-oneshot-run -l ../.. --",
+      "nspid": "NSpid:\t6996\t47"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.347089",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7012 running in nested user namespace",
+    "evidence": {
+      "pid": 7012,
+      "cmdline": "s6-supervise s6rc-oneshot-runner",
+      "nspid": "NSpid:\t7012\t37"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.347138",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7013 running in nested user namespace",
+    "evidence": {
+      "pid": 7013,
+      "cmdline": "s6-supervise s6rc-fdholder",
+      "nspid": "NSpid:\t7013\t38"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.347185",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7014 running in nested user namespace",
+    "evidence": {
+      "pid": 7014,
+      "cmdline": "s6-supervise svc-cron",
+      "nspid": "NSpid:\t7014\t39"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.347231",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7015 running in nested user namespace",
+    "evidence": {
+      "pid": 7015,
+      "cmdline": "s6-supervise svc-memcached",
+      "nspid": "NSpid:\t7015\t40"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.347281",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7016 running in nested user namespace",
+    "evidence": {
+      "pid": 7016,
+      "cmdline": "s6-supervise svc-nginx",
+      "nspid": "NSpid:\t7016\t41"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.347329",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7017 running in nested user namespace",
+    "evidence": {
+      "pid": 7017,
+      "cmdline": "s6-supervise svc-php-fpm",
+      "nspid": "NSpid:\t7017\t42"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.347374",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7018 running in nested user namespace",
+    "evidence": {
+      "pid": 7018,
+      "cmdline": "s6-supervise svc-queue-worker",
+      "nspid": "NSpid:\t7018\t43"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.347421",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7030 running in nested user namespace",
+    "evidence": {
+      "pid": 7030,
+      "cmdline": "/package/admin/s6/command/s6-ipcserverd -1 -- /package/admin/s6/command/s6-ipcserver-access -v0 -E -l0 -i data/rules -- /package/admin/s6/command/s6-sudod -t 30000 -- /package/admin/s6-rc/command/s6-rc-oneshot-run -l ../.. --",
+      "nspid": "NSpid:\t7030\t51"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.347519",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7096 running in nested user namespace",
+    "evidence": {
+      "pid": 7096,
+      "cmdline": "postgres: checkpointer",
+      "nspid": "NSpid:\t7096\t27"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.347614",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7097 running in nested user namespace",
+    "evidence": {
+      "pid": 7097,
+      "cmdline": "postgres: background writer",
+      "nspid": "NSpid:\t7097\t28"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.347689",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7134 running in nested user namespace",
+    "evidence": {
+      "pid": 7134,
+      "cmdline": "postgres: walwriter",
+      "nspid": "NSpid:\t7134\t30"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.347765",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7135 running in nested user namespace",
+    "evidence": {
+      "pid": 7135,
+      "cmdline": "postgres: autovacuum launcher",
+      "nspid": "NSpid:\t7135\t31"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.347840",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7136 running in nested user namespace",
+    "evidence": {
+      "pid": 7136,
+      "cmdline": "postgres: logical replication launcher",
+      "nspid": "NSpid:\t7136\t32"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.347912",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7289 running in nested user namespace",
+    "evidence": {
+      "pid": 7289,
+      "cmdline": "bash ./run svc-cron",
+      "nspid": "NSpid:\t7289\t166"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.347965",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7290 running in nested user namespace",
+    "evidence": {
+      "pid": 7290,
+      "cmdline": "/app/code-server/lib/node /app/code-server --bind-addr [::]:8443 --user-data-dir /config/data --extensions-dir /config/extensions --disable-telemetry --auth password --app-name code-server  /home/coder/workspace",
+      "nspid": "NSpid:\t7290\t167"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.348276",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7300 running in nested user namespace",
+    "evidence": {
+      "pid": 7300,
+      "cmdline": "sleep infinity",
+      "nspid": "NSpid:\t7300\t177"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.348324",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7309 running in nested user namespace",
+    "evidence": {
+      "pid": 7309,
+      "cmdline": "runsv sshd",
+      "nspid": "NSpid:\t7309\t34"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.348392",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7314 running in nested user namespace",
+    "evidence": {
+      "pid": 7314,
+      "cmdline": "svlogd -tt /var/log/gitlab/sshd",
+      "nspid": "NSpid:\t7314\t35"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.348445",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7315 running in nested user namespace",
+    "evidence": {
+      "pid": 7315,
+      "cmdline": "sshd: /usr/sbin/sshd -D -f /assets/sshd_config -e [listener] 0 of 100-200 startups",
+      "nspid": "NSpid:\t7315\t36"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.348853",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7374 running in nested user namespace",
+    "evidence": {
+      "pid": 7374,
+      "cmdline": "/usr/bin/miniflux",
+      "nspid": "NSpid:\t7374\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.349223",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7568 running in nested user namespace",
+    "evidence": {
+      "pid": 7568,
+      "cmdline": "/app/code-server/lib/node /app/code-server/out/node/entry",
+      "nspid": "NSpid:\t7568\t197"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.349605",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7737 running in nested user namespace",
+    "evidence": {
+      "pid": 7737,
+      "cmdline": "/usr/bin/runsvdir -P /etc/service",
+      "nspid": "NSpid:\t7737\t157"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.349658",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7738 running in nested user namespace",
+    "evidence": {
+      "pid": 7738,
+      "cmdline": "runsv cron",
+      "nspid": "NSpid:\t7738\t158"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.349714",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7739 running in nested user namespace",
+    "evidence": {
+      "pid": 7739,
+      "cmdline": "runsv sshd",
+      "nspid": "NSpid:\t7739\t159"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.349768",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7740 running in nested user namespace",
+    "evidence": {
+      "pid": 7740,
+      "cmdline": "runsv docstore-overleaf",
+      "nspid": "NSpid:\t7740\t160"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.349825",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7741 running in nested user namespace",
+    "evidence": {
+      "pid": 7741,
+      "cmdline": "runsv history-v1-overleaf",
+      "nspid": "NSpid:\t7741\t161"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.349878",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7742 running in nested user namespace",
+    "evidence": {
+      "pid": 7742,
+      "cmdline": "runsv project-history-overleaf",
+      "nspid": "NSpid:\t7742\t162"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.349935",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7743 running in nested user namespace",
+    "evidence": {
+      "pid": 7743,
+      "cmdline": "runsv clsi-overleaf",
+      "nspid": "NSpid:\t7743\t163"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.349987",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7744 running in nested user namespace",
+    "evidence": {
+      "pid": 7744,
+      "cmdline": "runsv chat-overleaf",
+      "nspid": "NSpid:\t7744\t164"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.350038",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7745 running in nested user namespace",
+    "evidence": {
+      "pid": 7745,
+      "cmdline": "runsv notifications-overleaf",
+      "nspid": "NSpid:\t7745\t165"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.350092",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7746 running in nested user namespace",
+    "evidence": {
+      "pid": 7746,
+      "cmdline": "runsv document-updater-overleaf",
+      "nspid": "NSpid:\t7746\t166"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.350143",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7747 running in nested user namespace",
+    "evidence": {
+      "pid": 7747,
+      "cmdline": "runsv filestore-overleaf",
+      "nspid": "NSpid:\t7747\t167"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.350196",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7748 running in nested user namespace",
+    "evidence": {
+      "pid": 7748,
+      "cmdline": "runsv linked-url-proxy-overleaf",
+      "nspid": "NSpid:\t7748\t168"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.350251",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7749 running in nested user namespace",
+    "evidence": {
+      "pid": 7749,
+      "cmdline": "runsv real-time-overleaf",
+      "nspid": "NSpid:\t7749\t169"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.350302",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7750 running in nested user namespace",
+    "evidence": {
+      "pid": 7750,
+      "cmdline": "runsv nginx",
+      "nspid": "NSpid:\t7750\t170"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.350356",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7751 running in nested user namespace",
+    "evidence": {
+      "pid": 7751,
+      "cmdline": "runsv web-api-overleaf",
+      "nspid": "NSpid:\t7751\t171"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.350407",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7752 running in nested user namespace",
+    "evidence": {
+      "pid": 7752,
+      "cmdline": "runsv web-overleaf",
+      "nspid": "NSpid:\t7752\t172"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.350499",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7753 running in nested user namespace",
+    "evidence": {
+      "pid": 7753,
+      "cmdline": "/usr/bin/node /overleaf/services/history-v1/app.js",
+      "nspid": "NSpid:\t7753\t173"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.350926",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7754 running in nested user namespace",
+    "evidence": {
+      "pid": 7754,
+      "cmdline": "/usr/bin/node /overleaf/services/linked-url-proxy/app.mjs",
+      "nspid": "NSpid:\t7754\t174"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.351082",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7755 running in nested user namespace",
+    "evidence": {
+      "pid": 7755,
+      "cmdline": "/usr/bin/node /overleaf/services/project-history/app.js",
+      "nspid": "NSpid:\t7755\t175"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.351467",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7756 running in nested user namespace",
+    "evidence": {
+      "pid": 7756,
+      "cmdline": "/usr/bin/node /overleaf/services/chat/app.js",
+      "nspid": "NSpid:\t7756\t176"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.351722",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7757 running in nested user namespace",
+    "evidence": {
+      "pid": 7757,
+      "cmdline": "/usr/sbin/cron -f",
+      "nspid": "NSpid:\t7757\t177"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.351825",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7758 running in nested user namespace",
+    "evidence": {
+      "pid": 7758,
+      "cmdline": "/usr/bin/node /overleaf/services/document-updater/app.js",
+      "nspid": "NSpid:\t7758\t178"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.352773",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7759 running in nested user namespace",
+    "evidence": {
+      "pid": 7759,
+      "cmdline": "/usr/bin/node /overleaf/services/clsi/app.js",
+      "nspid": "NSpid:\t7759\t179"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.353032",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7760 running in nested user namespace",
+    "evidence": {
+      "pid": 7760,
+      "cmdline": "/usr/bin/node /overleaf/services/filestore/app.js",
+      "nspid": "NSpid:\t7760\t180"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.353184",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7762 running in nested user namespace",
+    "evidence": {
+      "pid": 7762,
+      "cmdline": "/usr/bin/node /overleaf/services/real-time/app.js",
+      "nspid": "NSpid:\t7762\t182"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.353638",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7763 running in nested user namespace",
+    "evidence": {
+      "pid": 7763,
+      "cmdline": "/usr/bin/node /overleaf/services/web/app.mjs",
+      "nspid": "NSpid:\t7763\t183"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.354718",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7765 running in nested user namespace",
+    "evidence": {
+      "pid": 7765,
+      "cmdline": "/usr/bin/node /overleaf/services/notifications/app.ts",
+      "nspid": "NSpid:\t7765\t185"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.354971",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7766 running in nested user namespace",
+    "evidence": {
+      "pid": 7766,
+      "cmdline": "/usr/bin/node /overleaf/services/web/app.mjs",
+      "nspid": "NSpid:\t7766\t186"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.356052",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7767 running in nested user namespace",
+    "evidence": {
+      "pid": 7767,
+      "cmdline": "/usr/bin/node /overleaf/services/docstore/app.js",
+      "nspid": "NSpid:\t7767\t187"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.356303",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7768 running in nested user namespace",
+    "evidence": {
+      "pid": 7768,
+      "cmdline": "nginx: master process nginx",
+      "nspid": "NSpid:\t7768\t188"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.356791",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7773 running in nested user namespace",
+    "evidence": {
+      "pid": 7773,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t7773\t193"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.357100",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7774 running in nested user namespace",
+    "evidence": {
+      "pid": 7774,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t7774\t194"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.357406",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7775 running in nested user namespace",
+    "evidence": {
+      "pid": 7775,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t7775\t195"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.357721",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 7776 running in nested user namespace",
+    "evidence": {
+      "pid": 7776,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t7776\t196"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.358026",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8119 running in nested user namespace",
+    "evidence": {
+      "pid": 8119,
+      "cmdline": "php-fpm: master process (/etc/php83/php-fpm.conf)",
+      "nspid": "NSpid:\t8119\t230"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.358334",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8120 running in nested user namespace",
+    "evidence": {
+      "pid": 8120,
+      "cmdline": "nginx: master process /usr/sbin/nginx -e stderr",
+      "nspid": "NSpid:\t8120\t231"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.358809",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8121 running in nested user namespace",
+    "evidence": {
+      "pid": 8121,
+      "cmdline": "memcached -u abc",
+      "nspid": "NSpid:\t8121\t232"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.358990",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8122 running in nested user namespace",
+    "evidence": {
+      "pid": 8122,
+      "cmdline": "busybox crond -f -S -l 5",
+      "nspid": "NSpid:\t8122\t233"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.359079",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8162 running in nested user namespace",
+    "evidence": {
+      "pid": 8162,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t8162\t273"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.359429",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8163 running in nested user namespace",
+    "evidence": {
+      "pid": 8163,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t8163\t274"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.359813",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8164 running in nested user namespace",
+    "evidence": {
+      "pid": 8164,
+      "cmdline": "nginx: cache manager process",
+      "nspid": "NSpid:\t8164\t275"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.359996",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8166 running in nested user namespace",
+    "evidence": {
+      "pid": 8166,
+      "cmdline": "php-fpm: pool www",
+      "nspid": "NSpid:\t8166\t277"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.360190",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8167 running in nested user namespace",
+    "evidence": {
+      "pid": 8167,
+      "cmdline": "php-fpm: pool www",
+      "nspid": "NSpid:\t8167\t278"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.360585",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8215 running in nested user namespace",
+    "evidence": {
+      "pid": 8215,
+      "cmdline": "/app/navidrome",
+      "nspid": "NSpid:\t8215\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.360947",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8739 running in nested user namespace",
+    "evidence": {
+      "pid": 8739,
+      "cmdline": "runsv logrotate",
+      "nspid": "NSpid:\t8739\t281"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.361014",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8740 running in nested user namespace",
+    "evidence": {
+      "pid": 8740,
+      "cmdline": "runsv redis",
+      "nspid": "NSpid:\t8740\t282"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.361080",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8741 running in nested user namespace",
+    "evidence": {
+      "pid": 8741,
+      "cmdline": "runsv gitaly",
+      "nspid": "NSpid:\t8741\t283"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.361144",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8742 running in nested user namespace",
+    "evidence": {
+      "pid": 8742,
+      "cmdline": "runsv postgresql",
+      "nspid": "NSpid:\t8742\t284"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.361212",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8743 running in nested user namespace",
+    "evidence": {
+      "pid": 8743,
+      "cmdline": "runsv gitlab-kas",
+      "nspid": "NSpid:\t8743\t285"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.361278",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8744 running in nested user namespace",
+    "evidence": {
+      "pid": 8744,
+      "cmdline": "runsv puma",
+      "nspid": "NSpid:\t8744\t286"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.361361",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8745 running in nested user namespace",
+    "evidence": {
+      "pid": 8745,
+      "cmdline": "runsv sidekiq",
+      "nspid": "NSpid:\t8745\t287"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.361428",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8746 running in nested user namespace",
+    "evidence": {
+      "pid": 8746,
+      "cmdline": "svlogd -tt /var/log/gitlab/redis",
+      "nspid": "NSpid:\t8746\t288"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.361484",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8747 running in nested user namespace",
+    "evidence": {
+      "pid": 8747,
+      "cmdline": "svlogd -tt /var/log/gitlab/logrotate",
+      "nspid": "NSpid:\t8747\t289"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.361535",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8748 running in nested user namespace",
+    "evidence": {
+      "pid": 8748,
+      "cmdline": "svlogd -tt /var/log/gitlab/postgresql",
+      "nspid": "NSpid:\t8748\t290"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.361584",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8749 running in nested user namespace",
+    "evidence": {
+      "pid": 8749,
+      "cmdline": "svlogd /var/log/gitlab/gitaly",
+      "nspid": "NSpid:\t8749\t291"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.361635",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8750 running in nested user namespace",
+    "evidence": {
+      "pid": 8750,
+      "cmdline": "svlogd -tt /var/log/gitlab/gitlab-kas",
+      "nspid": "NSpid:\t8750\t292"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.361685",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8751 running in nested user namespace",
+    "evidence": {
+      "pid": 8751,
+      "cmdline": "/opt/gitlab/embedded/bin/redis-server unixsocket:/var/opt/gitlab/redis/redis.socket",
+      "nspid": "NSpid:\t8751\t293"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.362814",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8752 running in nested user namespace",
+    "evidence": {
+      "pid": 8752,
+      "cmdline": "svlogd -tt /var/log/gitlab/puma",
+      "nspid": "NSpid:\t8752\t294"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.362870",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8753 running in nested user namespace",
+    "evidence": {
+      "pid": 8753,
+      "cmdline": "svlogd /var/log/gitlab/sidekiq",
+      "nspid": "NSpid:\t8753\t295"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.362928",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8754 running in nested user namespace",
+    "evidence": {
+      "pid": 8754,
+      "cmdline": "/opt/gitlab/embedded/bin/postgres -D /var/opt/gitlab/postgresql/data",
+      "nspid": "NSpid:\t8754\t296"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.363047",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8756 running in nested user namespace",
+    "evidence": {
+      "pid": 8756,
+      "cmdline": "/opt/gitlab/embedded/bin/gitlab-kas --configuration-file /var/opt/gitlab/gitlab-kas/gitlab-kas-config.yml",
+      "nspid": "NSpid:\t8756\t298"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.363541",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8757 running in nested user namespace",
+    "evidence": {
+      "pid": 8757,
+      "cmdline": "/opt/gitlab/embedded/bin/gitaly-wrapper /opt/gitlab/embedded/bin/gitaly serve /var/opt/gitlab/gitaly/config.toml",
+      "nspid": "NSpid:\t8757\t299"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.363605",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8759 running in nested user namespace",
+    "evidence": {
+      "pid": 8759,
+      "cmdline": "puma 6.5.0 (unix:///var/opt/gitlab/gitlab-rails/sockets/gitlab.socket,tcp://127.0.0.1:8080) [gitlab-puma-worker]",
+      "nspid": "NSpid:\t8759\t301"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.364254",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8760 running in nested user namespace",
+    "evidence": {
+      "pid": 8760,
+      "cmdline": "ruby /opt/gitlab/embedded/service/gitlab-rails/bin/sidekiq-cluster -e production -r /opt/gitlab/embedded/service/gitlab-rails -c 5 --timeout 25 *",
+      "nspid": "NSpid:\t8760\t302"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.364395",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8808 running in nested user namespace",
+    "evidence": {
+      "pid": 8808,
+      "cmdline": "/opt/gitlab/embedded/bin/gitaly serve /var/opt/gitlab/gitaly/config.toml",
+      "nspid": "NSpid:\t8808\t350"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.364742",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8884 running in nested user namespace",
+    "evidence": {
+      "pid": 8884,
+      "cmdline": "postgres: checkpointer",
+      "nspid": "NSpid:\t8884\t420"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.364813",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8885 running in nested user namespace",
+    "evidence": {
+      "pid": 8885,
+      "cmdline": "postgres: background writer",
+      "nspid": "NSpid:\t8885\t421"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.364881",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8887 running in nested user namespace",
+    "evidence": {
+      "pid": 8887,
+      "cmdline": "postgres: walwriter",
+      "nspid": "NSpid:\t8887\t423"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.364950",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8888 running in nested user namespace",
+    "evidence": {
+      "pid": 8888,
+      "cmdline": "postgres: autovacuum launcher",
+      "nspid": "NSpid:\t8888\t424"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.365017",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8889 running in nested user namespace",
+    "evidence": {
+      "pid": 8889,
+      "cmdline": "postgres: logical replication launcher",
+      "nspid": "NSpid:\t8889\t425"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.365086",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8933 running in nested user namespace",
+    "evidence": {
+      "pid": 8933,
+      "cmdline": "/bin/bash /opt/gitlab/bin/gitlab-ctl tail",
+      "nspid": "NSpid:\t8933\t432"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.365141",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8934 running in nested user namespace",
+    "evidence": {
+      "pid": 8934,
+      "cmdline": "/opt/gitlab/embedded/bin/ruby /opt/gitlab/embedded/bin/omnibus-ctl gitlab /opt/gitlab/embedded/service/omnibus-ctl* tail",
+      "nspid": "NSpid:\t8934\t433"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.365268",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8955 running in nested user namespace",
+    "evidence": {
+      "pid": 8955,
+      "cmdline": "sh -c find -L /var/log/gitlab -type f -not -path '*/sasl/*' | grep -E -v '(config|lock|@|bz2|gz|gzip|tbz2|tgz|txz|xz|zip)' | xargs tail --follow=name --retry",
+      "nspid": "NSpid:\t8955\t435"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.365317",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8958 running in nested user namespace",
+    "evidence": {
+      "pid": 8958,
+      "cmdline": "xargs tail --follow=name --retry",
+      "nspid": "NSpid:\t8958\t438"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.365363",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8959 running in nested user namespace",
+    "evidence": {
+      "pid": 8959,
+      "cmdline": "tail --follow=name --retry /var/log/gitlab/sshd/current /var/log/gitlab/gitlab-rails/gitlab-rails-db-migrate-2026-10-11-00-27-24.log /var/log/gitlab/gitlab-rails/production.log /var/log/gitlab/gitlab-rails/application_json.log /var/log/gitlab/gitlab-rails/grpc.log /var/log/gitlab/gitlab-rails/database_load_balancing.log /var/log/gitlab/gitlab-rails/service_measurement.log /var/log/gitlab/gitlab-rails/auth.log /var/log/gitlab/gitlab-rails/sidekiq_client.log /var/log/gitlab/gitlab-rails/production_json.log /var/log/gitlab/gitlab-rails/api_json.log /var/log/gitlab/gitlab-rails/graphql_json.log /var/log/gitlab/gitlab-rails/audit_json.log /var/log/gitlab/gitlab-rails/exceptions_json.log /var/log/gitlab/gitlab-rails/git_json.log /var/log/gitlab/gitlab-shell/gitlab-shell.log /var/log/gitlab/logrotate/current /var/log/gitlab/redis/current /var/log/gitlab/redis/state /var/log/gitlab/gitaly/current /var/log/gitlab/gitaly/state /var/log/gitlab/postgresql/current /var/log/gitlab/postgresql/state /var/log/gitlab/gitlab-kas/current /var/log/gitlab/gitlab-kas/state /var/log/gitlab/puma/puma_stdout.log /var/log/gitlab/puma/puma_stderr.log /var/log/gitlab/puma/current /var/log/gitlab/puma/state /var/log/gitlab/sidekiq/state /var/log/gitlab/sidekiq/current /var/log/gitlab/gitlab-workhorse/current /var/log/gitlab/gitlab-workhorse/state /var/log/gitlab/nginx/current /var/log/gitlab/nginx/error.log /var/log/gitlab/nginx/gitlab_access.log /var/log/gitlab/nginx/gitlab_error.log /var/log/gitlab/nginx/access.log",
+      "nspid": "NSpid:\t8959\t439"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.365483",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8960 running in nested user namespace",
+    "evidence": {
+      "pid": 8960,
+      "cmdline": "sidekiq 7.3.9 queues:default,mailers [0 of 5 busy]",
+      "nspid": "NSpid:\t8960\t440"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.367369",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8962 running in nested user namespace",
+    "evidence": {
+      "pid": 8962,
+      "cmdline": "sidekiq_exporter",
+      "nspid": "NSpid:\t8962\t442"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.367578",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8968 running in nested user namespace",
+    "evidence": {
+      "pid": 8968,
+      "cmdline": "runsv gitlab-workhorse",
+      "nspid": "NSpid:\t8968\t448"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.367646",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8969 running in nested user namespace",
+    "evidence": {
+      "pid": 8969,
+      "cmdline": "runsv nginx",
+      "nspid": "NSpid:\t8969\t449"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.367711",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8970 running in nested user namespace",
+    "evidence": {
+      "pid": 8970,
+      "cmdline": "svlogd -tt /var/log/gitlab/nginx",
+      "nspid": "NSpid:\t8970\t450"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.367769",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8971 running in nested user namespace",
+    "evidence": {
+      "pid": 8971,
+      "cmdline": "svlogd /var/log/gitlab/gitlab-workhorse",
+      "nspid": "NSpid:\t8971\t451"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.367819",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8972 running in nested user namespace",
+    "evidence": {
+      "pid": 8972,
+      "cmdline": "nginx: master process /opt/gitlab/embedded/sbin/nginx -p /var/opt/gitlab/nginx",
+      "nspid": "NSpid:\t8972\t452"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.371942",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8973 running in nested user namespace",
+    "evidence": {
+      "pid": 8973,
+      "cmdline": "/opt/gitlab/embedded/bin/gitlab-workhorse -listenNetwork unix -listenUmask 0 -listenAddr /var/opt/gitlab/gitlab-workhorse/sockets/socket -authBackend http://localhost:8080 -authSocket /var/opt/gitlab/gitlab-rails/sockets/gitlab.socket -documentRoot /opt/gitlab/embedded/service/gitlab-rails/public -pprofListenAddr  -prometheusListenAddr localhost:9229 -secretPath /opt/gitlab/embedded/service/gitlab-rails/.gitlab_workhorse_secret -logFormat json -config config.toml",
+      "nspid": "NSpid:\t8973\t453"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.372115",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8979 running in nested user namespace",
+    "evidence": {
+      "pid": 8979,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t8979\t459"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.374243",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8980 running in nested user namespace",
+    "evidence": {
+      "pid": 8980,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t8980\t460"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.376427",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8981 running in nested user namespace",
+    "evidence": {
+      "pid": 8981,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t8981\t461"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.378552",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8982 running in nested user namespace",
+    "evidence": {
+      "pid": 8982,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t8982\t462"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.380661",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8983 running in nested user namespace",
+    "evidence": {
+      "pid": 8983,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t8983\t463"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.382767",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8984 running in nested user namespace",
+    "evidence": {
+      "pid": 8984,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t8984\t464"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.384933",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8985 running in nested user namespace",
+    "evidence": {
+      "pid": 8985,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t8985\t465"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.387035",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8986 running in nested user namespace",
+    "evidence": {
+      "pid": 8986,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t8986\t466"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.389183",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8987 running in nested user namespace",
+    "evidence": {
+      "pid": 8987,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t8987\t467"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.391308",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8988 running in nested user namespace",
+    "evidence": {
+      "pid": 8988,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t8988\t468"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.393415",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8989 running in nested user namespace",
+    "evidence": {
+      "pid": 8989,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t8989\t469"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.395527",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8990 running in nested user namespace",
+    "evidence": {
+      "pid": 8990,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t8990\t470"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.397637",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8991 running in nested user namespace",
+    "evidence": {
+      "pid": 8991,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t8991\t471"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.399753",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8992 running in nested user namespace",
+    "evidence": {
+      "pid": 8992,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t8992\t472"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.401865",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8993 running in nested user namespace",
+    "evidence": {
+      "pid": 8993,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t8993\t473"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.403992",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8994 running in nested user namespace",
+    "evidence": {
+      "pid": 8994,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t8994\t474"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.406126",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8995 running in nested user namespace",
+    "evidence": {
+      "pid": 8995,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t8995\t475"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.408278",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8996 running in nested user namespace",
+    "evidence": {
+      "pid": 8996,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t8996\t476"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.410397",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8997 running in nested user namespace",
+    "evidence": {
+      "pid": 8997,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t8997\t477"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.412519",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8998 running in nested user namespace",
+    "evidence": {
+      "pid": 8998,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t8998\t478"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.414652",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 8999 running in nested user namespace",
+    "evidence": {
+      "pid": 8999,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t8999\t479"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.416765",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9000 running in nested user namespace",
+    "evidence": {
+      "pid": 9000,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t9000\t480"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.418902",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9001 running in nested user namespace",
+    "evidence": {
+      "pid": 9001,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t9001\t481"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.421016",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9002 running in nested user namespace",
+    "evidence": {
+      "pid": 9002,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t9002\t482"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.423140",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9003 running in nested user namespace",
+    "evidence": {
+      "pid": 9003,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t9003\t483"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.425242",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9004 running in nested user namespace",
+    "evidence": {
+      "pid": 9004,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t9004\t484"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.427380",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9005 running in nested user namespace",
+    "evidence": {
+      "pid": 9005,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t9005\t485"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.429488",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9006 running in nested user namespace",
+    "evidence": {
+      "pid": 9006,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t9006\t486"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.431631",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9007 running in nested user namespace",
+    "evidence": {
+      "pid": 9007,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t9007\t487"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.433735",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9008 running in nested user namespace",
+    "evidence": {
+      "pid": 9008,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t9008\t488"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.435854",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9009 running in nested user namespace",
+    "evidence": {
+      "pid": 9009,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t9009\t489"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.437981",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9010 running in nested user namespace",
+    "evidence": {
+      "pid": 9010,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t9010\t490"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.440090",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9012 running in nested user namespace",
+    "evidence": {
+      "pid": 9012,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t9012\t492"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.442207",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9015 running in nested user namespace",
+    "evidence": {
+      "pid": 9015,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t9015\t495"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.444346",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9016 running in nested user namespace",
+    "evidence": {
+      "pid": 9016,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t9016\t496"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.446561",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9018 running in nested user namespace",
+    "evidence": {
+      "pid": 9018,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t9018\t498"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.448806",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9019 running in nested user namespace",
+    "evidence": {
+      "pid": 9019,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t9019\t499"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.451031",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9020 running in nested user namespace",
+    "evidence": {
+      "pid": 9020,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t9020\t500"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.453239",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9021 running in nested user namespace",
+    "evidence": {
+      "pid": 9021,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t9021\t501"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.455430",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9022 running in nested user namespace",
+    "evidence": {
+      "pid": 9022,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t9022\t502"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.457633",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9023 running in nested user namespace",
+    "evidence": {
+      "pid": 9023,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t9023\t503"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.459813",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9024 running in nested user namespace",
+    "evidence": {
+      "pid": 9024,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t9024\t504"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.461981",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9025 running in nested user namespace",
+    "evidence": {
+      "pid": 9025,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t9025\t505"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.464234",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9029 running in nested user namespace",
+    "evidence": {
+      "pid": 9029,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t9029\t509"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.466361",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9031 running in nested user namespace",
+    "evidence": {
+      "pid": 9031,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t9031\t511"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.468475",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9032 running in nested user namespace",
+    "evidence": {
+      "pid": 9032,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t9032\t512"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.470597",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9033 running in nested user namespace",
+    "evidence": {
+      "pid": 9033,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t9033\t513"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.472771",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9034 running in nested user namespace",
+    "evidence": {
+      "pid": 9034,
+      "cmdline": "nginx: worker process",
+      "nspid": "NSpid:\t9034\t514"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.474895",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9035 running in nested user namespace",
+    "evidence": {
+      "pid": 9035,
+      "cmdline": "nginx: cache manager process",
+      "nspid": "NSpid:\t9035\t515"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.476944",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9235 running in nested user namespace",
+    "evidence": {
+      "pid": 9235,
+      "cmdline": "puma: cluster worker 0: 1 [app]",
+      "nspid": "NSpid:\t9235\t77"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.477288",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9244 running in nested user namespace",
+    "evidence": {
+      "pid": 9244,
+      "cmdline": "puma: cluster worker 1: 1 [app]",
+      "nspid": "NSpid:\t9244\t81"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.477606",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9280 running in nested user namespace",
+    "evidence": {
+      "pid": 9280,
+      "cmdline": "postgres: postgres dawarich_development 172.27.0.2(35696) idle",
+      "nspid": "NSpid:\t9280\t49"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.477823",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9584 running in nested user namespace",
+    "evidence": {
+      "pid": 9584,
+      "cmdline": "puma: cluster worker 0: 301 [gitlab-puma-worker]",
+      "nspid": "NSpid:\t9584\t571"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.478583",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 9586 running in nested user namespace",
+    "evidence": {
+      "pid": 9586,
+      "cmdline": "puma: cluster worker 1: 301 [gitlab-puma-worker]",
+      "nspid": "NSpid:\t9586\t573"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.510883",
+    "agent": "syscall_monitor",
+    "category": "heap_spray_pattern",
+    "severity": "high",
+    "description": "Excessive anonymous RW mappings (possible heap spray)",
+    "evidence": {
+      "pid": 12557,
+      "cmdline": "/usr/lib/firefox/firefox --sm-client-id 10df696769000179195070400000275210037",
+      "anon_maps": 758
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.514386",
+    "agent": "syscall_monitor",
+    "category": "heap_spray_pattern",
+    "severity": "high",
+    "description": "Excessive anonymous RW mappings (possible heap spray)",
+    "evidence": {
+      "pid": 12582,
+      "cmdline": "/usr/lib/signal-desktop/signal-desktop --",
+      "anon_maps": 520
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.524513",
+    "agent": "syscall_monitor",
+    "category": "suspicious_caps",
+    "severity": "medium",
+    "description": "Non-system process with CAP_NET_ADMIN",
+    "evidence": {
+      "pid": 12592,
+      "cmdline": "fusermount3 -o rw,nosuid,nodev,fsname=portal,auto_unmount,subtype=portal -- /run/user/1000/doc",
+      "cap_eff": "0x1ffffffffff"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.527096",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 12822 running in nested user namespace",
+    "evidence": {
+      "pid": 12822,
+      "cmdline": "/usr/lib/signal-desktop/signal-desktop --type=zygote",
+      "nspid": "NSpid:\t12822\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.527796",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 12836 running in nested user namespace",
+    "evidence": {
+      "pid": 12836,
+      "cmdline": "/usr/lib/vesktop/vesktop --type=zygote",
+      "nspid": "NSpid:\t12836\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.528142",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 12842 running in nested user namespace",
+    "evidence": {
+      "pid": 12842,
+      "cmdline": "/usr/lib/signal-desktop/signal-desktop --type=zygote",
+      "nspid": "NSpid:\t12842\t3"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.529208",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 12866 running in nested user namespace",
+    "evidence": {
+      "pid": 12866,
+      "cmdline": "/usr/lib/vesktop/vesktop --type=zygote",
+      "nspid": "NSpid:\t12866\t3"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.533323",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 13032 running in nested user namespace",
+    "evidence": {
+      "pid": 13032,
+      "cmdline": "bwrap --args 83 -- /app/bin/steam",
+      "nspid": "NSpid:\t13032\t1"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.533486",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 13041 running in nested user namespace",
+    "evidence": {
+      "pid": 13041,
+      "cmdline": "bash /home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/steam.sh -srt-logger-opened -no-cef-sandbox",
+      "nspid": "NSpid:\t13041\t2"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.537136",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 13793 running in nested user namespace",
+    "evidence": {
+      "pid": 13793,
+      "cmdline": "/usr/lib/vesktop/vesktop --type=renderer --enable-crash-reporter=f9ebc3ec-d7ea-488f-84d3-fb37dd358e0e,no_channel --user-data-dir=/home/odessa/.config/vesktop --standard-schemes=vesktop --secure-schemes=vesktop --cors-schemes=vesktop --fetch-schemes=vesktop --streaming-schemes=vesktop --app-path=/usr/lib/vesktop/resources/app.asar --enable-sandbox --autoplay-policy=no-user-gesture-required --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=137402620 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,3494776042453351621,10843387195310743490,262144 --enable-features=PdfUseShowSaveFilePicker --disable-features=DropInputEventsWhilePaintHolding,HardwareMediaKeyHandling,LocalNetworkAccessChecks,MediaSessionService,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation,WaylandWpColorManagerV1 --variations-seed-version --pseudonymization-salt-handle=7,i,2763868720056231355,17690574953711287383,4 --trace-process-track-uuid=3190708991934122588",
+      "nspid": "NSpid:\t13793\t20"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.538286",
+    "agent": "syscall_monitor",
+    "category": "heap_spray_pattern",
+    "severity": "high",
+    "description": "Excessive anonymous RW mappings (possible heap spray)",
+    "evidence": {
+      "pid": 13793,
+      "cmdline": "/usr/lib/vesktop/vesktop --type=renderer --enable-crash-reporter=f9ebc3ec-d7ea-488f-84d3-fb37dd358e0e,no_channel --user-data-dir=/home/odessa/.config/vesktop --standard-schemes=vesktop --secure-schemes=vesktop --cors-schemes=vesktop --fetch-schemes=vesktop --streaming-schemes=vesktop --app-path=/usr/lib/vesktop/resources/app.asar --enable-sandbox --autoplay-policy=no-user-gesture-required --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=137402620 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,3494776042453351621,10843387195310743490,262144 --enable-features=PdfUseShowSaveFilePicker --disable-features=DropInputEventsWhilePaintHolding,HardwareMediaKeyHandling,LocalNetworkAccessChecks,MediaSessionService,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation,WaylandWpColorManagerV1 --variations-seed-version --pseudonymization-salt-handle=7,i,2763868720056231355,17690574953711287383,4 --trace-process-track-uuid=3190708991934122588",
+      "anon_maps": 629
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.543683",
+    "agent": "syscall_monitor",
+    "category": "heap_spray_pattern",
+    "severity": "high",
+    "description": "Excessive anonymous RW mappings (possible heap spray)",
+    "evidence": {
+      "pid": 16152,
+      "cmdline": "/usr/lib/firefox/firefox -contentproc -isForBrowser -prefsHandle 0:47867 -prefMapHandle 1:302505 -jsInitHandle 2:162336 -parentBuildID 20261020162120 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {4376e482-6c52-4ea6-a962-f7d8344181f8} -parentPid 12557 -crashHelperPid 12898 -crashHelper 6 -crashReporter 7 -greomni /usr/lib/firefox/omni.ja -appomni /usr/lib/firefox/browser/omni.ja -appDir /usr/lib/firefox/browser 3 tab",
+      "anon_maps": 816
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.550474",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 17391 running in nested user namespace",
+    "evidence": {
+      "pid": 17391,
+      "cmdline": "/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/ubuntu12_32/steam-runtime/usr/libexec/steam-runtime-tools-0/srt-logger --sh-syntax --rotate=8388608 --log-directory /home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/logs --filename console-linux.txt --log-fd=7 --journal-fd=5 --parse-level-prefix",
+      "nspid": "NSpid:\t17391\t16"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.552839",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 17997 running in nested user namespace",
+    "evidence": {
+      "pid": 17997,
+      "cmdline": "/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/ubuntu12_32/steam -srt-logger-opened -no-cef-sandbox",
+      "nspid": "NSpid:\t17997\t96"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.554826",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 18062 running in nested user namespace",
+    "evidence": {
+      "pid": 18062,
+      "cmdline": "/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamrt64/pv-runtime/steam-runtime-steamrt/pressure-vessel/bin/steam-runtime-launch-client --pass-env-matching=* --bus-name=org.freedesktop.portal.Flatpak --app-path /home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamrt64/pv-runtime/steam-runtime-steamrt/var/tmp-KVU3X3/app --share-pids --usr-path /home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamrt64/pv-runtime/steam-runtime-steamrt/var/tmp-KVU3X3/usr --directory /home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/ubuntu12_64 --env-fd 17 --unset-env PRESSURE_VESSEL_FILESYSTEMS_RO --unset-env PRESSURE_VESSEL_FILESYSTEMS_RW --unset-env PROTON_LOG_DIR --unset-env PWD --unset-env STEAM_COMPAT_APP_LIBRARY_PATH --unset-env STEAM_COMPAT_APP_LIBRARY_PATHS --unset-env STEAM_COMPAT_CLIENT_INSTALL_PATH --unset-env STEAM_COMPAT_DATA_PATH --unset-env STEAM_COMPAT_LIBRARY_PATHS --unset-env STEAM_COMPAT_MOUNTS --unset-env STEAM_COMPAT_MOUNT_PATHS --unset-env STEAM_COMPAT_SHADER_PATH --unset-env STEAM_COMPAT_TOOL_PATH --unset-env STEAM_COMPAT_TOOL_PATHS --unset-env STEAM_RUNTIME_SCOUT --unset-env VDPAU_DRIVER_PATH --unset-env VK_ADD_DRIVER_FILES --unset-env VK_ADD_IMPLICIT_LAYER_PATH --unset-env VK_ADD_LAYER_PATH --unset-env XR_API_LAYER_PATH --unset-env __EGL_EXTERNAL_PLATFORM_CONFIG_DIRS --unset-env __EGL_VENDOR_LIBRARY_DIRS --forward-fd=10 --forward-fd=3 --forward-fd=4 -- /usr/lib/pressure-vessel/from-host/libexec/steam-runtime-tools-0/pv-adverb --prefix=/usr/lib/pressure-vessel/from-host --generate-locales --fd 10 --regenerate-ld.so-cache /run/user/1000/pressure-vessel/ldso --add-ld.so-path /usr/lib/pressure-vessel/overrides/lib/x86_64-linux-gnu --add-ld.so-path /usr/lib/pressure-vessel/overrides/lib/i386-linux-gnu --set-ld-library-path /usr/lib/pressure-vessel/overrides/lib/x86_64-linux-gnu/aliases:/usr/lib/pressure-vessel/overrides/lib/i386-linux-gnu/aliases --overrides-path /usr/lib/pressure-vessel/overrides --assign-fd=1=3 --assign-fd=2=4 --ld-audit=/run/parent/app/links/lib/x86_64-linux-gnu/libshared-library-guard.so:abi=x86_64-linux-gnu --ld-audit=/run/parent/app/links/lib/i386-linux-gnu/libshared-library-guard.so:abi=i386-linux-gnu -- /home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/ubuntu12_64/steamwebhelper_sniper_wrap.sh -nocrashdialog -lang=en_US -cachedir=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/config/htmlcache -steampid=96 -buildid=1792618285 -steamid=0 -logdir=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/logs -uimode=7 -startcount=0 -steamuniverse=Public -realm=Global -clientui=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/clientui -steampath=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/ubuntu12_32/steam -launcher=0 -use_xcomposite_workaround --valve-initial-threadpool-size=20 --valve-enable-site-isolation --crl-sets-path=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/resource/crl-set --enable-smooth-scrolling --no-sandbox --password-store=basic --log-file=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/logs/cef_log.txt --disable-quick-menu --disable-component-update --gaia-url=http://disabled.invalid --enable-features=PlatformHEVCDecoderSupport --disable-features=WinRetrieveSuggestionsOnlyOnDemand,SpareRendererForSitePerProcess,BlockPromptsIfIgnoredOften,WebUsbDeviceDetection,ValveFFmpegAllowLowDelayHEVC",
+      "nspid": "NSpid:\t18062\t107"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.554980",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 18074 running in nested user namespace",
+    "evidence": {
+      "pid": 18074,
+      "cmdline": "/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/ubuntu12_32/steam-runtime/usr/libexec/steam-runtime-tools-0/srt-logger --sh-syntax --rotate=8388608 --log-directory /home/odessa/.steam/steam/logs --filename webhelper-linux.txt --log-fd=7 --journal-fd=5 --parse-level-prefix --journal-level=info",
+      "nspid": "NSpid:\t18074\t119"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.555107",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 18131 running in nested user namespace",
+    "evidence": {
+      "pid": 18131,
+      "cmdline": "steam-runtime-launcher-service --alongside-steam",
+      "nspid": "NSpid:\t18131\t165"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.556373",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 18249 running in nested user namespace",
+    "evidence": {
+      "pid": 18249,
+      "cmdline": "bwrap --args 91 -- /usr/lib/pressure-vessel/from-host/libexec/steam-runtime-tools-0/pv-adverb --prefix=/usr/lib/pressure-vessel/from-host --generate-locales --fd 10 --regenerate-ld.so-cache /run/user/1000/pressure-vessel/ldso --add-ld.so-path /usr/lib/pressure-vessel/overrides/lib/x86_64-linux-gnu --add-ld.so-path /usr/lib/pressure-vessel/overrides/lib/i386-linux-gnu --set-ld-library-path /usr/lib/pressure-vessel/overrides/lib/x86_64-linux-gnu/aliases:/usr/lib/pressure-vessel/overrides/lib/i386-linux-gnu/aliases --overrides-path /usr/lib/pressure-vessel/overrides --assign-fd=1=3 --assign-fd=2=4 --ld-audit=/run/parent/app/links/lib/x86_64-linux-gnu/libshared-library-guard.so:abi=x86_64-linux-gnu --ld-audit=/run/parent/app/links/lib/i386-linux-gnu/libshared-library-guard.so:abi=i386-linux-gnu -- /home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/ubuntu12_64/steamwebhelper_sniper_wrap.sh -nocrashdialog -lang=en_US -cachedir=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/config/htmlcache -steampid=96 -buildid=1792618285 -steamid=0 -logdir=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/logs -uimode=7 -startcount=0 -steamuniverse=Public -realm=Global -clientui=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/clientui -steampath=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/ubuntu12_32/steam -launcher=0 -use_xcomposite_workaround --valve-initial-threadpool-size=20 --valve-enable-site-isolation --crl-sets-path=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/resource/crl-set --enable-smooth-scrolling --no-sandbox --password-store=basic --log-file=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/logs/cef_log.txt --disable-quick-menu --disable-component-update --gaia-url=http://disabled.invalid --enable-features=PlatformHEVCDecoderSupport --disable-features=WinRetrieveSuggestionsOnlyOnDemand,SpareRendererForSitePerProcess,BlockPromptsIfIgnoredOften,WebUsbDeviceDetection,ValveFFmpegAllowLowDelayHEVC",
+      "nspid": "NSpid:\t18249\t228"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.556439",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 18250 running in nested user namespace",
+    "evidence": {
+      "pid": 18250,
+      "cmdline": "/usr/lib/pressure-vessel/from-host/libexec/steam-runtime-tools-0/pv-adverb --prefix=/usr/lib/pressure-vessel/from-host --generate-locales --fd 10 --regenerate-ld.so-cache /run/user/1000/pressure-vessel/ldso --add-ld.so-path /usr/lib/pressure-vessel/overrides/lib/x86_64-linux-gnu --add-ld.so-path /usr/lib/pressure-vessel/overrides/lib/i386-linux-gnu --set-ld-library-path /usr/lib/pressure-vessel/overrides/lib/x86_64-linux-gnu/aliases:/usr/lib/pressure-vessel/overrides/lib/i386-linux-gnu/aliases --overrides-path /usr/lib/pressure-vessel/overrides --assign-fd=1=3 --assign-fd=2=4 --ld-audit=/run/parent/app/links/lib/x86_64-linux-gnu/libshared-library-guard.so:abi=x86_64-linux-gnu --ld-audit=/run/parent/app/links/lib/i386-linux-gnu/libshared-library-guard.so:abi=i386-linux-gnu -- /home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/ubuntu12_64/steamwebhelper_sniper_wrap.sh -nocrashdialog -lang=en_US -cachedir=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/config/htmlcache -steampid=96 -buildid=1792618285 -steamid=0 -logdir=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/logs -uimode=7 -startcount=0 -steamuniverse=Public -realm=Global -clientui=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/clientui -steampath=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/ubuntu12_32/steam -launcher=0 -use_xcomposite_workaround --valve-initial-threadpool-size=20 --valve-enable-site-isolation --crl-sets-path=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/resource/crl-set --enable-smooth-scrolling --no-sandbox --password-store=basic --log-file=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/logs/cef_log.txt --disable-quick-menu --disable-component-update --gaia-url=http://disabled.invalid --enable-features=PlatformHEVCDecoderSupport --disable-features=WinRetrieveSuggestionsOnlyOnDemand,SpareRendererForSitePerProcess,BlockPromptsIfIgnoredOften,WebUsbDeviceDetection,ValveFFmpegAllowLowDelayHEVC",
+      "nspid": "NSpid:\t18250\t229"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.556537",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 18281 running in nested user namespace",
+    "evidence": {
+      "pid": 18281,
+      "cmdline": "./steamwebhelper -nocrashdialog -lang=en_US -cachedir=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/config/htmlcache -steampid=96 -buildid=1792618285 -steamid=0 -logdir=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/logs -uimode=7 -startcount=0 -steamuniverse=Public -realm=Global -clientui=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/clientui -steampath=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/ubuntu12_32/steam -launcher=0 -use_xcomposite_workaround --valve-initial-threadpool-size=20 --valve-enable-site-isolation --crl-sets-path=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/resource/crl-set --enable-smooth-scrolling --no-sandbox --password-store=basic --log-file=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/logs/cef_log.txt --disable-quick-menu --disable-component-update --gaia-url=http://disabled.invalid --enable-features=PlatformHEVCDecoderSupport --disable-features=WinRetrieveSuggestionsOnlyOnDemand,SpareRendererForSitePerProcess,BlockPromptsIfIgnoredOften,WebUsbDeviceDetection,ValveFFmpegAllowLowDelayHEVC",
+      "nspid": "NSpid:\t18281\t257"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.560145",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 18286 running in nested user namespace",
+    "evidence": {
+      "pid": 18286,
+      "cmdline": "/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/ubuntu12_64/steamwebhelper --monitor-self-annotation=ptype=crashpad-handler --type=crashpad-handler --max-uploads=5 --max-db-size=20 --max-db-age=5 --database=/tmp/dumps --url=https://crash.steampowered.com/submit --annotation=lsb-release=Steam Runtime 3c (steamrt3c) --annotation=platform=linux64 --annotation=product=cefwebhelper --annotation=version=1792618285 --initial-client-fd=11 --shared-client-connection",
+      "nspid": "NSpid:\t18286\t261"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.560435",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 18293 running in nested user namespace",
+    "evidence": {
+      "pid": 18293,
+      "cmdline": "/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/ubuntu12_64/steamwebhelper --type=zygote --no-zygote-sandbox --no-sandbox --crashpad-handler-pid=261 --enable-crash-reporter=, --change-stack-guard-on-fork=enable --enable-chrome-runtime --user-data-dir=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/config/htmlcache --user-agent-product=Valve Steam Client --buildid=1792618285 --steamid=0 --valve-initial-threadpool-size=20",
+      "nspid": "NSpid:\t18293\t268"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.560783",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 18294 running in nested user namespace",
+    "evidence": {
+      "pid": 18294,
+      "cmdline": "/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/ubuntu12_64/steamwebhelper --type=zygote --no-sandbox --crashpad-handler-pid=261 --enable-crash-reporter=, --change-stack-guard-on-fork=enable --enable-chrome-runtime --user-data-dir=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/config/htmlcache --user-agent-product=Valve Steam Client --buildid=1792618285 --steamid=0 --valve-initial-threadpool-size=20",
+      "nspid": "NSpid:\t18294\t269"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.561097",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 18334 running in nested user namespace",
+    "evidence": {
+      "pid": 18334,
+      "cmdline": "/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/ubuntu12_64/steamwebhelper --type=zygote --no-zygote-sandbox --no-sandbox --crashpad-handler-pid=261 --enable-crash-reporter=, --change-stack-guard-on-fork=enable --enable-chrome-runtime --user-data-dir=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/config/htmlcache --user-agent-product=Valve Steam Client --buildid=1792618285 --steamid=0 --valve-initial-threadpool-size=20",
+      "nspid": "NSpid:\t18334\t286"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.562150",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 18421 running in nested user namespace",
+    "evidence": {
+      "pid": 18421,
+      "cmdline": "/proc/self/exe --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --crashpad-handler-pid=261 --enable-crash-reporter=, --change-stack-guard-on-fork=enable --enable-chrome-runtime --user-data-dir=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/config/htmlcache --user-agent-product=Valve Steam Client --buildid=1792618285 --steamid=0 --valve-initial-threadpool-size=20 --shared-files --field-trial-handle=3,i,8367499819786322882,4141403699693078247,262144 --enable-features=PlatformHEVCDecoderSupport --disable-features=BlockPromptsIfIgnoredOften,SpareRendererForSitePerProcess,ValveFFmpegAllowLowDelayHEVC,WebUsbDeviceDetection,WinRetrieveSuggestionsOnlyOnDemand --variations-seed-version --log-file=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/logs/cef_log.txt",
+      "nspid": "NSpid:\t18421\t297"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.562885",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 18427 running in nested user namespace",
+    "evidence": {
+      "pid": 18427,
+      "cmdline": "/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/ubuntu12_64/steamwebhelper --type=zygote --no-sandbox --crashpad-handler-pid=261 --enable-crash-reporter=, --change-stack-guard-on-fork=enable --enable-chrome-runtime --user-data-dir=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/config/htmlcache --user-agent-product=Valve Steam Client --buildid=1792618285 --steamid=0 --valve-initial-threadpool-size=20",
+      "nspid": "NSpid:\t18427\t303"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.563575",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 18444 running in nested user namespace",
+    "evidence": {
+      "pid": 18444,
+      "cmdline": "/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/ubuntu12_64/steamwebhelper --type=zygote --no-sandbox --crashpad-handler-pid=261 --enable-crash-reporter=, --change-stack-guard-on-fork=enable --enable-chrome-runtime --user-data-dir=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/config/htmlcache --user-agent-product=Valve Steam Client --buildid=1792618285 --steamid=0 --valve-initial-threadpool-size=20",
+      "nspid": "NSpid:\t18444\t320"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.564827",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 19177 running in nested user namespace",
+    "evidence": {
+      "pid": 19177,
+      "cmdline": "/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/ubuntu12_64/steamwebhelper --type=zygote --no-sandbox --crashpad-handler-pid=261 --enable-crash-reporter=, --change-stack-guard-on-fork=enable --enable-chrome-runtime --user-data-dir=/home/odessa/.var/app/com.valvesoftware.Steam/.local/share/Steam/config/htmlcache --user-agent-product=Valve Steam Client --buildid=1792618285 --steamid=0 --valve-initial-threadpool-size=20",
+      "nspid": "NSpid:\t19177\t561"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.571606",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 874661 running in nested user namespace",
+    "evidence": {
+      "pid": 874661,
+      "cmdline": "postgres: gitea gitea 172.23.0.2(44050) idle",
+      "nspid": "NSpid:\t874661\t32844"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.573064",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 1233415 running in nested user namespace",
+    "evidence": {
+      "pid": 1233415,
+      "cmdline": "postgres: postgres dawarich_development 172.27.0.2(34810) idle",
+      "nspid": "NSpid:\t1233415\t23708"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.578093",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 2329765 running in nested user namespace",
+    "evidence": {
+      "pid": 2329765,
+      "cmdline": "postgres: gitea gitea 172.23.0.2(36788) idle",
+      "nspid": "NSpid:\t2329765\t88305"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.578451",
+    "agent": "syscall_monitor",
+    "category": "suspicious_caps",
+    "severity": "medium",
+    "description": "Non-system process with CAP_NET_ADMIN",
+    "evidence": {
+      "pid": 2351092,
+      "cmdline": "login -- odessa",
+      "cap_eff": "0x1ffffffffff"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.578630",
+    "agent": "syscall_monitor",
+    "category": "suspicious_caps",
+    "severity": "medium",
+    "description": "Non-system process with CAP_NET_ADMIN",
+    "evidence": {
+      "pid": 2351232,
+      "cmdline": "login -- odessa",
+      "cap_eff": "0x1ffffffffff"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.580808",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 2438787 running in nested user namespace",
+    "evidence": {
+      "pid": 2438787,
+      "cmdline": "postgres: gitlab gitlabhq_production [local] idle",
+      "nspid": "NSpid:\t2438787\t12029"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.581686",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 2451444 running in nested user namespace",
+    "evidence": {
+      "pid": 2451444,
+      "cmdline": "postgres: gitlab gitlabhq_production [local] idle",
+      "nspid": "NSpid:\t2451444\t12088"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.582486",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 2471408 running in nested user namespace",
+    "evidence": {
+      "pid": 2471408,
+      "cmdline": "postgres: gitlab gitlabhq_production [local] idle",
+      "nspid": "NSpid:\t2471408\t12172"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.583467",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 2486600 running in nested user namespace",
+    "evidence": {
+      "pid": 2486600,
+      "cmdline": "postgres: gitlab gitlabhq_production [local] idle",
+      "nspid": "NSpid:\t2486600\t12233"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.584082",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 2503585 running in nested user namespace",
+    "evidence": {
+      "pid": 2503585,
+      "cmdline": "postgres: gitlab gitlabhq_production [local] idle",
+      "nspid": "NSpid:\t2503585\t12295"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.585020",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 2530366 running in nested user namespace",
+    "evidence": {
+      "pid": 2530366,
+      "cmdline": "postgres: gitlab gitlabhq_production [local] idle",
+      "nspid": "NSpid:\t2530366\t12382"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.585619",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 2531845 running in nested user namespace",
+    "evidence": {
+      "pid": 2531845,
+      "cmdline": "postgres: gitlab gitlabhq_production [local] idle",
+      "nspid": "NSpid:\t2531845\t12392"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.585810",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 2542774 running in nested user namespace",
+    "evidence": {
+      "pid": 2542774,
+      "cmdline": "/bin/sh /opt/gitlab/embedded/bin/gitlab-logrotate-wrapper",
+      "nspid": "NSpid:\t2542774\t12437"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.585887",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 2555237 running in nested user namespace",
+    "evidence": {
+      "pid": 2555237,
+      "cmdline": "postgres: gitlab gitlabhq_production [local] idle",
+      "nspid": "NSpid:\t2555237\t12498"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.586268",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 2563707 running in nested user namespace",
+    "evidence": {
+      "pid": 2563707,
+      "cmdline": "postgres: gitlab gitlabhq_production [local] idle",
+      "nspid": "NSpid:\t2563707\t12538"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.586447",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 2565991 running in nested user namespace",
+    "evidence": {
+      "pid": 2565991,
+      "cmdline": "sleep 3000",
+      "nspid": "NSpid:\t2565991\t12541"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.586523",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 2571313 running in nested user namespace",
+    "evidence": {
+      "pid": 2571313,
+      "cmdline": "postgres: gitlab gitlabhq_production [local] idle",
+      "nspid": "NSpid:\t2571313\t12560"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.587449",
+    "agent": "syscall_monitor",
+    "category": "namespace_escape",
+    "severity": "high",
+    "description": "Process 2584186 running in nested user namespace",
+    "evidence": {
+      "pid": 2584186,
+      "cmdline": "postgres: miniflux miniflux 172.28.0.2(59142) idle",
+      "nspid": "NSpid:\t2584186\t50313"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.588347",
+    "agent": "syscall_monitor",
+    "category": "suspicious_caps",
+    "severity": "medium",
+    "description": "Non-system process with CAP_NET_ADMIN",
+    "evidence": {
+      "pid": 2600278,
+      "cmdline": "/bin/bash /opt/harness.sh",
+      "cap_eff": "0x1ffffffffff"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.588400",
+    "agent": "syscall_monitor",
+    "category": "suspicious_caps",
+    "severity": "medium",
+    "description": "Non-system process with CAP_NET_ADMIN",
+    "evidence": {
+      "pid": 2600294,
+      "cmdline": "auditd -l",
+      "cap_eff": "0x1ffffffffff"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.588587",
+    "agent": "syscall_monitor",
+    "category": "suspicious_caps",
+    "severity": "medium",
+    "description": "Non-system process with CAP_NET_ADMIN",
+    "evidence": {
+      "pid": 2600303,
+      "cmdline": "python3 /opt/blue-team/syscall_monitor.py --output /opt/reports/iteration-4/syscall_detections.json",
+      "cap_eff": "0x1ffffffffff"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.588660",
+    "agent": "syscall_monitor",
+    "category": "suspicious_caps",
+    "severity": "medium",
+    "description": "Non-system process with CAP_NET_ADMIN",
+    "evidence": {
+      "pid": 2600304,
+      "cmdline": "python3 /opt/blue-team/fs_watcher.py --output /opt/reports/iteration-4/fs_detections.json",
+      "cap_eff": "0x1ffffffffff"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.588720",
+    "agent": "syscall_monitor",
+    "category": "suspicious_caps",
+    "severity": "medium",
+    "description": "Non-system process with CAP_NET_ADMIN",
+    "evidence": {
+      "pid": 2600305,
+      "cmdline": "python3 /opt/blue-team/audit_analyzer.py --output /opt/reports/iteration-4/audit_detections.json",
+      "cap_eff": "0x1ffffffffff"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.588778",
+    "agent": "syscall_monitor",
+    "category": "suspicious_caps",
+    "severity": "medium",
+    "description": "Non-system process with CAP_NET_ADMIN",
+    "evidence": {
+      "pid": 2600306,
+      "cmdline": "python3 /opt/blue-team/process_monitor.py --output /opt/reports/iteration-4/process_detections.json",
+      "cap_eff": "0x1ffffffffff"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.588839",
+    "agent": "syscall_monitor",
+    "category": "suspicious_caps",
+    "severity": "medium",
+    "description": "Non-system process with CAP_NET_ADMIN",
+    "evidence": {
+      "pid": 2600307,
+      "cmdline": "python3 /opt/blue-team/netlink_monitor.py --output /opt/reports/iteration-4/netlink_detections.json",
+      "cap_eff": "0x1ffffffffff"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.588896",
+    "agent": "syscall_monitor",
+    "category": "suspicious_caps",
+    "severity": "medium",
+    "description": "Non-system process with CAP_NET_ADMIN",
+    "evidence": {
+      "pid": 2600308,
+      "cmdline": "python3 /opt/blue-team/binary_scanner.py --output /opt/reports/iteration-4/binary_detections.json",
+      "cap_eff": "0x1ffffffffff"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:46.588953",
+    "agent": "syscall_monitor",
+    "category": "suspicious_caps",
+    "severity": "medium",
+    "description": "Non-system process with CAP_NET_ADMIN",
+    "evidence": {
+      "pid": 2600309,
+      "cmdline": "sleep 2",
+      "cap_eff": "0x1ffffffffff"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:48.197844",
+    "agent": "syscall_monitor",
+    "category": "suspicious_caps",
+    "severity": "medium",
+    "description": "Non-system process with CAP_NET_ADMIN",
+    "evidence": {
+      "pid": 2600724,
+      "cmdline": "bash /opt/red-team/run_payload_v4.sh /opt/reports/iteration-4",
+      "cap_eff": "0x1ffffffffff"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:48.197920",
+    "agent": "syscall_monitor",
+    "category": "suspicious_caps",
+    "severity": "medium",
+    "description": "Non-system process with CAP_NET_ADMIN",
+    "evidence": {
+      "pid": 2600725,
+      "cmdline": "tee /opt/reports/iteration-4/red_team.log",
+      "cap_eff": "0x1ffffffffff"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:48.197971",
+    "agent": "syscall_monitor",
+    "category": "suspicious_caps",
+    "severity": "medium",
+    "description": "Non-system process with CAP_NET_ADMIN",
+    "evidence": {
+      "pid": 2600730,
+      "cmdline": "/opt/nfttables/nfttables scan -v",
+      "cap_eff": "0x1ffffffffff"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:48.198022",
+    "agent": "syscall_monitor",
+    "category": "suspicious_caps",
+    "severity": "medium",
+    "description": "Non-system process with CAP_NET_ADMIN",
+    "evidence": {
+      "pid": 2600731,
+      "cmdline": "head -40",
+      "cap_eff": "0x1ffffffffff"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:55:48.734293",
+    "agent": "syscall_monitor",
+    "category": "suspicious_caps",
+    "severity": "medium",
+    "description": "Non-system process with CAP_NET_ADMIN",
+    "evidence": {
+      "pid": 2600741,
+      "cmdline": "sleep 5",
+      "cap_eff": "0x1ffffffffff"
+    }
+  }
+]

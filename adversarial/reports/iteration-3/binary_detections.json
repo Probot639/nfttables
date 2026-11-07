@@ -1,0 +1,218 @@
+[
+  {
+    "timestamp": "2026-11-07T20:26:55.500703",
+    "agent": "binary_scanner",
+    "category": "kernel_exploit_string",
+    "severity": "critical",
+    "description": "PID 0 (?): References modprobe_path (kernel exploit technique)",
+    "evidence": {
+      "pid": 0,
+      "exe": "/opt/nfttables/nfttables",
+      "cmdline": "?"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:26:55.500711",
+    "agent": "binary_scanner",
+    "category": "kernel_exploit_string",
+    "severity": "critical",
+    "description": "PID 0 (?): References prepare_kernel_cred (privilege escalation)",
+    "evidence": {
+      "pid": 0,
+      "exe": "/opt/nfttables/nfttables",
+      "cmdline": "?"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:26:55.500713",
+    "agent": "binary_scanner",
+    "category": "kernel_exploit_string",
+    "severity": "critical",
+    "description": "PID 0 (?): References commit_creds (privilege escalation)",
+    "evidence": {
+      "pid": 0,
+      "exe": "/opt/nfttables/nfttables",
+      "cmdline": "?"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:26:55.500714",
+    "agent": "binary_scanner",
+    "category": "kernel_exploit_string",
+    "severity": "high",
+    "description": "PID 0 (?): References core_pattern (kernel exploit technique)",
+    "evidence": {
+      "pid": 0,
+      "exe": "/opt/nfttables/nfttables",
+      "cmdline": "?"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:26:55.500714",
+    "agent": "binary_scanner",
+    "category": "kernel_exploit_string",
+    "severity": "high",
+    "description": "PID 0 (?): References poweroff_cmd (kernel exploit technique)",
+    "evidence": {
+      "pid": 0,
+      "exe": "/opt/nfttables/nfttables",
+      "cmdline": "?"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:26:55.500715",
+    "agent": "binary_scanner",
+    "category": "heap_spray_string",
+    "severity": "high",
+    "description": "PID 0 (?): References cross-cache technique",
+    "evidence": {
+      "pid": 0,
+      "exe": "/opt/nfttables/nfttables",
+      "cmdline": "?"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:26:55.500716",
+    "agent": "binary_scanner",
+    "category": "heap_spray_string",
+    "severity": "high",
+    "description": "PID 0 (?): References heap spray",
+    "evidence": {
+      "pid": 0,
+      "exe": "/opt/nfttables/nfttables",
+      "cmdline": "?"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:26:55.500717",
+    "agent": "binary_scanner",
+    "category": "exploit_technique_string",
+    "severity": "critical",
+    "description": "PID 0 (?): References dirty pagetable technique",
+    "evidence": {
+      "pid": 0,
+      "exe": "/opt/nfttables/nfttables",
+      "cmdline": "?"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:26:55.500718",
+    "agent": "binary_scanner",
+    "category": "nftables_exploit_string",
+    "severity": "high",
+    "description": "PID 0 (?): References nft_verdict (nftables internals)",
+    "evidence": {
+      "pid": 0,
+      "exe": "/opt/nfttables/nfttables",
+      "cmdline": "?"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:26:55.500720",
+    "agent": "binary_scanner",
+    "category": "nftables_exploit_string",
+    "severity": "high",
+    "description": "PID 0 (?): References nftables message types",
+    "evidence": {
+      "pid": 0,
+      "exe": "/opt/nfttables/nfttables",
+      "cmdline": "?"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:26:55.500720",
+    "agent": "binary_scanner",
+    "category": "cve_reference",
+    "severity": "high",
+    "description": "PID 0 (?): Contains CVE identifier",
+    "evidence": {
+      "pid": 0,
+      "exe": "/opt/nfttables/nfttables",
+      "cmdline": "?"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:26:55.500721",
+    "agent": "binary_scanner",
+    "category": "namespace_string",
+    "severity": "medium",
+    "description": "PID 0 (?): References user namespace creation",
+    "evidence": {
+      "pid": 0,
+      "exe": "/opt/nfttables/nfttables",
+      "cmdline": "?"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:26:55.500722",
+    "agent": "binary_scanner",
+    "category": "namespace_string",
+    "severity": "medium",
+    "description": "PID 0 (?): References network namespace creation",
+    "evidence": {
+      "pid": 0,
+      "exe": "/opt/nfttables/nfttables",
+      "cmdline": "?"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:26:55.500722",
+    "agent": "binary_scanner",
+    "category": "generic_exploit_string",
+    "severity": "medium",
+    "description": "PID 0 (?): Contains 'exploit' string",
+    "evidence": {
+      "pid": 0,
+      "exe": "/opt/nfttables/nfttables",
+      "cmdline": "?"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:26:55.500723",
+    "agent": "binary_scanner",
+    "category": "generic_exploit_string",
+    "severity": "high",
+    "description": "PID 0 (?): Contains privilege escalation reference",
+    "evidence": {
+      "pid": 0,
+      "exe": "/opt/nfttables/nfttables",
+      "cmdline": "?"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:26:55.500725",
+    "agent": "binary_scanner",
+    "category": "generic_exploit_string",
+    "severity": "high",
+    "description": "PID 0 (?): Contains root shell reference",
+    "evidence": {
+      "pid": 0,
+      "exe": "/opt/nfttables/nfttables",
+      "cmdline": "?"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:26:55.500726",
+    "agent": "binary_scanner",
+    "category": "kernel_info_access",
+    "severity": "medium",
+    "description": "PID 0 (?): Accesses /proc/kallsyms",
+    "evidence": {
+      "pid": 0,
+      "exe": "/opt/nfttables/nfttables",
+      "cmdline": "?"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:26:55.500727",
+    "agent": "binary_scanner",
+    "category": "kernel_info_access",
+    "severity": "medium",
+    "description": "PID 0 (?): Accesses /proc/slabinfo",
+    "evidence": {
+      "pid": 0,
+      "exe": "/opt/nfttables/nfttables",
+      "cmdline": "?"
+    }
+  }
+]

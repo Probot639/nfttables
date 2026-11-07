@@ -1,0 +1,120 @@
+{
+  "timestamp": "2026-11-07T20:17:44.538149",
+  "summary": {
+    "total_detections": 5822,
+    "total_observables": 11,
+    "detected_observables": 6,
+    "missed_observables": 5,
+    "detection_rate": 54.5,
+    "grade": "D"
+  },
+  "by_severity": {
+    "medium": 23,
+    "critical": 2,
+    "high": 5797
+  },
+  "by_agent": {
+    "fs_watcher": 10,
+    "process_monitor": 1385,
+    "syscall_monitor": 371,
+    "netlink_monitor": 4056
+  },
+  "detected": {
+    "heap_spray_mmap": {
+      "description": "Burst of mmap(MAP_POPULATE) for PTE spray",
+      "detection_count": 3,
+      "first_detection": "2026-11-07T20:17:31.617746",
+      "detecting_agents": [
+        "syscall_monitor"
+      ]
+    },
+    "heap_spray_pipe": {
+      "description": "Burst of pipe() calls for pipe spray",
+      "detection_count": 703,
+      "first_detection": "2026-11-07T20:17:31.321838",
+      "detecting_agents": [
+        "process_monitor"
+      ]
+    },
+    "namespace_creation": {
+      "description": "Creates user+net namespace via unshare()",
+      "detection_count": 5104,
+      "first_detection": "2026-11-07T20:17:31.326847",
+      "detecting_agents": [
+        "syscall_monitor",
+        "netlink_monitor",
+        "process_monitor"
+      ]
+    },
+    "netlink_socket": {
+      "description": "Opens NETLINK_NETFILTER socket",
+      "detection_count": 2,
+      "first_detection": "2026-11-07T20:17:31.316855",
+      "detecting_agents": [
+        "syscall_monitor"
+      ]
+    },
+    "suid_creation": {
+      "description": "Creates SUID binary (/tmp/.nft_sh)",
+      "detection_count": 1,
+      "first_detection": "2026-11-07T20:17:34.594648",
+      "detecting_agents": [
+        "fs_watcher"
+      ]
+    },
+    "tmp_file_creation": {
+      "description": "Creates files in /tmp (.nft_mint, .nft_sh, .nft_trigger)",
+      "detection_count": 9,
+      "first_detection": "2026-11-07T20:17:34.594637",
+      "detecting_agents": [
+        "fs_watcher"
+      ]
+    }
+  },
+  "missed": {
+    "heap_spray_ipc": "Burst of msgsnd() calls for heap spray",
+    "modprobe_overwrite": "Overwrites modprobe_path in kernel memory",
+    "nftables_objects": "Creates/deletes nftables tables, chains, sets, rules",
+    "privilege_escalation": "Process gains root credentials (uid 0)",
+    "strings_in_binary": "Distinctive strings (BoredApe, LazyMint, etc.)"
+  },
+  "evasion_recommendations": [
+    {
+      "target": "heap_spray_pipe",
+      "recommendation": "Reduce pipe count, use alternative spray primitives (skb, key)",
+      "difficulty": "medium"
+    },
+    {
+      "target": "tmp_file_creation",
+      "recommendation": "Use memfd_create() instead of /tmp files, or randomize names",
+      "difficulty": "easy"
+    },
+    {
+      "target": "suid_creation",
+      "recommendation": "Use commit_creds ROP path instead of SUID shell, or use memfd",
+      "difficulty": "hard"
+    },
+    {
+      "target": "namespace_creation",
+      "recommendation": "Namespace creation is inherent to the technique. Consider alternative CAP_NET_ADMIN acquisition if available.",
+      "difficulty": "hard"
+    }
+  ],
+  "detection_improvements": [
+    {
+      "observable": "strings_in_binary",
+      "improvement": "Add static binary analysis: scan executable pages for known exploit tool signatures",
+      "implementation": "New agent: binary_scanner.py that strings-checks /proc/pid/exe on new process"
+    },
+    {
+      "observable": "modprobe_overwrite",
+      "improvement": "Increase modprobe_path polling frequency to sub-second",
+      "implementation": "Check /proc/sys/kernel/modprobe every 200ms instead of 1s"
+    },
+    {
+      "observable": "privilege_escalation",
+      "improvement": "Track UID changes in real-time via audit or eBPF",
+      "implementation": "Add auditd rule for setuid/setgid, or eBPF probe on commit_creds"
+    }
+  ]
+}

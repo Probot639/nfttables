@@ -1,0 +1,121 @@
+{
+  "timestamp": "2026-11-07T20:27:08.702634",
+  "summary": {
+    "total_detections": 5998,
+    "total_observables": 11,
+    "detected_observables": 8,
+    "missed_observables": 3,
+    "detection_rate": 72.7,
+    "grade": "C"
+  },
+  "by_severity": {
+    "high": 5772,
+    "medium": 32,
+    "critical": 194
+  },
+  "by_agent": {
+    "netlink_monitor": 3711,
+    "binary_scanner": 18,
+    "fs_watcher": 10,
+    "process_monitor": 1389,
+    "audit_analyzer": 497,
+    "syscall_monitor": 373
+  },
+  "detected": {
+    "heap_spray_mmap": {
+      "description": "Burst of mmap(MAP_POPULATE) for PTE spray",
+      "detection_count": 3,
+      "first_detection": "2026-11-07T20:26:55.840642",
+      "detecting_agents": [
+        "syscall_monitor"
+      ]
+    },
+    "heap_spray_pipe": {
+      "description": "Burst of pipe() calls for pipe spray",
+      "detection_count": 706,
+      "first_detection": "2026-11-07T20:26:55.524087",
+      "detecting_agents": [
+        "process_monitor"
+      ]
+    },
+    "modprobe_overwrite": {
+      "description": "Overwrites modprobe_path in kernel memory",
+      "detection_count": 10,
+      "first_detection": "2026-11-07T20:26:59.714543",
+      "detecting_agents": [
+        "fs_watcher"
+      ]
+    },
+    "namespace_creation": {
+      "description": "Creates user+net namespace via unshare()",
+      "detection_count": 5064,
+      "first_detection": "2026-11-07T20:26:55.527758",
+      "detecting_agents": [
+        "syscall_monitor",
+        "audit_analyzer",
+        "netlink_monitor",
+        "process_monitor"
+      ]
+    },
+    "netlink_socket": {
+      "description": "Opens NETLINK_NETFILTER socket",
+      "detection_count": 2,
+      "first_detection": "2026-11-07T20:26:55.524776",
+      "detecting_agents": [
+        "syscall_monitor"
+      ]
+    },
+    "nftables_objects": {
+      "description": "Creates/deletes nftables tables, chains, sets, rules",
+      "detection_count": 15,
+      "first_detection": "2026-11-07T20:26:55.507767",
+      "detecting_agents": [
+        "netlink_monitor"
+      ]
+    },
+    "privilege_escalation": {
+      "description": "Process gains root credentials (uid 0)",
+      "detection_count": 180,
+      "first_detection": "2026-11-07T20:26:56.029694",
+      "detecting_agents": [
+        "audit_analyzer"
+      ]
+    },
+    "strings_in_binary": {
+      "description": "Distinctive strings (BoredApe, LazyMint, etc.)",
+      "detection_count": 18,
+      "first_detection": "2026-11-07T20:26:55.500703",
+      "detecting_agents": [
+        "binary_scanner"
+      ]
+    }
+  },
+  "missed": {
+    "heap_spray_ipc": "Burst of msgsnd() calls for heap spray",
+    "suid_creation": "Creates SUID binary (/tmp/.nft_sh)",
+    "tmp_file_creation": "Creates files in /tmp (.nft_mint, .nft_sh, .nft_trigger)"
+  },
+  "evasion_recommendations": [
+    {
+      "target": "nftables_objects",
+      "recommendation": "Rename tables/chains/sets to common system names to blend in",
+      "difficulty": "easy"
+    },
+    {
+      "target": "heap_spray_pipe",
+      "recommendation": "Reduce pipe count, use alternative spray primitives (skb, key)",
+      "difficulty": "medium"
+    },
+    {
+      "target": "namespace_creation",
+      "recommendation": "Namespace creation is inherent to the technique. Consider alternative CAP_NET_ADMIN acquisition if available.",
+      "difficulty": "hard"
+    },
+    {
+      "target": "modprobe_overwrite",
+      "recommendation": "Restore modprobe_path immediately after payload executes, or use core_pattern/poweroff_cmd instead",
+      "difficulty": "medium"
+    }
+  ],
+  "detection_improvements": []
+}

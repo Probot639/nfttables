@@ -1,0 +1,34 @@
+
+  [1mNFTtables[0m[2m v0.1.0[0m
+  [2mBored Ape Netfilter Club[0m
+  [2m"Not your keys, not your kernel"[0m
+
+⛏️ Scanning kernel environment...
+
+
+🔲 [1mResolved Offsets[0m
+
+  Kernel base:          [31mno[0m
+  modprobe_path:        [31mno[0m
+  core_pattern:         [31mno[0m
+  prepare_kernel_cred:  [31mno[0m
+  commit_creds:         [31mno[0m
+  swapgs trampoline:    [31mno[0m
+
+  [1mGadgets:[0m
+  pop rdi; ret:         [31mno[0m
+  pop rsi; ret:         [31mno[0m
+  pop rdx; ret:         [31mno[0m
+  pop rax; ret:         [31mno[0m
+  xchg rax,rsp; ret:    [31mno[0m
+  mov rdi,rax; call:    [31mno[0m
+
+  [1mSlab:[0m
+  nft_chain:  [31munknown[0m
+  nft_set:    [31munknown[0m
+
+🦍 [1mExploit readiness:[0m
+
+  #1086  [31mkernel not vulnerable[0m
+  #32233 [31mkernel not vulnerable[0m
+

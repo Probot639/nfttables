@@ -1,0 +1,16 @@
+
+  [1mNFTtables[0m[2m v0.1.0[0m
+  [2mBored Ape Netfilter Club[0m
+  [2m"Not your keys, not your kernel"[0m
+
+[2m(dry run: probing vulnerability, not exploiting)[0m
+⚠️ Kernel 7.3.0-4-cachyos may be outside the affected range
+  [2m(proceeding anyway, distro backports exist)[0m
+
+🦍 [1mBored Ape #1086[0m[2m (CVE-2024-1086: nft_verdict_init double-free)[0m
+[2m  affected: 3.15 .. 6.7.1 | technique: dirty pagetable[0m
+
+⛏️ Mining block... setting up namespace
+⛓️ Deploying smart contract to nftables...
+❌ Contract deployment failed: Numerical result out of range
+❌ Exploit failed (block rejected by consensus)

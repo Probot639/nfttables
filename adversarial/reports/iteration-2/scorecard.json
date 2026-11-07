@@ -1,0 +1,136 @@
+{
+  "timestamp": "2026-11-07T20:25:51.474746",
+  "summary": {
+    "total_detections": 6403,
+    "total_observables": 11,
+    "detected_observables": 8,
+    "missed_observables": 3,
+    "detection_rate": 72.7,
+    "grade": "C"
+  },
+  "by_severity": {
+    "medium": 30,
+    "critical": 168,
+    "high": 6205
+  },
+  "by_agent": {
+    "fs_watcher": 12,
+    "process_monitor": 1447,
+    "syscall_monitor": 371,
+    "audit_analyzer": 526,
+    "netlink_monitor": 4047
+  },
+  "detected": {
+    "heap_spray_mmap": {
+      "description": "Burst of mmap(MAP_POPULATE) for PTE spray",
+      "detection_count": 3,
+      "first_detection": "2026-11-07T20:25:37.632915",
+      "detecting_agents": [
+        "syscall_monitor"
+      ]
+    },
+    "heap_spray_pipe": {
+      "description": "Burst of pipe() calls for pipe spray",
+      "detection_count": 703,
+      "first_detection": "2026-11-07T20:25:37.316336",
+      "detecting_agents": [
+        "process_monitor"
+      ]
+    },
+    "namespace_creation": {
+      "description": "Creates user+net namespace via unshare()",
+      "detection_count": 5501,
+      "first_detection": "2026-11-07T20:25:37.321278",
+      "detecting_agents": [
+        "syscall_monitor",
+        "audit_analyzer",
+        "netlink_monitor",
+        "process_monitor"
+      ]
+    },
+    "netlink_socket": {
+      "description": "Opens NETLINK_NETFILTER socket",
+      "detection_count": 3,
+      "first_detection": "2026-11-07T20:25:37.286461",
+      "detecting_agents": [
+        "syscall_monitor"
+      ]
+    },
+    "nftables_objects": {
+      "description": "Creates/deletes nftables tables, chains, sets, rules",
+      "detection_count": 15,
+      "first_detection": "2026-11-07T20:25:37.285430",
+      "detecting_agents": [
+        "netlink_monitor"
+      ]
+    },
+    "privilege_escalation": {
+      "description": "Process gains root credentials (uid 0)",
+      "detection_count": 166,
+      "first_detection": "2026-11-07T20:25:39.829317",
+      "detecting_agents": [
+        "audit_analyzer"
+      ]
+    },
+    "suid_creation": {
+      "description": "Creates SUID binary (/tmp/.nft_sh)",
+      "detection_count": 1,
+      "first_detection": "2026-11-07T20:25:41.482595",
+      "detecting_agents": [
+        "fs_watcher"
+      ]
+    },
+    "tmp_file_creation": {
+      "description": "Creates files in /tmp (.nft_mint, .nft_sh, .nft_trigger)",
+      "detection_count": 11,
+      "first_detection": "2026-11-07T20:25:41.482586",
+      "detecting_agents": [
+        "fs_watcher"
+      ]
+    }
+  },
+  "missed": {
+    "heap_spray_ipc": "Burst of msgsnd() calls for heap spray",
+    "modprobe_overwrite": "Overwrites modprobe_path in kernel memory",
+    "strings_in_binary": "Distinctive strings (BoredApe, LazyMint, etc.)"
+  },
+  "evasion_recommendations": [
+    {
+      "target": "nftables_objects",
+      "recommendation": "Rename tables/chains/sets to common system names to blend in",
+      "difficulty": "easy"
+    },
+    {
+      "target": "heap_spray_pipe",
+      "recommendation": "Reduce pipe count, use alternative spray primitives (skb, key)",
+      "difficulty": "medium"
+    },
+    {
+      "target": "tmp_file_creation",
+      "recommendation": "Use memfd_create() instead of /tmp files, or randomize names",
+      "difficulty": "easy"
+    },
+    {
+      "target": "suid_creation",
+      "recommendation": "Use commit_creds ROP path instead of SUID shell, or use memfd",
+      "difficulty": "hard"
+    },
+    {
+      "target": "namespace_creation",
+      "recommendation": "Namespace creation is inherent to the technique. Consider alternative CAP_NET_ADMIN acquisition if available.",
+      "difficulty": "hard"
+    }
+  ],
+  "detection_improvements": [
+    {
+      "observable": "strings_in_binary",
+      "improvement": "Add static binary analysis: scan executable pages for known exploit tool signatures",
+      "implementation": "New agent: binary_scanner.py that strings-checks /proc/pid/exe on new process"
+    },
+    {
+      "observable": "modprobe_overwrite",
+      "improvement": "Increase modprobe_path polling frequency to sub-second",
+      "implementation": "Check /proc/sys/kernel/modprobe every 200ms instead of 1s"
+    }
+  ]
+}

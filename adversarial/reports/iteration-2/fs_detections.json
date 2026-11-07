@@ -1,0 +1,132 @@
+[
+  {
+    "timestamp": "2026-11-07T20:25:41.482586",
+    "agent": "fs_watcher",
+    "category": "hidden_tmpfile",
+    "severity": "medium",
+    "description": "Hidden file created in temp directory: /dev/shm/.sb38c6a7a",
+    "evidence": {
+      "path": "/dev/shm/.sb38c6a7a"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:25:41.482595",
+    "agent": "fs_watcher",
+    "category": "suid_created",
+    "severity": "critical",
+    "description": "SUID binary created: /dev/shm/.sb38c6a7a",
+    "evidence": {
+      "path": "/dev/shm/.sb38c6a7a",
+      "mode": "0o104755",
+      "owner": 0
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:25:41.482596",
+    "agent": "fs_watcher",
+    "category": "executable_in_tmp",
+    "severity": "high",
+    "description": "Executable created in temp directory: /dev/shm/.sb38c6a7a",
+    "evidence": {
+      "path": "/dev/shm/.sb38c6a7a",
+      "mode": "0o104755"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:25:41.482597",
+    "agent": "fs_watcher",
+    "category": "elf_in_tmp",
+    "severity": "high",
+    "description": "ELF binary created in temp directory: /dev/shm/.sb38c6a7a",
+    "evidence": {
+      "path": "/dev/shm/.sb38c6a7a",
+      "size": 125688
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:25:41.482612",
+    "agent": "fs_watcher",
+    "category": "hidden_tmpfile",
+    "severity": "medium",
+    "description": "Hidden file created in temp directory: /dev/shm/.tb38c6a7a",
+    "evidence": {
+      "path": "/dev/shm/.tb38c6a7a"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:25:41.482613",
+    "agent": "fs_watcher",
+    "category": "executable_in_tmp",
+    "severity": "high",
+    "description": "Executable created in temp directory: /dev/shm/.tb38c6a7a",
+    "evidence": {
+      "path": "/dev/shm/.tb38c6a7a",
+      "mode": "0o100755"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:25:41.482614",
+    "agent": "fs_watcher",
+    "category": "unknown_magic_executable",
+    "severity": "critical",
+    "description": "Executable with unknown magic bytes in temp: /dev/shm/.tb38c6a7a",
+    "evidence": {
+      "path": "/dev/shm/.tb38c6a7a",
+      "magic": "b42def69"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:25:41.482627",
+    "agent": "fs_watcher",
+    "category": "hidden_tmpfile",
+    "severity": "medium",
+    "description": "Hidden file created in temp directory: /dev/shm/.xb38c6a7a",
+    "evidence": {
+      "path": "/dev/shm/.xb38c6a7a"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:25:41.482628",
+    "agent": "fs_watcher",
+    "category": "executable_in_tmp",
+    "severity": "high",
+    "description": "Executable created in temp directory: /dev/shm/.xb38c6a7a",
+    "evidence": {
+      "path": "/dev/shm/.xb38c6a7a",
+      "mode": "0o100755"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:25:41.482628",
+    "agent": "fs_watcher",
+    "category": "script_in_tmp",
+    "severity": "medium",
+    "description": "Script created in temp directory: /dev/shm/.xb38c6a7a",
+    "evidence": {
+      "path": "/dev/shm/.xb38c6a7a",
+      "header": "#!/bin/sh\ncp /bin/sh /dev/shm/.sb38c6a7a\nchmod u+s /dev/shm/.sb3"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:25:41.482682",
+    "agent": "fs_watcher",
+    "category": "executable_in_tmp",
+    "severity": "high",
+    "description": "Executable created in temp directory: /run/shm",
+    "evidence": {
+      "path": "/run/shm",
+      "mode": "0o41777"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:25:44.490195",
+    "agent": "fs_watcher",
+    "category": "executable_in_tmp",
+    "severity": "high",
+    "description": "Executable created in temp directory: /run/shm",
+    "evidence": {
+      "path": "/run/shm",
+      "mode": "0o41777"
+    }
+  }
+]

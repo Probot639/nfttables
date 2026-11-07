@@ -1,0 +1,9 @@
+
+  [1mNFTtables[0m[2m v0.1.0[0m
+  [2mBored Ape Netfilter Club[0m
+  [2m"Not your keys, not your kernel"[0m
+
+[2m(dry run: probing vulnerability, not exploiting)[0m
+⛏️ Auto-selecting exploit for kernel 7.3.0-4-cachyos...
+❌ No exploit available for this kernel version
+  [2mrun 'collections' to see supported ranges[0m

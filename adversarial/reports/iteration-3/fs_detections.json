@@ -1,0 +1,112 @@
+[
+  {
+    "timestamp": "2026-11-07T20:26:59.714543",
+    "agent": "fs_watcher",
+    "category": "modprobe_tampered",
+    "severity": "critical",
+    "description": "modprobe_path changed to non-standard value: /tmp/.payload",
+    "evidence": {
+      "current": "/tmp/.payload",
+      "expected": "/sbin/modprobe"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:26:59.915008",
+    "agent": "fs_watcher",
+    "category": "modprobe_tampered",
+    "severity": "critical",
+    "description": "modprobe_path changed to non-standard value: /tmp/.payload",
+    "evidence": {
+      "current": "/tmp/.payload",
+      "expected": "/sbin/modprobe"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:27:00.115449",
+    "agent": "fs_watcher",
+    "category": "modprobe_tampered",
+    "severity": "critical",
+    "description": "modprobe_path changed to non-standard value: /tmp/.payload",
+    "evidence": {
+      "current": "/tmp/.payload",
+      "expected": "/sbin/modprobe"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:27:00.316010",
+    "agent": "fs_watcher",
+    "category": "modprobe_tampered",
+    "severity": "critical",
+    "description": "modprobe_path changed to non-standard value: /tmp/.payload",
+    "evidence": {
+      "current": "/tmp/.payload",
+      "expected": "/sbin/modprobe"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:27:00.516481",
+    "agent": "fs_watcher",
+    "category": "modprobe_tampered",
+    "severity": "critical",
+    "description": "modprobe_path changed to non-standard value: /tmp/.payload",
+    "evidence": {
+      "current": "/tmp/.payload",
+      "expected": "/sbin/modprobe"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:27:00.717046",
+    "agent": "fs_watcher",
+    "category": "modprobe_tampered",
+    "severity": "critical",
+    "description": "modprobe_path changed to non-standard value: /tmp/.payload",
+    "evidence": {
+      "current": "/tmp/.payload",
+      "expected": "/sbin/modprobe"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:27:00.917507",
+    "agent": "fs_watcher",
+    "category": "modprobe_tampered",
+    "severity": "critical",
+    "description": "modprobe_path changed to non-standard value: /tmp/.payload",
+    "evidence": {
+      "current": "/tmp/.payload",
+      "expected": "/sbin/modprobe"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:27:01.118065",
+    "agent": "fs_watcher",
+    "category": "modprobe_tampered",
+    "severity": "critical",
+    "description": "modprobe_path changed to non-standard value: /tmp/.payload",
+    "evidence": {
+      "current": "/tmp/.payload",
+      "expected": "/sbin/modprobe"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:27:01.318498",
+    "agent": "fs_watcher",
+    "category": "modprobe_tampered",
+    "severity": "critical",
+    "description": "modprobe_path changed to non-standard value: /tmp/.payload",
+    "evidence": {
+      "current": "/tmp/.payload",
+      "expected": "/sbin/modprobe"
+    }
+  },
+  {
+    "timestamp": "2026-11-07T20:27:01.519034",
+    "agent": "fs_watcher",
+    "category": "modprobe_tampered",
+    "severity": "critical",
+    "description": "modprobe_path changed to non-standard value: /tmp/.payload",
+    "evidence": {
+      "current": "/tmp/.payload",
+      "expected": "/sbin/modprobe"
+    }
+  }
+]

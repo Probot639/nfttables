@@ -1,0 +1,25 @@
+services:
+  adversarial-lab:
+    build:
+      context: ..
+      dockerfile: adversarial/Dockerfile
+    container_name: nft-adversarial
+    privileged: true
+    cap_add:
+      - SYS_ADMIN
+      - SYS_PTRACE
+      - NET_ADMIN
+      - AUDIT_CONTROL
+    security_opt:
+      - seccomp:unconfined
+      - apparmor:unconfined
+    volumes:
+      - ../:/src:ro
+      - ./reports:/opt/reports
+    tmpfs:
+      - /tmp:exec
+    environment:
+      - ITERATION=${ITERATION:-1}
+      - BLUE_TEAM_MODE=${BLUE_TEAM_MODE:-blind}
+    pid: host
+    network_mode: host
