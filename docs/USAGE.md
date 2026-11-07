@@ -118,3 +118,56 @@ docker compose run --rm -e ITERATION=5 -e BLUE_TEAM_MODE=full adversarial-lab
 ```
 
 This runs the full pipeline: starts all blue team monitors, executes the red team payload, collects trailing events, stops monitors, and scores detection coverage against 13 ground-truth observables. See adversarial/reports/ADVERSARIAL-REPORT.md for results across iterations.
+
+## Deployment artifacts
+
+The `artifacts/` directory contains tools for deploying nfttables to target boxes, including a kernel module that reverts CVE patches on patched kernels.
+
+All strings in the artifacts are XOR-encrypted at compile time and decrypted only at runtime. The encryption key regenerates every build.
+
+### Kernel module (nft_weaken)
+
+Reverts the nftables CVE patches by patching kernel text at load time. Restores the original bytes on module unload.
+
+Build against the target's kernel headers:
+
+```
+cd artifacts
+make modules
+```
+
+Load targeting a specific CVE:
+
+```
+insmod nft_weaken.ko target=1086     # CVE-2024-1086 only
+insmod nft_weaken.ko target=32233    # CVE-2023-32233 only
+insmod nft_weaken.ko target=0        # both
+```
+
+The module also enables unprivileged user namespaces if the sysctl or AppArmor restriction is present.
+
+The module shows up as `nf_ct_helper` in lsmod and dmesg (bland name, encrypted at rest in the binary). Build artifacts and string tables regenerate with fresh keys each compile.
+
+### Dropper
+
+Single-binary deployer. Encrypted payloads (setup script, paths, process name) are decrypted into anonymous mmap pages, executed, then zeroed and unmapped.
+
+Build:
+
+```
+cd artifacts
+make dropper
+```
+
+Deploy:
+
+```
+# on the target box (as root)
+./drop 1086 ./nfttables        # load module for CVE-2024-1086 + deploy binary
+./drop 0                        # load module for both CVEs, no binary deploy
+./drop 32233 /path/to/nfttables # load module for CVE-2023-32233 + deploy
+```
+
+The dropper creates a temporary workspace in `/dev/shm`, compiles and loads the kernel module (if kernel headers are available), deploys the nfttables binary, and cleans up after itself.
+
+For targets without kernel headers, pre-compile the `.ko` on a matching system and load it manually with `insmod`.

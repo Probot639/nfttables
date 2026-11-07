@@ -1,0 +1,10 @@
+_kxor_data.h
+_drop_data.h
+*.ko
+*.o
+*.mod
+*.mod.c
+*.order
+*.symvers
+.tmp_versions/
+drop
