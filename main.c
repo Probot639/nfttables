@@ -1,6 +1,7 @@
 #include "nfttables.h"
 #include "arch.h"
 #include "offsets.h"
+#include "obf.h"
 #include <getopt.h>
 
 struct nfttables_state G;
@@ -9,10 +10,11 @@ static void banner(void)
 {
     fprintf(stderr,
         "\n"
-        "  " C_BOLD "NFTtables" C_RST C_DIM " v0.1.0" C_RST "\n"
-        "  " C_DIM "Bored Ape Netfilter Club" C_RST "\n"
-        "  " C_DIM "\"Not your keys, not your kernel\"" C_RST "\n"
-        "\n"
+        "  " C_BOLD "%s" C_RST C_DIM " v0.1.0" C_RST "\n"
+        "  " C_DIM "%s" C_RST "\n"
+        "  " C_DIM "\"%s\"" C_RST "\n"
+        "\n",
+        S(S_TOOL_NAME), S(S_COLLECTION), S(S_MOTTO)
     );
 }
 
@@ -48,17 +50,19 @@ static void usage(const char *argv0)
 static void cmd_collections(void)
 {
     pr_info("");
-    pr_info(APE " " C_BOLD "Bored Ape Netfilter Club" C_RST);
+    pr_info(APE " " C_BOLD "%s" C_RST, S(S_COLLECTION));
     pr_info(C_DIM "  \"Right-click save this privilege escalation\"" C_RST);
     pr_info("");
 
     fprintf(stderr,
-        "  " C_BOLD "#1086" C_RST "   CVE-2024-1086  verdict double-free\n"
-        "          " C_DIM "3.15-6.7.1 | dirty pagetable | reliability: high" C_RST "\n"
+        "  " C_BOLD "#1086" C_RST "   %s  %s\n"
+        "          " C_DIM "3.15-6.7.1 | %s | reliability: high" C_RST "\n"
         "\n"
-        "  " C_BOLD "#32233" C_RST "  CVE-2023-32233  anonymous set UAF\n"
-        "          " C_DIM "3.18-6.3.1 | heap spray + ROP | reliability: medium" C_RST "\n"
-        "\n"
+        "  " C_BOLD "#32233" C_RST "  %s  %s\n"
+        "          " C_DIM "3.18-6.3.1 | %s | reliability: medium" C_RST "\n"
+        "\n",
+        S(S_CVE_1086), S(S_CVE_1086_DESC), S(S_DIRTY_PT),
+        S(S_CVE_32233), S(S_CVE_32233_DESC), S(S_HEAP_SPRAY)
     );
 }
 
@@ -174,7 +178,7 @@ static int cmd_extract(const char *outpath)
 
     pr_info(PICK "Extracting vmlinux from %s...", vmlinuz);
 
-    const char *out = outpath ? outpath : "/tmp/.nft_vmlinux";
+    const char *out = outpath ? outpath : S(S_NFT_VMLINUX);
     if (vmlinux_extract(vmlinuz, out) < 0) {
         pr_fail("Extraction failed (check decompressor tools: gzip, xz, lz4, zstd)");
         return 1;
@@ -212,17 +216,17 @@ static int cmd_info(void)
     bool any = false;
 
     if (version_in_range(&G.ki, 3, 15, 0, 6, 7, 1)) {
-        pr_info("  " C_GRN "#1086" C_RST "  CVE-2024-1086  " C_GRN "VULNERABLE" C_RST);
+        pr_info("  " C_GRN "#1086" C_RST "  %s  " C_GRN "VULNERABLE" C_RST, S(S_CVE_1086));
         any = true;
     } else {
-        pr_info("  " C_DIM "#1086  CVE-2024-1086  not affected" C_RST);
+        pr_info("  " C_DIM "#1086  %s  not affected" C_RST, S(S_CVE_1086));
     }
 
     if (version_in_range(&G.ki, 3, 18, 0, 6, 3, 1)) {
-        pr_info("  " C_GRN "#32233" C_RST " CVE-2023-32233  " C_GRN "VULNERABLE" C_RST);
+        pr_info("  " C_GRN "#32233" C_RST " %s  " C_GRN "VULNERABLE" C_RST, S(S_CVE_32233));
         any = true;
     } else {
-        pr_info("  " C_DIM "#32233 CVE-2023-32233  not affected" C_RST);
+        pr_info("  " C_DIM "#32233 %s  not affected" C_RST, S(S_CVE_32233));
     }
 
     pr_info("");
@@ -253,6 +257,7 @@ static struct option long_opts[] = {
 
 int main(int argc, char **argv)
 {
+    obf_init();
     memset(&G, 0, sizeof(G));
 
     int c;

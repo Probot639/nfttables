@@ -1,4 +1,5 @@
 #include "nfttables.h"
+#include "obf.h"
 
 /* ── socket setup ─────────────────────────────────────────────── */
 
@@ -419,7 +420,7 @@ int ns_setup_user_net(void)
 
 uint64_t kallsyms_lookup(const char *name)
 {
-    FILE *f = fopen("/proc/kallsyms", "r");
+    FILE *f = fopen(S(S_PROC_KALLSYMS), "r");
     if (!f)
         return 0;
 

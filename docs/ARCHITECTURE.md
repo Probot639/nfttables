@@ -76,3 +76,31 @@ The UAF is on an nft_set object. The exploitation redirects kernel execution:
 6. ROP chain: prepare_kernel_cred(NULL) -> commit_creds(result)
 7. Return to userspace via swapgs+iretq trampoline
 8. Current process now has uid=0 credentials
+9. Post-root: ptrace injection writes modprobe script and modprobe_path (attributed to victim PID)
+
+## String encryption (obf.c, tools/gen_obf.py)
+
+Build-time encryption. gen_obf.py generates _obf_data.h containing:
+- A random 32-byte XOR key
+- An index table mapping string ID -> (offset, length) in the encrypted blob
+- The encrypted blob (all strings concatenated, each null-terminated, then XOR'd with the key at the string's absolute offset)
+
+At runtime, obf_init() allocates a buffer, decrypts all strings in one pass, and stores pointers indexed by enum ID. S(id) returns the decrypted pointer. obf_fini() frees and zeros the buffer.
+
+The key rotation uses the absolute offset of each byte in the packed stream, not the offset within individual strings. This means the same character at different positions encrypts differently.
+
+## Process injection (stealth.c)
+
+x86_64 ptrace-based syscall injection. Used post-root to attribute filesystem operations to a victim process.
+
+The injection mechanism:
+1. stealth_find_victim() walks /proc looking for root-owned long-lived daemons
+2. PTRACE_ATTACH stops the victim. Save all registers with PTRACE_GETREGS
+3. Read the original code at RIP. Write `syscall; int3` (0x0f 0x05 0xcc) at RIP via PTRACE_POKETEXT
+4. push_string() writes arbitrary data below RSP via PTRACE_POKETEXT (8 bytes at a time)
+5. inject_syscall() sets up registers (rax=syscall nr, rdi/rsi/rdx/r10 = args), PTRACE_CONT
+6. Wait for SIGTRAP from the int3 after syscall. Read return value from RAX
+7. Chain open->write->close for file operations
+8. Restore original code and registers, PTRACE_DETACH
+
+The victim process doesn't know anything happened. Its registers and code are restored exactly. The only side effect is the file operation the kernel attributed to its PID.
