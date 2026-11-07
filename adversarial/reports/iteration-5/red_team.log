@@ -1,0 +1,93 @@
+[red-team-v5] Running stripped hardened binary
+[red-team-v5] Phase 1: info
+
+  [1mNFTtables[0m[2m v0.1.0[0m
+  [2mBored Ape Netfilter Club[0m
+  [2m"Not your keys, not your kernel"[0m
+
+🦊 [1mMetaMask[0m v0.0.1 [2m(not financial advice)[0m
+
+  Chain:     [36mLinux 7.3.0-4-cachyos[0m
+  Network:   Ubuntu 22.04.5 LTS[0m
+  Address:   uid=0(root) gid=0
+  Balance:   [32m1 ROOT token 🦍[0m
+  Gas price: [32mlow[0m
+  Userns:    [32mavailable[0m
+
+🦍 [1mVulnerability Assessment[0m
+
+  [2m#1086  CVE-2024-1086  not affected[0m
+  [2m#32233 CVE-2023-32233  not affected[0m
+
+  [2mKernel 7.3.0-4-cachyos appears patched for both CVEs.[0m
+  [2mNote: distro backport detection may have false negatives.[0m
+
+[red-team-v5] Phase 2: collections
+
+🦍 [1mBored Ape Netfilter Club[0m
+[2m  "Right-click save this privilege escalation"[0m
+
+  [1m#1086[0m   CVE-2024-1086  nft_verdict_init double-free
+          [2m3.15-6.7.1 | dirty pagetable | reliability: high[0m
+
+  [1m#32233[0m  CVE-2023-32233  anonymous set UAF
+          [2m3.18-6.3.1 | heap spray + ROP | reliability: medium[0m
+
+[red-team-v5] Phase 3: scan
+
+  [1mNFTtables[0m[2m v0.1.0[0m
+  [2mBored Ape Netfilter Club[0m
+  [2m"Not your keys, not your kernel"[0m
+
+⛏️ Scanning kernel environment...
+
+[2m  resolving offsets for 7.3.0-4-cachyos[0m
+[2m  ksyms: resolved 0 symbols[0m
+[2m  no offset DB match for 7.3.0-4-cachyos[0m
+
+🔲 [1mResolved Offsets[0m
+
+  Kernel base:          [31mno[0m
+  modprobe_path:        [31mno[0m
+  core_pattern:         [31mno[0m
+  prepare_kernel_cred:  [31mno[0m
+  commit_creds:         [31mno[0m
+  swapgs trampoline:    [31mno[0m
+
+  [1mGadgets:[0m
+  pop rdi; ret:         [31mno[0m
+  pop rsi; ret:         [31mno[0m
+  pop rdx; ret:         [31mno[0m
+  pop rax; ret:         [31mno[0m
+  xchg rax,rsp; ret:    [31mno[0m
+  mov rdi,rax; call:    [31mno[0m
+
+  [1mSlab:[0m
+  nft_chain:  [31munknown[0m
+  nft_set:    [31munknown[0m
+
+🦍 [1mExploit readiness:[0m
+
+  #1086  [31mkernel not vulnerable[0m
+  #32233 [31mkernel not vulnerable[0m
+
+[red-team-v5] Phase 4: check (dry run)
+
+  [1mNFTtables[0m[2m v0.1.0[0m
+  [2mBored Ape Netfilter Club[0m
+  [2m"Not your keys, not your kernel"[0m
+
+[2m(dry run: probing vulnerability, not exploiting)[0m
+⛏️ Auto-selecting exploit for kernel 7.3.0-4-cachyos...
+❌ No exploit available for this kernel version
+  [2mrun 'collections' to see supported ranges[0m
+[red-team-v5] Phase 5: mint (full exploit attempt)
+
+  [1mNFTtables[0m[2m v0.1.0[0m
+  [2mBored Ape Netfilter Club[0m
+  [2m"Not your keys, not your kernel"[0m
+
+⛏️ Auto-selecting exploit for kernel 7.3.0-4-cachyos...
+❌ No exploit available for this kernel version
+  [2mrun 'collections' to see supported ranges[0m
+[red-team-v5] Done

@@ -29,7 +29,7 @@ int rugpull(void)
     if (modprobe_addr && geteuid() == 0) {
         /* can't easily restore without the same PTE trick.
            log it as a known artifact. */
-        pr_warn("modprobe_path was overwritten in kernel memory");
+        pr_warn("%s was overwritten in kernel memory", S(S_MODPROBE_PATH));
         pr_info("  " C_DIM "restore: echo %s > %s" C_RST,
                 S(S_SBIN_MODPROBE), S(S_PROC_MODPROBE));
     }
@@ -43,7 +43,7 @@ int rugpull(void)
         pr_info(C_DIM "  (nothing to clean)" C_RST);
 
     pr_info("");
-    pr_info(CHART " " C_DIM "Floor price: 0" C_RST);
+    pr_info(CHART " " C_DIM "%s: 0" C_RST, S(S_LBL_FLOOR_PRICE));
     pr_info("");
 
     return 0;

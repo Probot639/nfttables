@@ -1,0 +1,42 @@
+
+============================================================
+  BLUE TEAM SCORECARD - Grade: D
+============================================================
+  Detection rate: 46.2% (6/13 observables)
+  Total alerts:   4560
+  Missed:         7 observables
+
+  DETECTED:
+    [+] heap_spray_mmap: Burst of mmap(MAP_POPULATE) for PTE spray
+        (4 alerts from syscall_monitor)
+    [+] heap_spray_pipe: Burst of pipe() calls for pipe spray
+        (692 alerts from process_monitor)
+    [+] namespace_creation: Creates user+net namespace via unshare()
+        (3721 alerts from netlink_monitor, process_monitor, audit_analyzer, syscall_monitor)
+    [+] netlink_socket: Opens NETLINK_NETFILTER socket
+        (2 alerts from syscall_monitor)
+    [+] nftables_objects: Creates/deletes nftables tables, chains, sets, rules
+        (15 alerts from netlink_monitor)
+    [+] privilege_escalation: Process gains root credentials (uid 0)
+        (126 alerts from audit_analyzer)
+
+  MISSED:
+    [-] entropy_anomaly: High-entropy blob in .rodata suggesting encrypted/packed data
+    [-] heap_spray_ipc: Burst of msgsnd() calls for heap spray
+    [-] modprobe_overwrite: Overwrites modprobe_path in kernel memory
+    [-] ptrace_injection: ptrace attach/detach on victim process for syscall injection
+    [-] strings_in_binary: Distinctive strings in binary (operational constants)
+    [-] suid_creation: Creates SUID binary (/tmp/.nft_sh)
+    [-] tmp_file_creation: Creates files in /tmp (.nft_mint, .nft_sh, .nft_trigger)
+
+  RED TEAM EVASION OPPORTUNITIES:
+    > nftables_objects: Rename tables/chains/sets to common system names to blend in [easy]
+    > heap_spray_pipe: Reduce pipe count, use alternative spray primitives (skb, key) [medium]
+    > namespace_creation: Namespace creation is inherent to the technique. Consider alternative CAP_NET_ADMIN acquisition if available. [hard]
+
+  BLUE TEAM IMPROVEMENTS:
+    > strings_in_binary: Add static binary analysis: scan executable pages for known exploit tool signatures
+    > modprobe_overwrite: Increase modprobe_path polling frequency to sub-second
+
+============================================================
+

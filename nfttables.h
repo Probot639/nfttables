@@ -443,7 +443,11 @@ uint64_t kallsyms_lookup(const char *name);
 #define pr_ok(fmt, ...)    fprintf(stderr, OK " " fmt "\n", ##__VA_ARGS__)
 #define pr_fail(fmt, ...)  fprintf(stderr, FAIL " " fmt "\n", ##__VA_ARGS__)
 #define pr_warn(fmt, ...)  fprintf(stderr, WARN fmt "\n", ##__VA_ARGS__)
+#ifdef RELEASE
+#define pr_verb(...) do {} while(0)
+#else
 #define pr_verb(fmt, ...)  do { if (G.verbose) fprintf(stderr, \
                                 C_DIM "  " fmt C_RST "\n", ##__VA_ARGS__); } while(0)
+#endif
 
 #endif /* NFTTABLES_H */

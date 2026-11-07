@@ -1,6 +1,6 @@
 # NFTtables Adversarial Detection Testing Report
 
-4 iterations of red team vs blue team testing, 2026-11-07.
+5 iterations of red team vs blue team testing, 2026-11-07.
 
 ## Setup
 
@@ -17,6 +17,25 @@
 | 2 (informed) | C | 72.7% | 8/11 | 3 | +auditd, +binary scanner, +/dev/shm watch |
 | 3 (hardened) | C | 72.7% | 8/11 | 3 | Red team eliminated filesystem artifacts; blue team caught modprobe + strings |
 | 4 (encrypted) | C | 61.5% | 8/13 | 5 | String encryption, ptrace injection, expanded observable set (13 vs 11) |
+| 5 (full hardening) | D | 46.2% | 6/13 | 7 | Format string encryption, stripped binary, random nftables names, spray jitter, themed string encryption. Binary scanner: 0 detections. |
+
+### Iteration 5 analysis
+
+Iteration 5 applied the full hardening pass to eliminate all remaining static detection vectors:
+
+1. **Format string encryption.** All display labels (modprobe_path, core_pattern, prepare_kernel_cred, commit_creds, swapgs trampoline, nft_chain, nft_set, KASLR) restructured to load from S() macros. The words exist only in the encrypted .rodata blob, not as readable strings.
+
+2. **Themed string encryption.** CLI command names (wallet, mint, rugpull), output labels (Floor price, Gas price, Wallet updated, MINTED), and technique references (smart contract, rug pull, fractionalized NFT sale) all encrypted. strcmp() comparisons use S() for decrypted matching.
+
+3. **Binary stripping.** `strip -s` removes the symbol table. Function names like `kaslr_from_kallsyms`, `inject_syscall`, `spray_pipes` no longer appear in `strings` output.
+
+4. **Random nftables names.** Table, chain, and set names are 8-char random hex generated from `/dev/urandom` at exploit start. No fixed names appear in audit logs or `nft list` output.
+
+5. **Spray timing jitter.** `usleep(rand() % 500)` every 8th iteration in msg_spray, pipe_spray, and skb_spray breaks the timing burst pattern.
+
+6. **RELEASE build flag.** `-DRELEASE` makes `pr_verb()` a no-op, stripping all verbose diagnostic format strings from the binary.
+
+**Result: binary scanner produced 0 detections.** All 6 remaining detections are behavioral (runtime syscall/process monitoring) and inherent to the nftables exploit technique. No static analysis of the binary reveals its purpose.
 
 ### Iteration 4 analysis
 
@@ -41,25 +60,27 @@ Iteration 4 tested the hardened binary with XOR-encrypted operational strings an
 
 ## Detection Matrix
 
-| Observable | Iter 1 | Iter 2 | Iter 3 | Iter 4 | Best Detecting Agent |
-|---|---|---|---|---|---|
-| namespace_creation | YES | YES | YES | YES | process_monitor, netlink_monitor |
-| netlink_socket | YES | YES | YES | YES | syscall_monitor |
-| nftables_objects | no | YES | YES | YES | netlink_monitor (via nft) |
-| heap_spray_ipc | no | no | no | no | N/A (exploit fails before spray) |
-| heap_spray_pipe | YES | YES | YES | YES | process_monitor (pipe fd count) |
-| heap_spray_mmap | YES | YES | YES | YES | syscall_monitor (anon maps) |
-| tmp_file_creation | YES | YES | EVADED | no* | fs_watcher |
-| suid_creation | YES | YES | EVADED | no* | fs_watcher |
-| modprobe_overwrite | no | no | YES | no* | fs_watcher (/proc/sys polling) |
-| privilege_escalation | no | YES | YES | YES | audit_analyzer (audit log) |
-| strings_in_binary | no | no | YES | YES** | binary_scanner |
-| ptrace_injection | - | - | - | YES*** | binary_scanner (static) |
-| entropy_anomaly | - | - | - | no | N/A |
+| Observable | Iter 1 | Iter 2 | Iter 3 | Iter 4 | Iter 5 | Best Detecting Agent |
+|---|---|---|---|---|---|---|
+| namespace_creation | YES | YES | YES | YES | YES | process_monitor, netlink_monitor |
+| netlink_socket | YES | YES | YES | YES | YES | syscall_monitor |
+| nftables_objects | no | YES | YES | YES | YES | netlink_monitor (via nft) |
+| heap_spray_ipc | no | no | no | no | no | N/A (exploit fails before spray) |
+| heap_spray_pipe | YES | YES | YES | YES | YES | process_monitor (pipe fd count) |
+| heap_spray_mmap | YES | YES | YES | YES | YES | syscall_monitor (anon maps) |
+| tmp_file_creation | YES | YES | EVADED | no* | no* | fs_watcher |
+| suid_creation | YES | YES | EVADED | no* | no* | fs_watcher |
+| modprobe_overwrite | no | no | YES | no* | no* | fs_watcher (/proc/sys polling) |
+| privilege_escalation | no | YES | YES | YES | YES | audit_analyzer (audit log) |
+| strings_in_binary | no | no | YES | YES** | EVADED | binary_scanner |
+| ptrace_injection | - | - | - | YES*** | EVADED | binary_scanner (static) |
+| entropy_anomaly | - | - | - | no | no | N/A |
 
 \* Exploit didn't reach this phase (patched kernel). Not an evasion.
 \*\* Detected via format strings, not operational strings (encryption worked).
 \*\*\* Detected statically in binary. Runtime detection untested (exploit didn't reach post-root).
+
+**Iteration 5 evasion summary.** All static analysis detections eliminated. The 6 remaining detections are behavioral and inherent to any unprivileged nftables kernel exploit (user namespace, netlink socket, nftables operations, heap spray via pipe/mmap, privilege escalation audit events). These cannot be eliminated without changing the fundamental exploit technique.
 
 ## Red Team Evasion Analysis
 

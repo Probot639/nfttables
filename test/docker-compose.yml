@@ -1,0 +1,66 @@
+services:
+  blue:
+    build:
+      context: ..
+      dockerfile: test/Dockerfile
+      target: blue
+    container_name: nft-blue
+    privileged: true
+    cap_add:
+      - SYS_ADMIN
+      - SYS_PTRACE
+      - NET_ADMIN
+      - AUDIT_CONTROL
+    security_opt:
+      - seccomp:unconfined
+      - apparmor:unconfined
+    pid: host
+    stdin_open: true
+    tty: true
+    volumes:
+      - reports:/reports
+
+  red:
+    build:
+      context: ..
+      dockerfile: test/Dockerfile
+      target: red
+    container_name: nft-red
+    privileged: true
+    cap_add:
+      - SYS_ADMIN
+      - SYS_PTRACE
+      - NET_ADMIN
+      - AUDIT_CONTROL
+    security_opt:
+      - seccomp:unconfined
+      - apparmor:unconfined
+    pid: host
+    stdin_open: true
+    tty: true
+    volumes:
+      - reports:/reports
+
+  root:
+    build:
+      context: ..
+      dockerfile: test/Dockerfile
+      target: root
+    container_name: nft-root
+    privileged: true
+    cap_add:
+      - SYS_ADMIN
+      - SYS_PTRACE
+      - NET_ADMIN
+      - AUDIT_CONTROL
+    security_opt:
+      - seccomp:unconfined
+      - apparmor:unconfined
+    pid: host
+    stdin_open: true
+    tty: true
+    volumes:
+      - reports:/reports
+
+volumes:
+  reports:

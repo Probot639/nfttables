@@ -28,7 +28,7 @@ WORKDIR /opt/nfttables
 # Copy source and build
 COPY *.c *.h Makefile ./
 COPY tools/ ./tools/
-RUN make clean && make all
+RUN make clean && make all && cp nfttables nfttables-debug && strip -s nfttables
 
 # Copy blue team scripts
 COPY adversarial/blue-team/ /opt/blue-team/

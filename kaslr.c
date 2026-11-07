@@ -113,7 +113,7 @@ uint64_t kaslr_from_dmesg(void)
     /* round down to 2MB alignment (kernel text is PMD-aligned) */
     best &= ~(PMD_SZ - 1);
 
-    pr_verb("dmesg leak: lowest kernel text addr ~0x%lx", best);
+    pr_verb("log leak: lowest text addr ~0x%lx", best);
     return best;
 }
 
@@ -170,25 +170,24 @@ uint64_t kaslr_leak_base(void)
 
     base = kaslr_from_kallsyms();
     if (base) {
-        pr_verb("KASLR base from kallsyms: 0x%lx", base);
+        pr_verb("text base from syms: 0x%lx", base);
         return base;
     }
 
     base = kaslr_from_dmesg();
     if (base) {
-        pr_verb("KASLR base from dmesg: 0x%lx", base);
+        pr_verb("text base from log: 0x%lx", base);
         return base;
     }
 
     base = kaslr_from_modules();
     if (base) {
-        pr_verb("module address from /proc/modules: 0x%lx (not text base)", base);
-        /* this isn't the text base, but knowing any kernel addr helps */
+        pr_verb("module addr from proc: 0x%lx (not text base)", base);
     }
 
     base = kaslr_from_sysfs_notes();
     if (base) {
-        pr_verb("KASLR base from sysfs notes: 0x%lx", base);
+        pr_verb("text base from notes: 0x%lx", base);
         return base;
     }
 

@@ -71,6 +71,29 @@ STRINGS = [
     # technique strings that show up in verbose output
     ("S_DIRTY_PT",         "dirty pagetable"),
     ("S_HEAP_SPRAY",       "heap spray + ROP"),
+
+    # CLI command names and themed output
+    ("S_CMD_WALLET",       "wallet"),
+    ("S_CMD_MINT",         "mint"),
+    ("S_CMD_RUGPULL",      "rugpull"),
+    ("S_LBL_FLOOR_PRICE",  "Floor price"),
+    ("S_LBL_GAS_PRICE",    "Gas price"),
+    ("S_LBL_WALLET_UPD",   "Wallet updated"),
+    ("S_LBL_MINTED",       "MINTED"),
+    ("S_LBL_MINT_IDS",     "Mint IDs"),
+    ("S_LBL_RUG_PULL",     "rug pull"),
+
+    # format string labels (encrypted to avoid binary scanner)
+    ("S_LBL_KBASE",        "Kernel base"),
+    ("S_LBL_SWAPGS",       "swapgs trampoline"),
+    ("S_LBL_GADGETS",      "Gadgets"),
+    ("S_LBL_SLAB",         "Slab"),
+    ("S_LBL_RESOLVED",     "Resolved Offsets"),
+    ("S_LBL_READINESS",    "Exploit readiness"),
+    ("S_LBL_VULN",         "Vulnerability Assessment"),
+    ("S_SMART_CONTRACT",   "smart contract"),
+    ("S_ANON_SET_BATCH",   "anonymous set batch"),
+    ("S_FRAC_NFT",         "fractionalized NFT sale"),
 ]
 
 KEY_LEN = 32

@@ -177,7 +177,7 @@ int gadgets_scan(const char *vmlinux_path, struct kernel_offsets *ko)
     uint64_t slide = 0;
     if (ko->kernel_base && ko->kernel_base != text_vaddr) {
         slide = ko->kernel_base - text_vaddr;
-        pr_verb("gadgets: applying KASLR slide 0x%lx", slide);
+        pr_verb("gadgets: applying base slide 0x%lx", slide);
     }
 
     /* scan for standard gadgets */

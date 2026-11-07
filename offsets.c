@@ -295,7 +295,7 @@ int offsets_from_kallsyms(struct kernel_offsets *ko)
     if (ko->swapgs_restore_regs)
         ko->resolved |= OFF_KPTI;
 
-    pr_verb("kallsyms: resolved %d symbols", found);
+    pr_verb("ksyms: resolved %d symbols", found);
     return found > 0 ? 0 : -1;
 }
 
@@ -307,7 +307,7 @@ int offsets_from_vmlinux(struct kernel_offsets *ko, const char *vmlinux_path)
     if (count < 0)
         return -1;
 
-    pr_verb("vmlinux: resolved %d gadgets from %s", count, vmlinux_path);
+    pr_verb("image: resolved %d gadgets from %s", count, vmlinux_path);
     return 0;
 }
 
@@ -452,41 +452,41 @@ static const char *yesno(uint64_t v) { return v ? C_GRN "yes" C_RST : C_RED "no"
 void offsets_print(const struct kernel_offsets *ko)
 {
     fprintf(stderr,
-        "\n" BLOCK " " C_BOLD "Resolved Offsets" C_RST "\n\n"
-        "  Kernel base:          %s", yesno(ko->kernel_base));
+        "\n" BLOCK " " C_BOLD "%s" C_RST "\n\n"
+        "  %s:          %s", S(S_LBL_RESOLVED), S(S_LBL_KBASE), yesno(ko->kernel_base));
     if (ko->kernel_base)
         fprintf(stderr, " (0x%lx)", ko->kernel_base);
     fprintf(stderr, "\n");
 
     fprintf(stderr,
-        "  modprobe_path:        %s", yesno(ko->modprobe_path));
+        "  %s:        %s", S(S_MODPROBE_PATH), yesno(ko->modprobe_path));
     if (ko->modprobe_path)
         fprintf(stderr, " (0x%lx)", ko->modprobe_path);
     fprintf(stderr, "\n");
 
     fprintf(stderr,
-        "  core_pattern:         %s", yesno(ko->core_pattern));
+        "  %s:         %s", S(S_CORE_PATTERN), yesno(ko->core_pattern));
     if (ko->core_pattern)
         fprintf(stderr, " (0x%lx)", ko->core_pattern);
     fprintf(stderr, "\n");
 
     fprintf(stderr,
-        "  prepare_kernel_cred:  %s", yesno(ko->prepare_kernel_cred));
+        "  %s:  %s", S(S_PREPARE_CRED), yesno(ko->prepare_kernel_cred));
     if (ko->prepare_kernel_cred)
         fprintf(stderr, " (0x%lx)", ko->prepare_kernel_cred);
     fprintf(stderr, "\n");
 
     fprintf(stderr,
-        "  commit_creds:         %s", yesno(ko->commit_creds));
+        "  %s:         %s", S(S_COMMIT_CREDS), yesno(ko->commit_creds));
     if (ko->commit_creds)
         fprintf(stderr, " (0x%lx)", ko->commit_creds);
     fprintf(stderr, "\n");
 
     fprintf(stderr,
-        "  swapgs trampoline:    %s", yesno(ko->swapgs_restore_regs));
+        "  %s:    %s", S(S_LBL_SWAPGS), yesno(ko->swapgs_restore_regs));
     fprintf(stderr, "\n");
 
-    fprintf(stderr, "\n  " C_BOLD "Gadgets:" C_RST "\n");
+    fprintf(stderr, "\n  " C_BOLD "%s:" C_RST "\n", S(S_LBL_GADGETS));
     fprintf(stderr, "  pop rdi; ret:         %s\n", yesno(ko->pop_rdi_ret));
     fprintf(stderr, "  pop rsi; ret:         %s\n", yesno(ko->pop_rsi_ret));
     fprintf(stderr, "  pop rdx; ret:         %s\n", yesno(ko->pop_rdx_ret));
@@ -494,22 +494,24 @@ void offsets_print(const struct kernel_offsets *ko)
     fprintf(stderr, "  xchg rax,rsp; ret:    %s\n", yesno(ko->xchg_rax_rsp_ret));
     fprintf(stderr, "  mov rdi,rax; call:    %s\n", yesno(ko->mov_rdi_rax_call_rdx));
 
-    fprintf(stderr, "\n  " C_BOLD "Slab:" C_RST "\n");
+    fprintf(stderr, "\n  " C_BOLD "%s:" C_RST "\n", S(S_LBL_SLAB));
     if (ko->nft_chain_slab.obj_size)
-        fprintf(stderr, "  nft_chain:  %s (obj=%u, per_slab=%u)\n",
+        fprintf(stderr, "  %s:  %s (obj=%u, per_slab=%u)\n",
+                S(S_NFT_CHAIN_CACHE),
                 ko->nft_chain_slab.name,
                 ko->nft_chain_slab.obj_size,
                 ko->nft_chain_slab.objs_per_slab);
     else
-        fprintf(stderr, "  nft_chain:  " C_RED "unknown" C_RST "\n");
+        fprintf(stderr, "  %s:  " C_RED "unknown" C_RST "\n", S(S_NFT_CHAIN_CACHE));
 
     if (ko->nft_set_slab.obj_size)
-        fprintf(stderr, "  nft_set:    %s (obj=%u, per_slab=%u)\n",
+        fprintf(stderr, "  %s:    %s (obj=%u, per_slab=%u)\n",
+                S(S_NFT_SET_CACHE),
                 ko->nft_set_slab.name,
                 ko->nft_set_slab.obj_size,
                 ko->nft_set_slab.objs_per_slab);
     else
-        fprintf(stderr, "  nft_set:    " C_RED "unknown" C_RST "\n");
+        fprintf(stderr, "  %s:    " C_RED "unknown" C_RST "\n", S(S_NFT_SET_CACHE));
 
     fprintf(stderr, "\n");
 }

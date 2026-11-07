@@ -35,7 +35,8 @@ static: CFLAGS += -static
 static: LDFLAGS += -static
 static: _obf_data.h $(BIN)
 
-# stripped release binary
+# stripped release binary (RELEASE strips verbose logging)
+release: CFLAGS += -DRELEASE
 release: static
 	strip -s $(BIN)
 	@echo "$(BIN): $$(wc -c < $(BIN)) bytes"

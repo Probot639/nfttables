@@ -54,7 +54,9 @@ echo "[*] Executing red team payload..."
 REDTEAM_START=$(date +%s%N)
 
 # Use versioned payload if available
-if [ "$ITERATION" -ge 4 ] && [ -f /opt/red-team/run_payload_v4.sh ]; then
+if [ "$ITERATION" -ge 5 ] && [ -f /opt/red-team/run_payload_v5.sh ]; then
+    bash /opt/red-team/run_payload_v5.sh "$REPORT_DIR" 2>&1 | tee "$REPORT_DIR/red_team.log"
+elif [ "$ITERATION" -ge 4 ] && [ -f /opt/red-team/run_payload_v4.sh ]; then
     bash /opt/red-team/run_payload_v4.sh "$REPORT_DIR" 2>&1 | tee "$REPORT_DIR/red_team.log"
 elif [ "$ITERATION" -ge 3 ] && [ -f /opt/red-team/run_payload_v3.sh ]; then
     bash /opt/red-team/run_payload_v3.sh "$REPORT_DIR" 2>&1 | tee "$REPORT_DIR/red_team.log"

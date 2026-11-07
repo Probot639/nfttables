@@ -1,0 +1,113 @@
+{
+  "timestamp": "2026-11-07T21:27:02.335937",
+  "summary": {
+    "total_detections": 4560,
+    "total_observables": 13,
+    "detected_observables": 6,
+    "missed_observables": 7,
+    "detection_rate": 46.2,
+    "grade": "D"
+  },
+  "by_severity": {
+    "high": 4408,
+    "medium": 26,
+    "critical": 126
+  },
+  "by_agent": {
+    "syscall_monitor": 372,
+    "process_monitor": 1126,
+    "audit_analyzer": 358,
+    "netlink_monitor": 2704
+  },
+  "detected": {
+    "heap_spray_mmap": {
+      "description": "Burst of mmap(MAP_POPULATE) for PTE spray",
+      "detection_count": 4,
+      "first_detection": "2026-11-07T21:26:53.526734",
+      "detecting_agents": [
+        "syscall_monitor"
+      ]
+    },
+    "heap_spray_pipe": {
+      "description": "Burst of pipe() calls for pipe spray",
+      "detection_count": 692,
+      "first_detection": "2026-11-07T21:26:53.190273",
+      "detecting_agents": [
+        "process_monitor"
+      ]
+    },
+    "namespace_creation": {
+      "description": "Creates user+net namespace via unshare()",
+      "detection_count": 3721,
+      "first_detection": "2026-11-07T21:26:53.233060",
+      "detecting_agents": [
+        "netlink_monitor",
+        "process_monitor",
+        "audit_analyzer",
+        "syscall_monitor"
+      ]
+    },
+    "netlink_socket": {
+      "description": "Opens NETLINK_NETFILTER socket",
+      "detection_count": 2,
+      "first_detection": "2026-11-07T21:26:53.207611",
+      "detecting_agents": [
+        "syscall_monitor"
+      ]
+    },
+    "nftables_objects": {
+      "description": "Creates/deletes nftables tables, chains, sets, rules",
+      "detection_count": 15,
+      "first_detection": "2026-11-07T21:26:53.178414",
+      "detecting_agents": [
+        "netlink_monitor"
+      ]
+    },
+    "privilege_escalation": {
+      "description": "Process gains root credentials (uid 0)",
+      "detection_count": 126,
+      "first_detection": "2026-11-07T21:26:53.684955",
+      "detecting_agents": [
+        "audit_analyzer"
+      ]
+    }
+  },
+  "missed": {
+    "entropy_anomaly": "High-entropy blob in .rodata suggesting encrypted/packed data",
+    "heap_spray_ipc": "Burst of msgsnd() calls for heap spray",
+    "modprobe_overwrite": "Overwrites modprobe_path in kernel memory",
+    "ptrace_injection": "ptrace attach/detach on victim process for syscall injection",
+    "strings_in_binary": "Distinctive strings in binary (operational constants)",
+    "suid_creation": "Creates SUID binary (/tmp/.nft_sh)",
+    "tmp_file_creation": "Creates files in /tmp (.nft_mint, .nft_sh, .nft_trigger)"
+  },
+  "evasion_recommendations": [
+    {
+      "target": "nftables_objects",
+      "recommendation": "Rename tables/chains/sets to common system names to blend in",
+      "difficulty": "easy"
+    },
+    {
+      "target": "heap_spray_pipe",
+      "recommendation": "Reduce pipe count, use alternative spray primitives (skb, key)",
+      "difficulty": "medium"
+    },
+    {
+      "target": "namespace_creation",
+      "recommendation": "Namespace creation is inherent to the technique. Consider alternative CAP_NET_ADMIN acquisition if available.",
+      "difficulty": "hard"
+    }
+  ],
+  "detection_improvements": [
+    {
+      "observable": "strings_in_binary",
+      "improvement": "Add static binary analysis: scan executable pages for known exploit tool signatures",
+      "implementation": "New agent: binary_scanner.py that strings-checks /proc/pid/exe on new process"
+    },
+    {
+      "observable": "modprobe_overwrite",
+      "improvement": "Increase modprobe_path polling frequency to sub-second",
+      "implementation": "Check /proc/sys/kernel/modprobe every 200ms instead of 1s"
+    }
+  ]
+}

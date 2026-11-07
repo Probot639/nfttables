@@ -1,4 +1,5 @@
 #include "nfttables.h"
+#include "obf.h"
 
 void wallet_read(struct wallet *w)
 {
@@ -29,7 +30,7 @@ void wallet_print(const struct wallet *w, const struct kernel_info *ki)
         "  Network:   %s%s" C_RST "\n"
         "  Address:   uid=%d(%s) gid=%d\n"
         "  Balance:   %s\n"
-        "  Gas price: %s\n"
+        "  %s: %s\n"
         "  Userns:    %s\n"
         "\n",
         ki->release,
@@ -40,7 +41,7 @@ void wallet_print(const struct wallet *w, const struct kernel_info *ki)
         w->euid == 0
             ? C_GRN "1 ROOT token " APE C_RST
             : C_YEL "0 ROOT tokens" C_RST,
-        gas,
+        S(S_LBL_GAS_PRICE), gas,
         ki->userns_available
             ? C_GRN "available" C_RST
             : C_RED "unavailable" C_RST
